@@ -11,6 +11,11 @@ const FORMAT_LABELS: Record<Format, string> = {
   "image/webp": "WebP",
 };
 
+// 브라우저 메인 스레드에서 Canvas로 직접 처리하다 보니(Web Worker 미사용, plan.md §6.12),
+// 지나치게 큰 파일은 탭이 멈춘 것처럼 보이거나 메모리 부족을 일으킬 수 있어 선택 단계에서
+// 미리 막는다.
+const MAX_FILE_SIZE_MB = 25;
+
 export default function Calculator() {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [maxWidth, setMaxWidth] = useState("1280");
@@ -25,10 +30,20 @@ export default function Calculator() {
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0] ?? null;
-    setOriginalFile(file);
     setResultUrl(null);
     setResultSize(null);
     setError(null);
+
+    if (file && file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+      setOriginalFile(null);
+      setError(
+        `파일이 너무 큽니다(${(file.size / 1024 / 1024).toFixed(1)}MB). 브라우저에서 직접 처리하므로 ${MAX_FILE_SIZE_MB}MB 이하 파일만 지원합니다.`,
+      );
+      e.target.value = "";
+      return;
+    }
+
+    setOriginalFile(file);
   }
 
   async function processImage() {
@@ -69,7 +84,7 @@ export default function Calculator() {
   return (
     <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
       <label className="flex flex-col gap-1 text-sm">
-        이미지 파일 선택
+        이미지 파일 선택 (최대 {MAX_FILE_SIZE_MB}MB)
         <input type="file" accept="image/*" onChange={handleFileChange} className="text-sm" />
       </label>
 

@@ -5,6 +5,15 @@ import { getPdfPageCount, mergePdfs, splitPdfPageRange } from "@/lib/calculators
 
 type Mode = "merge" | "split";
 
+// 브라우저 메인 스레드에서 pdf-lib로 직접 처리하다 보니(Web Worker 미사용, plan.md §6.12),
+// 지나치게 큰 파일·합계는 탭이 멈춘 것처럼 보일 수 있어 선택 단계에서 미리 막는다.
+const MAX_FILE_SIZE_MB = 30;
+const MAX_TOTAL_SIZE_MB = 60;
+
+function formatMb(bytes: number): string {
+  return (bytes / 1024 / 1024).toFixed(1);
+}
+
 async function fileToBytes(file: File): Promise<Uint8Array> {
   return new Uint8Array(await file.arrayBuffer());
 }
@@ -29,19 +38,51 @@ export default function Calculator() {
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
 
+  function handleMergeFilesChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? []);
+    setError(null);
+
+    const oversized = files.find((f) => f.size > MAX_FILE_SIZE_MB * 1024 * 1024);
+    if (oversized) {
+      setError(`"${oversized.name}"이(가) 너무 큽니다(${formatMb(oversized.size)}MB, 최대 ${MAX_FILE_SIZE_MB}MB).`);
+      setMergeFiles([]);
+      e.target.value = "";
+      return;
+    }
+
+    const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+    if (totalSize > MAX_TOTAL_SIZE_MB * 1024 * 1024) {
+      setError(`선택한 파일 합계가 너무 큽니다(${formatMb(totalSize)}MB, 최대 ${MAX_TOTAL_SIZE_MB}MB).`);
+      setMergeFiles([]);
+      e.target.value = "";
+      return;
+    }
+
+    setMergeFiles(files);
+  }
+
   async function handleSplitFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0] ?? null;
-    setSplitFile(file);
     setError(null);
-    if (file) {
-      try {
-        const pages = await getPdfPageCount(await fileToBytes(file));
-        setSplitTotalPages(pages);
-        setEndPage(String(pages));
-      } catch {
-        setError("PDF 파일을 읽을 수 없습니다.");
-        setSplitTotalPages(null);
-      }
+    setSplitFile(null);
+    setSplitTotalPages(null);
+
+    if (!file) return;
+
+    if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+      setError(`파일이 너무 큽니다(${formatMb(file.size)}MB, 최대 ${MAX_FILE_SIZE_MB}MB).`);
+      e.target.value = "";
+      return;
+    }
+
+    setSplitFile(file);
+    try {
+      const pages = await getPdfPageCount(await fileToBytes(file));
+      setSplitTotalPages(pages);
+      setEndPage(String(pages));
+    } catch {
+      setError("PDF 파일을 읽을 수 없습니다.");
+      setSplitTotalPages(null);
     }
   }
 
@@ -91,12 +132,13 @@ export default function Calculator() {
       {mode === "merge" ? (
         <div>
           <label className="flex flex-col gap-1 text-sm">
-            PDF 파일 선택 (2개 이상, 선택한 순서대로 합쳐집니다)
+            PDF 파일 선택 (2개 이상, 선택한 순서대로 합쳐집니다. 파일당 최대 {MAX_FILE_SIZE_MB}MB,
+            합계 최대 {MAX_TOTAL_SIZE_MB}MB)
             <input
               type="file"
               accept="application/pdf"
               multiple
-              onChange={(e) => setMergeFiles(Array.from(e.target.files ?? []))}
+              onChange={handleMergeFilesChange}
               className="text-sm"
             />
           </label>
@@ -119,7 +161,7 @@ export default function Calculator() {
       ) : (
         <div>
           <label className="flex flex-col gap-1 text-sm">
-            PDF 파일 선택
+            PDF 파일 선택 (최대 {MAX_FILE_SIZE_MB}MB)
             <input
               type="file"
               accept="application/pdf"
