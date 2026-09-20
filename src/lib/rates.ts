@@ -1,4 +1,6 @@
+import holidays2026 from "@config/holidays/2026.json";
 import laborRates from "@config/rates/labor.json";
+import livingRates from "@config/rates/living.json";
 import taxRates from "@config/rates/tax.json";
 
 type RatedValue<T> = T & { source: string; verified: boolean; note?: string };
@@ -68,8 +70,34 @@ type TaxYear = {
   }>;
 };
 
+type ElectricityTier = { upTo: number | null; basicFee: number; unitPrice: number };
+
+type FeeBracket = { upTo: number | null; rate: number; cap: number | null };
+
+type LivingYear = {
+  electricityBill: RatedValue<{
+    general: { tiers: ElectricityTier[] };
+    summer: { tiers: ElectricityTier[] };
+    summerMonths: number[];
+    vatRate: number;
+    fundRate: number;
+  }>;
+  realEstateAgentFee: RatedValue<{
+    sale: { brackets: FeeBracket[] };
+    lease: { brackets: FeeBracket[] };
+  }>;
+  movingCostEstimate: RatedValue<{
+    pricePerPyeong: { general: number; semiPacked: number; fullPacked: number };
+    minimumCost: { general: number; semiPacked: number; fullPacked: number };
+    ladderTruckFeePerLocation: number;
+    rangeLowerMultiplier: number;
+    rangeUpperMultiplier: number;
+  }>;
+};
+
 const labor: Record<string, LaborYear> = laborRates;
 const tax: Record<string, TaxYear> = taxRates;
+const living: Record<string, LivingYear> = livingRates;
 
 function getLaborYear(year: string) {
   const entry = labor[year];
@@ -83,6 +111,14 @@ function getTaxYear(year: string) {
   const entry = tax[year];
   if (!entry) {
     throw new Error(`config/rates/tax.json에 ${year}년 데이터가 없습니다.`);
+  }
+  return entry;
+}
+
+function getLivingYear(year: string) {
+  const entry = living[year];
+  if (!entry) {
+    throw new Error(`config/rates/living.json에 ${year}년 데이터가 없습니다.`);
   }
   return entry;
 }
@@ -129,4 +165,34 @@ export function getExpenseRatesByIndustry(year: string = "2026") {
 
 export function getCustomsDuty(year: string = "2026") {
   return getTaxYear(year).customsDuty;
+}
+
+export function getElectricityBillRates(year: string = "2026") {
+  return getLivingYear(year).electricityBill;
+}
+
+export function getRealEstateAgentFeeRates(year: string = "2026") {
+  return getLivingYear(year).realEstateAgentFee;
+}
+
+export function getMovingCostEstimateRates(year: string = "2026") {
+  return getLivingYear(year).movingCostEstimate;
+}
+
+type HolidayYear = {
+  year: number;
+  holidays: { date: string; name: string }[];
+  source: string;
+  verified: boolean;
+  note: string;
+};
+
+const holidaysByYear: Record<string, HolidayYear> = { "2026": holidays2026 };
+
+export function getHolidays(year: string = "2026") {
+  const entry = holidaysByYear[year];
+  if (!entry) {
+    throw new Error(`config/holidays/${year}.json이 없습니다.`);
+  }
+  return entry;
 }

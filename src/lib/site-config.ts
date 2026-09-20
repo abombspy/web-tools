@@ -20,6 +20,8 @@ export type CalculatorCategory = {
   phase: 1 | 2 | 3 | 4;
   description: string;
   tools?: CalculatorTool[];
+  /** 카테고리 랜딩 페이지(/src/app/<slug>/page.tsx)가 실제로 구현되어 있으면 true */
+  hasPage?: boolean;
 };
 
 // .docs/plan.md §3, §4 기준. Phase 1(알바·직장인, 프리랜서·사업자)부터 개발.
@@ -30,6 +32,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     name: "알바·직장인",
     phase: 1,
     description: "주휴수당, 알바 월급, 퇴직금, 연차, 실업급여, 육아휴직급여 계산기",
+    hasPage: true,
     tools: [
       { slug: "weekly-holiday-pay", name: "주휴수당 계산기", available: true },
       { slug: "part-time-wage", name: "알바 월급 계산기", available: true },
@@ -44,6 +47,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     name: "프리랜서·사업자",
     phase: 1,
     description: "3.3% 원천징수, 부가세, 종합소득세, 배달 라이더, 스마트스토어 마진, 해외직구 관세 계산기",
+    hasPage: true,
     tools: [
       { slug: "withholding-tax-3-3", name: "3.3% 원천징수 역산 계산기", available: true },
       { slug: "vat", name: "부가세 계산기", available: true },
@@ -58,24 +62,55 @@ export const CATEGORIES: CalculatorCategory[] = [
     name: "생활·주거",
     phase: 2,
     description: "전기요금, 전월세 전환율, 중개수수료, 대출 상환, 이사 비용 계산기",
+    hasPage: true,
+    tools: [
+      { slug: "electricity-bill", name: "전기요금 계산기", available: true },
+      { slug: "jeonse-to-monthly-rent", name: "전월세 전환율 계산기", available: true },
+      { slug: "real-estate-agent-fee", name: "중개수수료 계산기", available: true },
+      { slug: "loan-repayment", name: "대출 이자·상환 계산기", available: true },
+      { slug: "moving-cost-estimate", name: "이사 비용 견적 계산기", available: true },
+    ],
   },
   {
     slug: "parenting-health",
     name: "육아·건강",
     phase: 2,
     description: "아기 성장, 출산 예정일, 이유식, BMI, 음주 해독 시간 계산기",
+    hasPage: true,
+    tools: [
+      { slug: "baby-growth-percentile", name: "아기 개월수·성장 백분위 계산기", available: true },
+      { slug: "due-date", name: "출산 예정일 계산기", available: true },
+      { slug: "baby-food-portion", name: "이유식 단계별 양 계산기", available: true },
+      { slug: "bmi-calorie", name: "BMI·기초대사량·목표 칼로리 계산기", available: true },
+      { slug: "alcohol-detox-time", name: "음주 후 해독 시간 추정기", available: true },
+    ],
   },
   {
     slug: "date-time",
     name: "날짜·시간",
     phase: 2,
     description: "D-day, 만 나이, 군 전역일, 근무일수, 시차 계산기",
+    hasPage: true,
+    tools: [
+      { slug: "d-day", name: "D-day·기념일 계산기", available: true },
+      { slug: "age-zodiac", name: "만 나이·띠·별자리 계산기", available: true },
+      { slug: "military-discharge-date", name: "군 전역일 계산기", available: true },
+      { slug: "business-days", name: "근무일수(영업일) 계산기", available: true },
+      { slug: "time-difference", name: "시차 계산기", available: true },
+    ],
   },
   {
     slug: "student",
     name: "학생·수험생",
     phase: 2,
     description: "내신·수능 등급, 학점(GPA), 공무원 합격선, 토익·오픽 환산",
+    hasPage: true,
+    tools: [
+      { slug: "grade-conversion", name: "내신·수능 등급 환산 계산기", available: true },
+      { slug: "gpa", name: "학점 평균(GPA) 계산기", available: true },
+      { slug: "civil-service-passing-score", name: "공무원 시험 합격선 비교 도구", available: true },
+      { slug: "toeic-opic-conversion", name: "토익·오픽 점수 환산표", available: true },
+    ],
   },
   {
     slug: "text-file",
@@ -92,7 +127,6 @@ export const CATEGORIES: CalculatorCategory[] = [
 ];
 
 // 실제 카테고리 랜딩 페이지(/src/app/<slug>/page.tsx)가 구현된 카테고리만 걸러낸다.
-// 지금은 phase 1(알바·직장인, 프리랜서·사업자)만 페이지가 있음 — Phase 2+ 페이지를
-// 만들면 이 조건을 넓힌다. 헤더 내비게이션과 sitemap이 이 목록을 함께 써서, 페이지가
-// 없는 카테고리로 죽은 링크가 생기는 걸 한곳에서 막는다.
-export const CATEGORIES_WITH_PAGES = CATEGORIES.filter((c) => c.phase === 1);
+// 헤더 내비게이션과 sitemap이 이 목록을 함께 써서, 페이지가 없는 카테고리로
+// 죽은 링크가 생기는 걸 한곳에서 막는다.
+export const CATEGORIES_WITH_PAGES = CATEGORIES.filter((c) => c.hasPage);
