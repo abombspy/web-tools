@@ -23,7 +23,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # sharp의 wasm32 폴백(@emnapi/*)이 로컬 npm(11.x)과 CI 기본 npm 버전 간
+      # optionalDependencies 잠금 판정이 달라 "npm ci"가 CI에서만 실패했다
+      # (로컬에서는 재현 안 됨) — npm install로 완화.
+      - run: npm install
       - run: npm run lint
       - run: npm run test
       - run: npm run build
