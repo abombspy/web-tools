@@ -1,11 +1,8 @@
-// TODO: 실제 서비스명이 정해지면 이 값만 바꾸면 전체 사이트에 반영됩니다.
-export const SITE_NAME = "[사이트명]";
+export const SITE_NAME = "생활계산소";
 export const SITE_DESCRIPTION =
   "세금·급여·생활 계산을 위한 무료 계산기 모음. 계산 원리와 법적 근거를 함께 설명합니다.";
-// TODO: 실제 도메인이 정해지면 채워주세요 (사이트맵/OG 태그 등에 사용).
-export const SITE_URL = "https://example.com";
-// TODO: 문의용 이메일 주소를 확정해주세요 (개인 이메일 그대로 노출할지 별도 주소를 만들지 결정 필요).
-export const CONTACT_EMAIL = "[문의 이메일 주소]";
+export const SITE_URL = "https://web-tools.gssystems.co.kr";
+export const CONTACT_EMAIL = "abombspy@gmail.com";
 
 export type CalculatorTool = {
   slug: string;
