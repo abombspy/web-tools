@@ -117,6 +117,15 @@ export const CATEGORIES: CalculatorCategory[] = [
     name: "텍스트·파일 도구",
     phase: 3,
     description: "글자수 세기, 이미지 압축·변환, PDF 병합·분할, QR코드, JSON·CSV 변환",
+    hasPage: true,
+    tools: [
+      { slug: "character-count", name: "글자수 세기", available: true },
+      { slug: "json-csv-convert", name: "JSON·CSV 변환기", available: true },
+      { slug: "qr-code", name: "QR코드 생성기", available: true },
+      { slug: "image-tool", name: "이미지 압축·리사이즈·포맷 변환", available: true },
+      { slug: "pdf-tool", name: "PDF 병합·분할", available: true },
+      { slug: "text-cleanup", name: "맞춤법 체크용 텍스트 정리 도구", available: true },
+    ],
   },
   {
     slug: "fun",
