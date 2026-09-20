@@ -132,6 +132,14 @@ export const CATEGORIES: CalculatorCategory[] = [
     name: "재미·바이럴",
     phase: 4,
     description: "이름 궁합, 랜덤 추첨기, 점심 메뉴 룰렛, 닉네임 생성기",
+    hasPage: true,
+    tools: [
+      { slug: "name-compatibility", name: "이름 궁합·MBTI 궁합 테스트", available: true },
+      { slug: "random-picker", name: "랜덤 추첨기·사다리타기·룰렛", available: true },
+      { slug: "lunch-roulette", name: "점심 메뉴 추천 룰렛", available: true },
+      { slug: "nickname-generator", name: "닉네임 생성기", available: true },
+      { slug: "recommended-combos", name: "추천 조합", available: true },
+    ],
   },
 ];
 
