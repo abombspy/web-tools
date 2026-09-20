@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { CalculatorCategory } from "@/lib/site-config";
@@ -10,9 +11,27 @@ import type { CalculatorCategory } from "@/lib/site-config";
 // 모든 드롭다운을 닫힌 상태로 되돌린다(커스텀 상태 관리 없이 해결).
 export default function HeaderNav({ categories }: { categories: CalculatorCategory[] }) {
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+
+  // <details>는 바깥 클릭 시 자동으로 안 닫히므로, nav 바깥 클릭을 감지해서
+  // 열려 있는 드롭다운을 전부 닫는다.
+  useEffect(() => {
+    function handleOutsideClick(event: MouseEvent) {
+      if (!navRef.current || navRef.current.contains(event.target as Node)) return;
+      navRef.current.querySelectorAll("details[open]").forEach((el) => {
+        (el as HTMLDetailsElement).open = false;
+      });
+    }
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, []);
 
   return (
-    <nav key={pathname} className="flex flex-wrap items-center gap-1 text-sm text-zinc-600 dark:text-zinc-400">
+    <nav
+      key={pathname}
+      ref={navRef}
+      className="flex flex-wrap items-center gap-1 text-sm text-zinc-600 dark:text-zinc-400"
+    >
       {categories.map((c) => (
         <details key={c.slug} name="header-nav" className="group relative">
           <summary className="cursor-pointer list-none rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
