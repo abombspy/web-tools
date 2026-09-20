@@ -62,4 +62,8 @@ describe("jsonToCsv / csvToJson", () => {
       { a: "2", b: "y" },
     ]);
   });
+
+  it("잘못된 JSON이면 원본 파서 에러 대신 한국어 안내 메시지를 던진다", () => {
+    expect(() => jsonToCsv("{ 이건 JSON이 아님")).toThrow("올바른 JSON 형식이 아닙니다.");
+  });
 });

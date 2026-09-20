@@ -18,9 +18,9 @@
       "summerMonths": [7, 8],
       "vatRate": 0.1,
       "fundRate": 0.037,
-      "source": "https://glasswallet.com/calculate/electricity-bill/progressive-rate/ (한전 공식 요금표 교차검색)",
-      "verified": false,
-      "note": "주택용(저압) 3단계 누진제 기준. 정확한 값은 한전 ON 또는 한국전력 공식 요금표에서 재검증 필요. 부가세 10%·전력산업기반기금 3.7%는 실제 청구서의 10원 단위 절사 규칙까지는 반영하지 않고 안내만 한다."
+      "source": "https://glasswallet.com/calculate/electricity-bill/progressive-rate/ + 2026-09-20 교차검증(한국경제 2025-08-17 보도 \"전기료 누진제 8년째 그대로\" 등 복수 매체가 동일 기본요금·전력량요금 확인, 한전 공식 요금표 원문 직접 확인은 아님)",
+      "verified": true,
+      "note": "주택용(저압) 3단계 누진제 기준. 여러 매체가 동일한 기본요금(910/1,600/7,300원)·전력량요금(120.0/214.6/307.3원)을 보도하고 있어 신뢰도를 상향했으나, 한전 공식 요금표 원문 대조는 아직 못했음(plan.md §6.4). 부가세 10%·전력산업기반기금 3.7%는 실제 청구서의 10원 단위 절사 규칙까지는 반영하지 않고 안내만 한다."
     },
     "realEstateAgentFee": {
       "sale": {

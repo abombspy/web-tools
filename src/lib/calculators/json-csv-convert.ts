@@ -97,8 +97,13 @@ export function stringifyCsv(rows: Record<string, string>[]): string {
 }
 
 export function jsonToCsv(jsonText: string): string {
-  const data = JSON.parse(jsonText);
-  const rows: Record<string, unknown>[] = Array.isArray(data) ? data : [data];
+  let data: unknown;
+  try {
+    data = JSON.parse(jsonText);
+  } catch {
+    throw new Error("올바른 JSON 형식이 아닙니다.");
+  }
+  const rows: Record<string, unknown>[] = Array.isArray(data) ? data : [data as Record<string, unknown>];
 
   const normalized = rows.map((row) => {
     const obj: Record<string, string> = {};
