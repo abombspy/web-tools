@@ -3,6 +3,7 @@ export const SITE_DESCRIPTION =
   "세금·급여·생활 계산을 위한 무료 계산기 모음. 계산 원리와 법적 근거를 함께 설명합니다.";
 export const SITE_URL = "https://web-tools.gssystems.co.kr";
 export const CONTACT_EMAIL = "abombspy@gmail.com";
+export const GA_MEASUREMENT_ID = "G-KYE3JE4EB2";
 
 export type CalculatorTool = {
   slug: string;

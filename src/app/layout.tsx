@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site-config";
+import { GA_MEASUREMENT_ID, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="flex min-h-full flex-col">
+        {/* GA4(측정 ID: G-KYE3JE4EB2) — afterInteractive라 hydration 이후 실행,
+            정적 내보내기(output: export)와도 호환됨 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
