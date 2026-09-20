@@ -30,6 +30,10 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm run build
+        env:
+          # 커스텀 도메인 연결 전 임시 주소(abombspy.github.io/web-tools)용
+          # 서브패스. 커스텀 도메인 연결 후에는 이 줄을 지우면 루트로 배포된다.
+          GITHUB_PAGES_BASE_PATH: /web-tools
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
