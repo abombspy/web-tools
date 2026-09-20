@@ -223,7 +223,7 @@ Phase 1 착수 전 반드시 해결해야 하는 항목(🔴), 착수 후에도 
 
 ### 6.1 ✅ 기술 스택 — 확정 및 구현 완료
 - Next.js(App Router) + TypeScript + Tailwind CSS로 확정, 전체 43개 도구 구현 완료.
-- **배포 환경: 사용자 구매 도메인 + GitLab Pages 무료 정적 호스팅으로 확정(2026-09-20)**. API 라우트·동적 세그먼트·미들웨어가 전혀 없어 `next.config.ts`에 `output: "export"` + `trailingSlash: true`를 추가해 완전 정적 사이트로 전환(빌드 검증 완료, `out/` 4.8MB). `robots.ts`/`sitemap.ts`는 정적 내보내기 호환을 위해 `export const dynamic = "force-static"` 추가. `.gitlab-ci.yml`로 `main` 브랜치 push 시 테스트(lint+vitest) 후 `public/`으로 자동 배포되도록 구성.
+- **배포 환경: 사용자 구매 도메인 + GitHub Pages 무료 정적 호스팅으로 확정(2026-09-20, 최초 GitLab으로 논의했다가 사용자가 실제 보유 계정은 GitHub임을 확인해 전환)**. API 라우트·동적 세그먼트·미들웨어가 전혀 없어 `next.config.ts`에 `output: "export"` + `trailingSlash: true`를 추가해 완전 정적 사이트로 전환(빌드 검증 완료, `out/` 4.8MB). `robots.ts`/`sitemap.ts`는 정적 내보내기 호환을 위해 `export const dynamic = "force-static"` 추가. `.github/workflows/deploy.yml`로 `main` 브랜치 push 시 테스트(lint+vitest) 후 GitHub Pages에 자동 배포되도록 구성(GitHub Actions 기반, `actions/deploy-pages`).
 - Vercel처럼 서버 컴포넌트 런타임(ISR, 서버 액션 등)이 필요해지면 이 결정을 재검토해야 하지만, 이 앱은 "설정값을 읽어 순수 계산"하는 구조라 애초에 서버 런타임이 불필요함(§2.2 무저장 원칙과도 일치).
 
 ### 6.2 🔴 애드센스 심사·정책 리스크 — 대부분 처리됨
