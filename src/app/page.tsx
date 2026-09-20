@@ -21,7 +21,7 @@ export default function Home() {
             >
               <div className="mb-1 flex items-center justify-between">
                 <h3 className="font-semibold">{category.name}</h3>
-                {category.phase > 1 && (
+                {!category.hasPage && (
                   <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
                     준비 중
                   </span>
@@ -30,7 +30,7 @@ export default function Home() {
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 {category.description}
               </p>
-              {category.phase === 1 && (
+              {category.hasPage && (
                 <Link
                   href={`/${category.slug}`}
                   className="mt-3 inline-block text-sm font-medium text-blue-600 dark:text-blue-400"
