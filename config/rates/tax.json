@@ -1,0 +1,85 @@
+{
+  "2026": {
+    "withholdingTax": {
+      "businessIncomeRate": 0.03,
+      "localIncomeTaxRateOfIncomeTax": 0.1,
+      "source": "https://www.law.go.kr (소득세법 제129조, 지방세법)",
+      "verified": true,
+      "note": "사업소득 원천징수세율 3% + 지방소득세(소득세액의 10%) = 실질 3.3%. 수십 년째 변동 없는 고정 세율."
+    },
+    "vat": {
+      "rate": 0.1,
+      "source": "https://www.law.go.kr (부가가치세법 제30조)",
+      "verified": true,
+      "note": "일반과세자 부가세율 10%. 간이과세자는 업종별로 다른 세율이 적용되어 이 계산기 범위 밖."
+    },
+    "comprehensiveIncomeTax": {
+      "brackets": [
+        { "upTo": 14000000, "rate": 0.06, "deduction": 0 },
+        { "upTo": 50000000, "rate": 0.15, "deduction": 1260000 },
+        { "upTo": 88000000, "rate": 0.24, "deduction": 5760000 },
+        { "upTo": 150000000, "rate": 0.35, "deduction": 15440000 },
+        { "upTo": 300000000, "rate": 0.38, "deduction": 19940000 },
+        { "upTo": 500000000, "rate": 0.4, "deduction": 25940000 },
+        { "upTo": 1000000000, "rate": 0.42, "deduction": 35940000 },
+        { "upTo": null, "rate": 0.45, "deduction": 65940000 }
+      ],
+      "basicPersonalDeduction": 1500000,
+      "simplifiedRateThreshold": 24000000,
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?mi=2227&cntntsId=7667",
+      "verified": true,
+      "note": "국세청 종합소득세 세율표(2023~2025년 귀속, 2026년 개정 여부는 국세청에 아직 게시되지 않아 동일하다고 가정). 기본공제는 본인 1인 150만원만 반영(부양가족 공제 등은 미반영, 간이 계산). 단순경비율 적용 기준(직전연도 수입 2,400만원)은 인적용역(940번대) 업종 기준이며 다른 업종은 기준이 다를 수 있음."
+    },
+    "expenseRatesByIndustry": [
+      {
+        "code": "940306",
+        "name": "1인미디어 콘텐츠창작자(유튜버 등)",
+        "simplifiedRate": 0.641,
+        "standardRate": 0.151,
+        "sourceYear": 2023,
+        "verified": false
+      },
+      {
+        "code": "940100",
+        "name": "저술가·작가·번역가",
+        "simplifiedRate": 0.587,
+        "standardRate": 0.172,
+        "sourceYear": 2019,
+        "verified": false
+      },
+      {
+        "code": "940903",
+        "name": "학원강사·과외교습자",
+        "simplifiedRate": 0.617,
+        "standardRate": 0.166,
+        "sourceYear": 2024,
+        "verified": false
+      },
+      {
+        "code": "940918",
+        "name": "퀵서비스·배달라이더",
+        "simplifiedRate": 0.794,
+        "standardRate": 0.274,
+        "sourceYear": 2022,
+        "verified": false
+      },
+      {
+        "code": "940909",
+        "name": "IT프리랜서·프로그래머·기타자영업",
+        "simplifiedRate": 0.641,
+        "standardRate": 0.17,
+        "sourceYear": 2024,
+        "verified": false
+      }
+    ],
+    "expenseRatesNote": "업종별 경비율은 국세청이 매년 4월경(다음 연도) 고시하며, 해당 연도 값이 아직 고시되지 않으면 직전 연도 값을 쓰는 것이 원칙이다. 2026년 귀속 경비율은 2027년 4월에야 고시되므로, 위 값은 블로그·세무 자료를 교차 검색해 모은 참고치이며 verified:false로 표시했다. 정식 서비스 전 국세청 홈택스 '기준(단순)경비율 조회'로 재확인 필요(plan.md §6.3).",
+    "customsDuty": {
+      "generalLimitUsd": 150,
+      "usOriginLimitUsd": 200,
+      "vatRate": 0.1,
+      "source": "https://www.customs.go.kr",
+      "verified": true,
+      "note": "목록통관 자가사용 면세한도: 일반 150달러, 미국발(한미FTA) 200달러. 단, 미국발이어도 건강기능식품·화장품·주류 등 목록통관 배제 품목은 150달러 기준이 적용됨. 면세한도를 넘으면 초과분이 아니라 전체 금액에 과세(공제 없음)."
+    }
+  }
+}

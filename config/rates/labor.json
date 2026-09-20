@@ -1,0 +1,73 @@
+{
+  "2026": {
+    "minimumWage": {
+      "hourly": 10320,
+      "source": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18144",
+      "verified": true,
+      "note": "고용노동부 고시 제2025-47호(2025-08-05). 2026년 적용 최저임금 시간급 10,320원(전년 대비 290원/2.9% 인상)."
+    },
+    "overtimePremium": {
+      "extendedNightHolidayRate": 0.5,
+      "holidayExcess8hRate": 1.0,
+      "source": "https://www.law.go.kr (근로기준법 제56조)",
+      "verified": true,
+      "note": "연장·야간·휴일(8시간 이내) 근로는 통상임금의 50%, 휴일근로 중 8시간 초과분은 100% 가산. 상시근로자 5인 미만 사업장은 미적용(근로기준법 시행령 별표1)."
+    },
+    "socialInsurance": {
+      "monthlyHoursExemptionThreshold": 60,
+      "nationalPension": {
+        "employeeRate": 0.0475,
+        "source": "https://cutlinecheck.com/four-insurance-premium/",
+        "verified": true,
+        "note": "2026년 국민연금 전체 요율 9.5%, 근로자·사업주 각 4.75%씩 부담."
+      },
+      "healthInsurance": {
+        "employeeRate": 0.03595,
+        "longTermCareRateOfHealthPremium": 0.1314,
+        "source": "https://cutlinecheck.com/four-insurance-premium/",
+        "verified": true,
+        "note": "2026년 건강보험 전체 요율 7.19%, 근로자 부담 3.595%. 장기요양보험료는 건강보험료(근로자 부담분)의 13.14%."
+      },
+      "employmentInsurance": {
+        "employeeRate": 0.009,
+        "source": "https://cutlinecheck.com/four-insurance-premium/",
+        "verified": true,
+        "note": "실업급여 계정 기준 근로자 부담 0.9%."
+      },
+      "note": "1개월 소정근로시간 60시간 미만인 단시간근로자는 국민연금·건강보험·고용보험 적용 제외가 원칙(산재보험은 예외 없이 전원 적용, 전액 사업주 부담이라 실수령액에 영향 없음). 단, 월 8일 이상 근무·월급 220만원 이상·3개월 이상 계속근로 등 추가 예외 조건이 있어 이 계산기는 60시간 기준만 반영한다."
+    },
+    "incomeTaxWithholding": {
+      "singleHouseholdZeroTaxMonthlyThreshold": 1060000,
+      "localIncomeTaxRateOfIncomeTax": 0.1,
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?mi=6583&cntntsId=7862",
+      "verified": true,
+      "note": "공제대상가족수 1명(본인만) 기준, 월급여액이 이 값 미만이면 근로소득세 원천징수액이 0원. 그 이상 구간은 국세청 근로소득 간이세액표(조견표)를 그대로 반영해야 정확하며, 이 계산기는 해당 구간의 정확한 세액을 계산하지 않고 안내만 한다."
+    },
+    "unemploymentBenefit": {
+      "rate": 0.6,
+      "dailyCap": 68100,
+      "dailyFloorFormula": { "minWageRatio": 0.8, "hoursPerDay": 8 },
+      "paymentDaysTable": [
+        { "insuredYearsLessThan": 1, "under50Days": 120, "over50Days": 120 },
+        { "insuredYearsLessThan": 3, "under50Days": 150, "over50Days": 180 },
+        { "insuredYearsLessThan": 5, "under50Days": 180, "over50Days": 210 },
+        { "insuredYearsLessThan": 10, "under50Days": 210, "over50Days": 240 },
+        { "insuredYearsLessThan": null, "under50Days": 240, "over50Days": 270 }
+      ],
+      "source": "https://www.law.go.kr (고용보험법 별표1, 2019.8.27 개정) / https://shiftee.io/ko/blog/article/2026-unemployment-benefits-changes-and-employment-insurance-allowance-upper-limit",
+      "verified": true,
+      "note": "2026년 구직급여 1일 상한액 68,100원(2025년 66,000원에서 인상). 하한액은 최저임금 기반 파생값(최저시급×8×80%)이라 상수로 저장하지 않는다(§7.2 원칙). 소정급여일수 표는 고용보험법 별표1(2019년 개정 이후 미변경). 자발적 퇴사 등 수급자격 요건 자체는 이 계산기가 판단하지 않는다."
+    },
+    "parentalLeavePay": {
+      "tiers": [
+        { "maxMonth": 3, "rate": 1.0, "cap": 2500000 },
+        { "maxMonth": 6, "rate": 1.0, "cap": 2000000 },
+        { "maxMonth": 12, "rate": 0.8, "cap": 1600000 }
+      ],
+      "floor": 700000,
+      "source": "https://www.nodong.kr/equl/403834",
+      "verified": true,
+      "note": "2025년 1월부터 사후지급금(25%) 제도가 폐지되어 매월 전액 지급. 1~3개월 통상임금 100%(상한 250만원), 4~6개월 100%(상한 200만원), 7~12개월 80%(상한 160만원), 하한액 70만원. 부모 모두 육아휴직을 쓰는 '6+6 부모육아휴직제' 특례는 별도 제도라 이 계산기에서 다루지 않는다."
+    }
+  }
+}
