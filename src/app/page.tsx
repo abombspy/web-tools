@@ -3,43 +3,59 @@ import { CATEGORIES, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site-config";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 py-16">
-      <section className="mb-12">
-        <h1 className="text-3xl font-bold tracking-tight">{SITE_NAME}</h1>
-        <p className="mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400">
-          {SITE_DESCRIPTION}
-        </p>
+    <div className="mx-auto w-full max-w-5xl px-4">
+      <section className="py-14 text-center sm:py-16">
+        <div className="mb-4 text-6xl">🧮💛</div>
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          복잡한 계산, <span className="text-orange-500">{SITE_NAME}</span>가 대신 해드릴게요!
+        </h1>
+        <p className="mt-4 text-base text-zinc-500 sm:text-lg">{SITE_DESCRIPTION}</p>
       </section>
 
-      <div className="space-y-10">
+      <div className="space-y-12 pb-20">
         {CATEGORIES.map((category) => (
           <section key={category.slug}>
-            <div className="mb-1 flex items-center gap-2">
-              {category.hasPage ? (
-                <Link href={`/${category.slug}`} className="text-lg font-semibold hover:underline">
-                  {category.name}
-                </Link>
-              ) : (
-                <h2 className="text-lg font-semibold">{category.name}</h2>
-              )}
-              {!category.hasPage && (
-                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                  준비 중
-                </span>
-              )}
+            <div className="mb-4 flex items-center gap-3">
+              <span
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-2xl ${category.theme.badgeBg}`}
+              >
+                {category.icon}
+              </span>
+              <div>
+                <div className="flex items-center gap-2">
+                  {category.hasPage ? (
+                    <Link href={`/${category.slug}`} className="text-lg font-extrabold hover:underline">
+                      {category.name}
+                    </Link>
+                  ) : (
+                    <h2 className="text-lg font-extrabold">{category.name}</h2>
+                  )}
+                  {!category.hasPage && (
+                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
+                      준비 중
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-zinc-500">{category.description}</p>
+              </div>
             </div>
-            <p className="mb-3 text-sm text-zinc-600 dark:text-zinc-400">{category.description}</p>
             {category.hasPage && (
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                 {category.tools
                   ?.filter((tool) => tool.available)
                   .map((tool) => (
                     <li key={tool.slug}>
                       <Link
                         href={`/${category.slug}/${tool.slug}`}
-                        className="block rounded-lg border border-black/10 p-4 text-sm font-medium text-blue-600 hover:border-blue-400 dark:border-white/10 dark:text-blue-400"
+                        className={`flex items-center gap-3 rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 hover:scale-[1.02] ${category.theme.cardBg}`}
                       >
-                        {tool.name}
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-2xl">
+                          {tool.icon}
+                        </div>
+                        <div className="min-w-0 text-left">
+                          <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.name}</div>
+                          <p className={`truncate text-xs ${category.theme.descText}`}>{tool.tagline}</p>
+                        </div>
                       </Link>
                     </li>
                   ))}

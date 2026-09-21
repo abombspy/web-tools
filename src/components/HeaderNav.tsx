@@ -34,13 +34,15 @@ export default function HeaderNav({ categories }: { categories: CalculatorCatego
     >
       {categories.map((c) => (
         <details key={c.slug} name="header-nav" className="group relative">
-          <summary className="cursor-pointer list-none rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
-            {c.name}
+          <summary
+            className={`cursor-pointer list-none rounded-full px-3 py-1.5 font-semibold transition ${c.theme.badgeBg} ${c.theme.badgeText} ${c.theme.badgeHoverBg}`}
+          >
+            {c.icon} {c.name}
           </summary>
-          <div className="absolute left-0 z-10 mt-1 w-56 rounded-lg border border-black/10 bg-white p-2 shadow-lg dark:border-white/10 dark:bg-zinc-900">
+          <div className="absolute left-0 z-10 mt-2 w-64 rounded-2xl border border-zinc-100 bg-white p-2 shadow-xl dark:border-white/10 dark:bg-zinc-900">
             <Link
               href={`/${c.slug}`}
-              className="block rounded px-2 py-1.5 text-xs font-semibold text-zinc-500 hover:bg-black/5 dark:text-zinc-400 dark:hover:bg-white/10"
+              className="block rounded-xl px-3 py-2 text-xs font-semibold text-zinc-500 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-white/10"
             >
               {c.name} 전체 보기
             </Link>
@@ -50,19 +52,19 @@ export default function HeaderNav({ categories }: { categories: CalculatorCatego
                 <Link
                   key={tool.slug}
                   href={`/${c.slug}/${tool.slug}`}
-                  className="block rounded px-2 py-1.5 hover:bg-black/5 dark:hover:bg-white/10"
+                  className="block rounded-xl px-3 py-2 text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-white/10"
                 >
-                  {tool.name}
+                  {tool.icon} {tool.name}
                 </Link>
               ))}
           </div>
         </details>
       ))}
-      <Link href="/about" className="rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
-        소개
+      <Link href="/about" className="rounded-full px-3 py-1.5 font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/10">
+        ✨ 소개
       </Link>
-      <Link href="/contact" className="rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
-        문의
+      <Link href="/contact" className="rounded-full px-3 py-1.5 font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/10">
+        💌 문의
       </Link>
     </nav>
   );

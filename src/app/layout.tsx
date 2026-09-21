@@ -81,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-stone-50 text-zinc-800 dark:bg-zinc-950 dark:text-zinc-100">
         {/* GA4(측정 ID: G-KYE3JE4EB2) — afterInteractive라 hydration 이후 실행,
             정적 내보내기(output: export)와도 호환됨 */}
         <Script
