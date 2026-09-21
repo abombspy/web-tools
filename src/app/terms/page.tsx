@@ -9,7 +9,7 @@ export default function TermsPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">이용약관</h1>
-      <p className="mt-2 text-sm text-zinc-500">시행일: [YYYY-MM-DD] (TODO: 실제 게시일로 수정)</p>
+      <p className="mt-2 text-sm text-zinc-500">시행일: 2026-09-01</p>
 
       <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert">
         <h2>제1조 (목적)</h2>
