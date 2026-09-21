@@ -41,11 +41,11 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="mb-4 flex flex-col gap-1 text-sm">
         모드
         <select
-          className="w-56 rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+          className="w-56 rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={mode}
           onChange={(e) => {
             setMode(e.target.value as Mode);
@@ -62,7 +62,7 @@ export default function Calculator() {
       <label className="flex flex-col gap-1 text-sm">
         {mode === "match" ? "참가자 목록 (한 줄에 하나씩)" : "항목 목록 (한 줄에 하나씩)"}
         <textarea
-          className="h-32 rounded border border-black/20 p-3 text-sm dark:border-white/20 dark:bg-transparent"
+          className="h-32 rounded-xl border-2 border-zinc-200 p-3 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={itemsText}
           onChange={(e) => setItemsText(e.target.value)}
         />
@@ -72,7 +72,7 @@ export default function Calculator() {
         <label className="mt-4 flex flex-col gap-1 text-sm">
           결과 목록 (참가자와 같은 줄 수)
           <textarea
-            className="h-32 rounded border border-black/20 p-3 text-sm dark:border-white/20 dark:bg-transparent"
+            className="h-32 rounded-xl border-2 border-zinc-200 p-3 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={outcomesText}
             onChange={(e) => setOutcomesText(e.target.value)}
           />
@@ -82,7 +82,7 @@ export default function Calculator() {
       <button
         type="button"
         onClick={run}
-        className="mt-4 rounded border border-black/20 px-4 py-2 text-sm font-medium hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
+        className="mt-4 rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500"
       >
         실행
       </button>
@@ -90,13 +90,13 @@ export default function Calculator() {
       {error && <p className="mt-4 text-sm text-red-600 dark:text-red-400">{error}</p>}
 
       {result && (
-        <div className="mt-6 border-t border-black/10 pt-6 text-center dark:border-white/10">
-          <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{result}</p>
+        <div className="mt-6 border-t-2 border-orange-100 pt-6 text-center dark:border-white/10">
+          <p className="text-3xl font-bold text-orange-600 dark:text-orange-400">{result}</p>
         </div>
       )}
 
       {matchResult && (
-        <ul className="mt-6 space-y-1 border-t border-black/10 pt-6 dark:border-white/10">
+        <ul className="mt-6 space-y-1 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           {matchResult.map(([participant, outcome], i) => (
             <li key={i} className="text-sm">
               <span className="font-medium">{participant}</span> → {outcome}

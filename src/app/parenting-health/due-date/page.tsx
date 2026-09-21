@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function DueDatePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">출산 예정일 계산기</h1>
+      <h1 className="text-2xl font-extrabold">출산 예정일 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -20,7 +20,7 @@ export default function DueDatePage() {
           규칙적인 경우를 가정한 평균적인 계산법입니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용 추정치입니다. 실제 출산일은 초음파 검사 등을 통한 산부인과
           진단에 따라 달라지며, 생리 주기가 불규칙한 경우 오차가 더 클 수 있습니다. 정확한
           예정일은 산부인과에서 확인하세요.
@@ -34,7 +34,7 @@ export default function DueDatePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/parenting-health" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/parenting-health" className="font-medium text-orange-600 dark:text-orange-400">
             육아·건강 계산기 모음
           </Link>
         </p>

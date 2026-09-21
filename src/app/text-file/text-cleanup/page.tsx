@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function TextCleanupPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">맞춤법 체크용 텍스트 정리 도구</h1>
+      <h1 className="text-2xl font-extrabold">맞춤법 체크용 텍스트 정리 도구</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>이 도구가 하는 일</h2>
@@ -24,7 +24,7 @@ export default function TextCleanupPage() {
           </li>
         </ul>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 도구는 <strong>진짜 맞춤법·문법 검사기가 아닙니다.</strong> 띄어쓰기 교정이나
           &ldquo;되/돼&rdquo;, &ldquo;안/않&rdquo;처럼 문맥에 따라 맞고 틀림이 갈리는 표현은
           다루지 않습니다(신뢰할 수 있는 공식 API가 없어 의도적으로 제외했습니다). 정확한
@@ -37,7 +37,7 @@ export default function TextCleanupPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 도구:{" "}
-          <Link href="/text-file" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/text-file" className="font-medium text-orange-600 dark:text-orange-400">
             텍스트·파일 도구 모음
           </Link>
         </p>

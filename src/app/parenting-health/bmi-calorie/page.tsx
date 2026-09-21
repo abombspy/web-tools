@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function BmiCaloriePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">BMI·기초대사량·목표 칼로리 계산기</h1>
+      <h1 className="text-2xl font-extrabold">BMI·기초대사량·목표 칼로리 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>BMI 기준 (대한비만학회 2022 진료지침)</h2>
@@ -35,7 +35,7 @@ export default function BmiCaloriePage() {
           일반적인 권장치).
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용입니다. 기저질환이 있거나 임신 중인 경우 등은 다른 기준이
           적용될 수 있으니 의료 전문가와 상담하세요.
         </p>
@@ -48,7 +48,7 @@ export default function BmiCaloriePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/parenting-health" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/parenting-health" className="font-medium text-orange-600 dark:text-orange-400">
             육아·건강 계산기 모음
           </Link>
         </p>

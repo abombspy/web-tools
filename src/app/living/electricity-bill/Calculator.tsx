@@ -32,14 +32,14 @@ export default function Calculator({ rates, vatRate, fundRate }: Props) {
   const estimatedTotal = result ? result.totalBeforeTax + estimatedVat + estimatedFund : 0;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           이번 달 사용량 (kWh)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={usageKwh}
             onChange={(e) => setUsageKwh(e.target.value)}
             min={0}
@@ -48,7 +48,7 @@ export default function Calculator({ rates, vatRate, fundRate }: Props) {
         <label className="flex flex-col gap-1 text-sm">
           사용 월
           <select
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={month}
             onChange={(e) => setMonth(e.target.value)}
           >
@@ -70,7 +70,7 @@ export default function Calculator({ rates, vatRate, fundRate }: Props) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">예상 청구액 (부가세·기금 포함, 추정)</p>
           <p className="text-3xl font-bold">{estimatedTotal.toLocaleString()}원</p>
           <ul className="mt-2 space-y-0.5 text-sm text-zinc-600 dark:text-zinc-400">

@@ -13,7 +13,7 @@ export default function BusinessDaysPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">근무일수(영업일) 계산기</h1>
+      <h1 className="text-2xl font-extrabold">근무일수(영업일) 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -22,7 +22,7 @@ export default function BusinessDaysPage() {
           <strong>관공서의 공휴일에 관한 규정</strong>상 공휴일을 뺀 평일 수를 계산합니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           공휴일 데이터는 {holidayData.year}년 기준이며, 설날·추석·대체공휴일은 매년 바뀌므로
           실제 사용 전 행정안전부 발표로 재확인하는 걸 권장합니다. 근로자의날(5월 1일)과
           제헌절(7월 17일)은 관공서 공휴일이 아니라서(제헌절은 2008년부터 공휴일에서 제외)
@@ -35,7 +35,7 @@ export default function BusinessDaysPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/date-time" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/date-time" className="font-medium text-orange-600 dark:text-orange-400">
             날짜·시간 계산기 모음
           </Link>
         </p>

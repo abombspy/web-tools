@@ -68,14 +68,17 @@ const COMBOS = [
 export default function RecommendedCombosPage() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-16">
-      <h1 className="text-2xl font-bold">추천 조합</h1>
+      <h1 className="text-2xl font-extrabold">추천 조합</h1>
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         상황별로 함께 쓰면 좋은 계산기들을 모아뒀습니다.
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {COMBOS.map((combo) => (
-          <div key={combo.title} className="rounded-lg border border-black/10 p-5 dark:border-white/10">
+          <div
+            key={combo.title}
+            className="rounded-2xl border-2 border-violet-100 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900"
+          >
             <h2 className="font-semibold">{combo.title}</h2>
             <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{combo.description}</p>
             <ul className="mt-3 space-y-1">
@@ -83,7 +86,7 @@ export default function RecommendedCombosPage() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+                    className="text-sm font-medium text-orange-600 hover:underline dark:text-orange-400"
                   >
                     {link.name} →
                   </Link>
@@ -97,7 +100,7 @@ export default function RecommendedCombosPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           전체 도구는{" "}
-          <Link href="/" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/" className="font-medium text-orange-600 dark:text-orange-400">
             홈
           </Link>
           에서 카테고리별로 확인할 수 있습니다.

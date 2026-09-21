@@ -21,7 +21,7 @@ export default function PartTimeWagePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">알바 월급 계산기</h1>
+      <h1 className="text-2xl font-extrabold">알바 월급 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>무엇을 계산하나요?</h2>
@@ -74,7 +74,7 @@ export default function PartTimeWagePage() {
           보여드립니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용 모의 계산입니다. 실제 지급액은 근로계약, 회사의 급여 규정,
           정확한 세액 등에 따라 달라질 수 있습니다.
         </p>
@@ -90,11 +90,11 @@ export default function PartTimeWagePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/part-time/weekly-holiday-pay" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/part-time/weekly-holiday-pay" className="font-medium text-orange-600 dark:text-orange-400">
             주휴수당 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/part-time" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/part-time" className="font-medium text-orange-600 dark:text-orange-400">
             알바·직장인 계산기 모음
           </Link>
         </p>

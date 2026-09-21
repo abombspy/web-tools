@@ -14,7 +14,7 @@ export default function IncomeTaxEstimatePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">종합소득세 예상 계산기 (프리랜서 간이)</h1>
+      <h1 className="text-2xl font-extrabold">종합소득세 예상 계산기 (프리랜서 간이)</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -36,7 +36,7 @@ export default function IncomeTaxEstimatePage() {
           없는 업종은 국세청 홈택스에서 본인 업종코드의 경비율을 직접 조회해 입력할 수 있습니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           업종별 경비율은 국세청이 매년 4월경(다음 연도)에 고시합니다. 이 계산기에 들어있는
           경비율은 여러 세무 자료를 교차 검색해 모은 참고치이며, 업종마다 기준 연도가 다릅니다
           (2019~2024년). 정확한 값은 국세청 홈택스 &ldquo;기준(단순)경비율 조회&rdquo;에서 확인
@@ -54,12 +54,12 @@ export default function IncomeTaxEstimatePage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/freelancer/withholding-tax-3-3"
-            className="font-medium text-blue-600 dark:text-blue-400"
+            className="font-medium text-orange-600 dark:text-orange-400"
           >
             3.3% 원천징수 역산 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/freelancer" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/freelancer" className="font-medium text-orange-600 dark:text-orange-400">
             프리랜서·사업자 계산기 모음
           </Link>
         </p>

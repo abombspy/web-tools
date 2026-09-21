@@ -30,12 +30,12 @@ export default function Calculator() {
   const city2Label = CITIES.find((c) => c.timeZone === city2)?.label ?? city2;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <label className="flex flex-col gap-1 text-sm">
           도시 1 (기준)
           <select
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={city1}
             onChange={(e) => setCity1(e.target.value)}
           >
@@ -49,7 +49,7 @@ export default function Calculator() {
         <label className="flex flex-col gap-1 text-sm">
           도시 2 (비교 대상)
           <select
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={city2}
             onChange={(e) => setCity2(e.target.value)}
           >
@@ -64,7 +64,7 @@ export default function Calculator() {
           기준 날짜
           <input
             type="date"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
@@ -80,7 +80,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">
             {city1Label} 기준 {city2Label}의 시차
           </p>

@@ -13,7 +13,7 @@ export default function MovingCostEstimatePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">이사 비용 견적 계산기</h1>
+      <h1 className="text-2xl font-extrabold">이사 비용 견적 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>왜 범위로 나오나요?</h2>
@@ -28,7 +28,7 @@ export default function MovingCostEstimatePage() {
           뒤 상하 20~30% 범위로 보여줍니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기는 감을 잡기 위한 참고용입니다. 실제 이사 전에는 <strong>반드시 2~3곳 이상
           실제 견적을 받아 비교</strong>하세요. 특히 성수기(3~4월, 손 없는 날)에는 이 범위보다
           훨씬 비쌀 수 있습니다.
@@ -42,7 +42,7 @@ export default function MovingCostEstimatePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/living" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/living" className="font-medium text-orange-600 dark:text-orange-400">
             생활·주거 계산기 모음
           </Link>
         </p>

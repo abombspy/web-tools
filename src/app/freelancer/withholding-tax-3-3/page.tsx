@@ -13,7 +13,7 @@ export default function WithholdingTax33Page() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">3.3% 원천징수 역산 계산기</h1>
+      <h1 className="text-2xl font-extrabold">3.3% 원천징수 역산 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>3.3%는 어디서 나온 숫자인가요?</h2>
@@ -35,7 +35,7 @@ export default function WithholdingTax33Page() {
           소득세를 먼저 계산한 뒤 그 10%로 지방소득세를 구합니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용입니다. 간이과세자·면세사업자 등 예외가 적용되는 경우 실제
           원천징수액이 다를 수 있습니다.
         </p>
@@ -48,11 +48,11 @@ export default function WithholdingTax33Page() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/freelancer/vat" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/freelancer/vat" className="font-medium text-orange-600 dark:text-orange-400">
             부가세 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/freelancer" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/freelancer" className="font-medium text-orange-600 dark:text-orange-400">
             프리랜서·사업자 계산기 모음
           </Link>
         </p>

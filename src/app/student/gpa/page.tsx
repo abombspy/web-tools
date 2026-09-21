@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function GpaPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">학점 평균(GPA) 계산기</h1>
+      <h1 className="text-2xl font-extrabold">학점 평균(GPA) 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -24,7 +24,7 @@ export default function GpaPage() {
           4.3/4.5를 곱한 값입니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           학교마다 등급 점수 배점(A+ 4.5 또는 4.3 등)이나 P/F 과목 처리 방식이 다를 수 있으니,
           정확한 값은 학교 성적표를 확인하세요.
         </p>
@@ -35,7 +35,7 @@ export default function GpaPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/student" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/student" className="font-medium text-orange-600 dark:text-orange-400">
             학생·수험생 계산기 모음
           </Link>
         </p>

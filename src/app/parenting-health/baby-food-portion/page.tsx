@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function BabyFoodPortionPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">이유식 단계별 양 계산기</h1>
+      <h1 className="text-2xl font-extrabold">이유식 단계별 양 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>이유식 4단계</h2>
@@ -21,7 +21,7 @@ export default function BabyFoodPortionPage() {
           <li><strong>완료기(12~15개월)</strong>: 진밥·반찬, 하루 3회+간식, 1회 100~130g</li>
         </ul>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 표는 국가 공식 기준이 아니라 소아과·육아 정보 자료를 참고한 <strong>일반적인
           권장 범위</strong>입니다. 아기마다 발달 속도, 식욕, 소화 상태가 달라 이 범위와
           차이가 있을 수 있으며, 알레르기 반응이나 특이사항이 있다면 소아과 전문의와
@@ -36,7 +36,7 @@ export default function BabyFoodPortionPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/parenting-health" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/parenting-health" className="font-medium text-orange-600 dark:text-orange-400">
             육아·건강 계산기 모음
           </Link>
         </p>

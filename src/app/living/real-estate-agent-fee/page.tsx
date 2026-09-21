@@ -13,7 +13,7 @@ export default function RealEstateAgentFeePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">중개수수료 계산기</h1>
+      <h1 className="text-2xl font-extrabold">중개수수료 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -27,7 +27,7 @@ export default function RealEstateAgentFeePage() {
           보증금 + (월세 × 100), 단 그 합이 5천만원 미만이면 보증금 + (월세 × 70)을 씁니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 요율표는 서울시 공식 자료 기준입니다. 대부분 지자체가 같은 표준 요율표를
           쓰지만, 지역에 따라 다를 수 있으니 정확한 값은 해당 지역 조례나 부동산 중개사에게
           확인하세요. 표시된 금액은 상한액이며, 부가세는 별도입니다.
@@ -43,12 +43,12 @@ export default function RealEstateAgentFeePage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/living/jeonse-to-monthly-rent"
-            className="font-medium text-blue-600 dark:text-blue-400"
+            className="font-medium text-orange-600 dark:text-orange-400"
           >
             전월세 전환율 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/living" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/living" className="font-medium text-orange-600 dark:text-orange-400">
             생활·주거 계산기 모음
           </Link>
         </p>

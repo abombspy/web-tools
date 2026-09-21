@@ -70,11 +70,11 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="mb-4 flex flex-col gap-1 text-sm">
         계산 방향
         <select
-          className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+          className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={mode}
           onChange={(e) => setMode(e.target.value as Mode)}
         >
@@ -90,7 +90,7 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="numeric"
-              className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={salePrice}
               onChange={(e) => setSalePrice(e.target.value)}
               min={0}
@@ -102,7 +102,7 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="decimal"
-              className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={targetMarginPercent}
               onChange={(e) => setTargetMarginPercent(e.target.value)}
               min={0}
@@ -115,7 +115,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={costPrice}
             onChange={(e) => setCostPrice(e.target.value)}
             min={0}
@@ -126,7 +126,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={commissionPercent}
             onChange={(e) => setCommissionPercent(e.target.value)}
             min={0}
@@ -138,7 +138,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={paymentFeePercent}
             onChange={(e) => setPaymentFeePercent(e.target.value)}
             min={0}
@@ -150,7 +150,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={shippingCost}
             onChange={(e) => setShippingCost(e.target.value)}
             min={0}
@@ -168,7 +168,7 @@ export default function Calculator() {
       {calcError && <p className="mt-4 text-sm text-red-600 dark:text-red-400">{calcError}</p>}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           {mode === "fromTargetMargin" && (
             <div>
               <p className="text-sm text-zinc-500">필요 판매가</p>
@@ -178,7 +178,7 @@ export default function Calculator() {
           <p className="text-sm text-zinc-500">순이익 / 마진율</p>
           <p className="text-3xl font-bold">
             {result.netProfit.toLocaleString()}원{" "}
-            <span className="text-xl text-blue-600 dark:text-blue-400">
+            <span className="text-xl text-orange-600 dark:text-orange-400">
               ({(result.marginRate * 100).toFixed(1)}%)
             </span>
           </p>

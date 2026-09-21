@@ -13,7 +13,7 @@ export default function ElectricityBillPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">전기요금 계산기</h1>
+      <h1 className="text-2xl font-extrabold">전기요금 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>누진제란?</h2>
@@ -27,7 +27,7 @@ export default function ElectricityBillPage() {
           완화됩니다(1단계 200→300kWh, 2단계 400→450kWh).
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 요금표는 여러 자료를 교차 검색해 모은 참고치이며, 정확한 값은 한전
           ON(한국전력)에서 확인하세요. 부가세(10%)와 전력산업기반기금(3.7%)은 추정치로만
           더했으며, 실제 청구서의 10원 단위 절사 규칙까지는 반영하지 않았습니다.
@@ -41,7 +41,7 @@ export default function ElectricityBillPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/living" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/living" className="font-medium text-orange-600 dark:text-orange-400">
             생활·주거 계산기 모음
           </Link>
         </p>

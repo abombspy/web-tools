@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AlcoholDetoxTimePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">음주 후 해독 시간 추정기</h1>
+      <h1 className="text-2xl font-extrabold">음주 후 해독 시간 추정기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -27,7 +27,7 @@ export default function AlcoholDetoxTimePage() {
           같은 체중·음주량에서 BAC가 더 높게 나옵니다).
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기는 <strong>참고용 추정치</strong>입니다. 실제 알코올 분해 속도는 체질, 간
           기능, 공복 여부, 복용 중인 약물 등에 따라 개인차가 매우 큽니다. 이 결과를 운전 가능
           여부 판단 등에 사용하지 마세요.
@@ -41,7 +41,7 @@ export default function AlcoholDetoxTimePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/parenting-health" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/parenting-health" className="font-medium text-orange-600 dark:text-orange-400">
             육아·건강 계산기 모음
           </Link>
         </p>

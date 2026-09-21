@@ -67,14 +67,14 @@ export default function Calculator({ minimumWage, rates }: Props) {
       : null;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           시급 (원)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={hourlyWage}
             onChange={(e) => setHourlyWage(e.target.value)}
             min={0}
@@ -95,7 +95,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={base.value}
             onChange={(e) => base.setValue(e.target.value)}
             min={0}
@@ -106,7 +106,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={overtime.value}
             onChange={(e) => overtime.setValue(e.target.value)}
             min={0}
@@ -117,7 +117,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={night.value}
             onChange={(e) => night.setValue(e.target.value)}
             min={0}
@@ -128,7 +128,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={holidayNormal.value}
             onChange={(e) => holidayNormal.setValue(e.target.value)}
             min={0}
@@ -139,7 +139,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={holidayExcess.value}
             onChange={(e) => holidayExcess.setValue(e.target.value)}
             min={0}
@@ -168,7 +168,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-6 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-6 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <div>
             <p className="text-sm text-zinc-500">세전 총지급액</p>
             <p className="text-3xl font-bold">{result.grossPay.toLocaleString()}원</p>
@@ -210,7 +210,7 @@ export default function Calculator({ minimumWage, rates }: Props) {
             {result.netPay !== null ? (
               <>
                 <p className="text-sm text-zinc-500">예상 실수령액 (소득세 0원 구간)</p>
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                <p className="text-3xl font-bold text-orange-600 dark:text-orange-400">
                   {result.netPay.toLocaleString()}원
                 </p>
               </>

@@ -27,11 +27,11 @@ export default function Calculator() {
     mode === "toeicToOpic" && blockingErrors.length === 0 ? findOpicLevelForToeic(toeicScoreNum) : null;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="mb-4 flex flex-col gap-1 text-sm">
         변환 방향
         <select
-          className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+          className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={mode}
           onChange={(e) => setMode(e.target.value as Mode)}
         >
@@ -44,7 +44,7 @@ export default function Calculator() {
         <label className="flex flex-col gap-1 text-sm">
           OPIc 레벨
           <select
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={opicLevel}
             onChange={(e) => setOpicLevel(e.target.value as OpicLevel)}
           >
@@ -61,7 +61,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={toeicScore}
             onChange={(e) => setToeicScore(e.target.value)}
             min={0}
@@ -79,7 +79,7 @@ export default function Calculator() {
       )}
 
       {toeicResult && (
-        <div className="mt-6 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">환산 TOEIC 점수 (부여점수)</p>
           <p className="text-3xl font-bold">{toeicResult.toeicAverage}점</p>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -89,7 +89,7 @@ export default function Calculator() {
       )}
 
       {mode === "toeicToOpic" && blockingErrors.length === 0 && (
-        <div className="mt-6 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           {opicResult ? (
             <>
               <p className="text-sm text-zinc-500">환산 OPIc 레벨</p>

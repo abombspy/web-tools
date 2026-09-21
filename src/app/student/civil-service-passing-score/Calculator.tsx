@@ -43,13 +43,13 @@ export default function Calculator() {
   const result = blockingErrors.length === 0 ? compareCivilServiceScore(myScoreNum, cutoffs) : null;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="flex flex-col gap-1 text-sm">
         본인 예상 점수
         <input
           type="number"
           inputMode="decimal"
-          className="w-40 rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+          className="w-40 rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={myScore}
           onChange={(e) => setMyScore(e.target.value)}
           min={0}
@@ -62,7 +62,7 @@ export default function Calculator() {
           <div key={row.id} className="flex items-center gap-3">
             <input
               type="text"
-              className="w-24 rounded border border-black/20 px-2 py-1.5 text-sm dark:border-white/20 dark:bg-transparent"
+              className="w-24 rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={row.year}
               onChange={(e) => updateRow(row.id, { year: e.target.value })}
               placeholder="연도 (예: 2025)"
@@ -70,7 +70,7 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="decimal"
-              className="w-28 rounded border border-black/20 px-2 py-1.5 text-sm dark:border-white/20 dark:bg-transparent"
+              className="w-28 rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={row.score}
               onChange={(e) => updateRow(row.id, { score: e.target.value })}
               placeholder="합격선 점수"
@@ -89,7 +89,7 @@ export default function Calculator() {
         <button
           type="button"
           onClick={addRow}
-          className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+          className="text-sm font-medium text-orange-600 hover:underline dark:text-orange-400"
         >
           + 연도 추가
         </button>
@@ -104,7 +104,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">과거 합격선 평균 대비 격차</p>
           <p className="text-3xl font-bold">
             {result.gapFromAverage >= 0 ? "+" : ""}

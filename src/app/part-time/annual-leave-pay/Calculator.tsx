@@ -44,13 +44,13 @@ export default function Calculator() {
   const usedMoreThanAccrued = result !== null && usedDaysNum > result.accruedDays;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           입사일
           <input
             type="date"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={hireDate}
             onChange={(e) => setHireDate(e.target.value)}
           />
@@ -59,7 +59,7 @@ export default function Calculator() {
           기준일 (연차를 정산할 날짜)
           <input
             type="date"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={asOfDate}
             onChange={(e) => setAsOfDate(e.target.value)}
           />
@@ -69,7 +69,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={monthlyWage}
             onChange={(e) => setMonthlyWage(e.target.value)}
             min={0}
@@ -81,7 +81,7 @@ export default function Calculator() {
             type="number"
             inputMode="decimal"
             step="0.5"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={usedDays}
             onChange={(e) => setUsedDays(e.target.value)}
             min={0}
@@ -105,7 +105,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">예상 연차수당</p>
           <p className="text-3xl font-bold">{result.annualLeavePay.toLocaleString()}원</p>
           <ul className="mt-2 space-y-0.5 text-sm text-zinc-600 dark:text-zinc-400">

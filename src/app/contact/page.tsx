@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">문의</h1>
+      <h1 className="text-2xl font-extrabold">문의</h1>
 
       <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert">
         <p>계산 오류 제보, 새로운 계산기 제안, 광고/제휴 문의는 아래 이메일로 보내주세요.</p>

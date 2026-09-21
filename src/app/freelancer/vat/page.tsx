@@ -13,7 +13,7 @@ export default function VatPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">부가세 계산기</h1>
+      <h1 className="text-2xl font-extrabold">부가세 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -30,7 +30,7 @@ export default function VatPage() {
           사용하세요.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기는 일반과세자(10%) 기준입니다. 간이과세자는 업종별로 부가세율이 다르게
           적용되므로 이 계산기의 결과와 다를 수 있습니다.
         </p>
@@ -45,12 +45,12 @@ export default function VatPage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/freelancer/withholding-tax-3-3"
-            className="font-medium text-blue-600 dark:text-blue-400"
+            className="font-medium text-orange-600 dark:text-orange-400"
           >
             3.3% 원천징수 역산 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/freelancer" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/freelancer" className="font-medium text-orange-600 dark:text-orange-400">
             프리랜서·사업자 계산기 모음
           </Link>
         </p>

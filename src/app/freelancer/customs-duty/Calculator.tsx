@@ -47,14 +47,14 @@ export default function Calculator({ rates }: { rates: CustomsDutyRates }) {
       : null;
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           물품가격 (달러)
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={itemPriceUsd}
             onChange={(e) => setItemPriceUsd(e.target.value)}
             min={0}
@@ -65,7 +65,7 @@ export default function Calculator({ rates }: { rates: CustomsDutyRates }) {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={shippingFeeUsd}
             onChange={(e) => setShippingFeeUsd(e.target.value)}
             min={0}
@@ -76,7 +76,7 @@ export default function Calculator({ rates }: { rates: CustomsDutyRates }) {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={exchangeRate}
             onChange={(e) => setExchangeRate(e.target.value)}
             min={0}
@@ -87,7 +87,7 @@ export default function Calculator({ rates }: { rates: CustomsDutyRates }) {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={dutyRatePercent}
             onChange={(e) => setDutyRatePercent(e.target.value)}
             min={0}
@@ -121,7 +121,7 @@ export default function Calculator({ rates }: { rates: CustomsDutyRates }) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t border-black/10 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
           {result.isDutyFree ? (
             <>
               <p className="text-sm text-zinc-500">

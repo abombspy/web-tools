@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function CivilServicePassingScorePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">공무원 시험 합격선 비교 도구</h1>
+      <h1 className="text-2xl font-extrabold">공무원 시험 합격선 비교 도구</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>왜 &ldquo;예측기&rdquo;가 아니라 &ldquo;비교 도구&rdquo;인가요?</h2>
@@ -27,7 +27,7 @@ export default function CivilServicePassingScorePage() {
           계산해 줍니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           합격선은 매년 시험 난이도, 지원자 수, 정원에 따라 크게 달라집니다. 과거 데이터와의
           단순 비교가 미래 합격 여부를 보장하지 않습니다.
         </p>
@@ -38,7 +38,7 @@ export default function CivilServicePassingScorePage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/student" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/student" className="font-medium text-orange-600 dark:text-orange-400">
             학생·수험생 계산기 모음
           </Link>
         </p>

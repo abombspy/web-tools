@@ -13,7 +13,7 @@ export default function DeliveryRiderNetIncomePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">배달 라이더 순수익 계산기</h1>
+      <h1 className="text-2xl font-extrabold">배달 라이더 순수익 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -28,7 +28,7 @@ export default function DeliveryRiderNetIncomePage() {
           <strong>본인이 실제로 확인한 수수료율을 직접 입력</strong>하도록 만들었습니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용입니다. 보험료(유상운송보험 등), 4대보험 가입 여부에 따른
           공제는 반영하지 않습니다.
         </p>
@@ -43,12 +43,12 @@ export default function DeliveryRiderNetIncomePage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/freelancer/withholding-tax-3-3"
-            className="font-medium text-blue-600 dark:text-blue-400"
+            className="font-medium text-orange-600 dark:text-orange-400"
           >
             3.3% 원천징수 역산 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/freelancer" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/freelancer" className="font-medium text-orange-600 dark:text-orange-400">
             프리랜서·사업자 계산기 모음
           </Link>
         </p>

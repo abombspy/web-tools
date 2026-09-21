@@ -67,13 +67,13 @@ export default function Calculator() {
       : [];
 
   return (
-    <div className="mt-8 rounded-lg border border-black/10 p-6 dark:border-white/10">
+    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           입사일
           <input
             type="date"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={hireDate}
             onChange={(e) => setHireDate(e.target.value)}
           />
@@ -83,7 +83,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={monthlyWage}
             onChange={(e) => setMonthlyWage(e.target.value)}
             min={0}
@@ -102,7 +102,7 @@ export default function Calculator() {
         </ul>
       )}
 
-      <div className="mt-6 border-t border-black/10 pt-6 dark:border-white/10">
+      <div className="mt-6 border-t-2 border-orange-100 pt-6 dark:border-white/10">
         <p className="mb-3 text-sm font-medium">비교할 퇴사 예정일</p>
         <div className="space-y-3">
           {rows.length === 0 && blockingErrors.length === 0 && (
@@ -121,7 +121,7 @@ export default function Calculator() {
                     <input
                       id={`${formId}-${idx}`}
                       type="date"
-                      className="rounded border border-black/20 px-3 py-2 dark:border-white/20 dark:bg-transparent"
+                      className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
                       value={c.date}
                       onChange={(e) => updateCandidateDate(c.id, e.target.value)}
                     />
@@ -171,7 +171,7 @@ export default function Calculator() {
         <button
           type="button"
           onClick={addCandidate}
-          className="mt-3 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+          className="mt-3 text-sm font-medium text-orange-600 hover:underline dark:text-orange-400"
         >
           + 비교할 날짜 추가
         </button>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AnnualLeavePayPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-bold">연차수당 계산기</h1>
+      <h1 className="text-2xl font-extrabold">연차수당 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>연차는 몇 일 발생하나요?</h2>
@@ -36,7 +36,7 @@ export default function AnnualLeavePayPage() {
           않습니다.
         </p>
 
-        <p className="rounded-md bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
+        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
           이 계산기의 결과는 참고용 모의 계산입니다. 실제 연차 발생·사용 내역은 회사 취업규칙,
           결근·휴직 여부에 따라 달라질 수 있으니 정확한 값은 회사 인사팀에 확인하세요.
         </p>
@@ -51,12 +51,12 @@ export default function AnnualLeavePayPage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/part-time/resignation-date-comparison"
-            className="font-medium text-blue-600 dark:text-blue-400"
+            className="font-medium text-orange-600 dark:text-orange-400"
           >
             퇴사 시점 비교 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/part-time" className="font-medium text-blue-600 dark:text-blue-400">
+          <Link href="/part-time" className="font-medium text-orange-600 dark:text-orange-400">
             알바·직장인 계산기 모음
           </Link>
         </p>
