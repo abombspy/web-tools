@@ -30,14 +30,12 @@ export default function HeaderNav({ categories }: { categories: CalculatorCatego
     <nav
       key={pathname}
       ref={navRef}
-      className="flex flex-wrap items-center gap-1 text-sm text-zinc-600 dark:text-zinc-400"
+      className="flex flex-wrap items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400"
     >
       {categories.map((c) => (
         <details key={c.slug} name="header-nav" className="group relative">
-          <summary
-            className={`cursor-pointer list-none rounded-full px-3 py-1.5 font-semibold transition ${c.theme.badgeBg} ${c.theme.badgeText} ${c.theme.badgeHoverBg}`}
-          >
-            {c.icon} {c.name}
+          <summary className="cursor-pointer list-none rounded px-1 py-1 font-medium hover:text-orange-500">
+            {c.name}
           </summary>
           <div className="absolute left-0 z-10 mt-2 w-64 rounded-2xl border border-zinc-100 bg-white p-2 shadow-xl dark:border-white/10 dark:bg-zinc-900">
             <Link
@@ -60,11 +58,11 @@ export default function HeaderNav({ categories }: { categories: CalculatorCatego
           </div>
         </details>
       ))}
-      <Link href="/about" className="rounded-full px-3 py-1.5 font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/10">
-        ✨ 소개
+      <Link href="/about" className="rounded px-1 py-1 font-medium hover:text-orange-500">
+        소개
       </Link>
-      <Link href="/contact" className="rounded-full px-3 py-1.5 font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/10">
-        💌 문의
+      <Link href="/contact" className="rounded px-1 py-1 font-medium hover:text-orange-500">
+        문의
       </Link>
     </nav>
   );
