@@ -2,7 +2,9 @@
 
 세금·급여·생활 계산을 위한 무료 계산기 모음. 각 계산기는 계산 원리와 법적 근거를 함께 설명한다.
 
-- 서비스 주소(예정): https://web-tools.gssystems.co.kr (도메인 연결 전 임시 주소: https://abombspy.github.io/web-tools/)
+- **현재 배포 중인 주소(임시)**: https://abombspy.github.io/web-tools/ — 이 저장소를 GitHub Pages로 배포한 실제 서비스 주소. `main` 브랜치에 push하면 자동 재배포된다.
+- **확정된 정식 주소(아직 미연결)**: https://web-tools.gssystems.co.kr — `gssystems.co.kr` 서브도메인으로 연결 예정(DNS 작업은 보류 중). 연결 전까지 사이트 내 메타데이터(sitemap, OG 태그 등)는 이미 이 주소를 기준으로 생성되고 있음.
+- 애드센스 사이트 소유권 확인용 루트 저장소: https://github.com/abombspy/abombspy.github.io → https://abombspy.github.io/ (실제 서비스는 없고 확인 스크립트·`ads.txt`·`/web-tools/`로의 리다이렉트만 있음)
 - 기획 문서: [`.docs/plan.md`](.docs/plan.md) — 메뉴별 개발 근거, 미결정 사항, 진행 현황
 - UI 개선 기록: [`.docs/ui-plan.md`](.docs/ui-plan.md)
 - 계산기별 검증 로그: [`.docs/verification-checklist.md`](.docs/verification-checklist.md)
