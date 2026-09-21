@@ -28,9 +28,9 @@ export default function Calculator() {
     const info = getMbtiTypeInfo(type);
 
     return (
-      <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 text-center shadow-sm dark:border-white/10 dark:bg-zinc-900">
+      <div className="mt-8 rounded-2xl border-2 border-violet-100 bg-white p-6 text-center shadow-sm dark:border-white/10 dark:bg-zinc-900">
         <p className="text-sm text-zinc-500">당신의 유형은</p>
-        <p className="text-5xl font-bold text-orange-600 dark:text-orange-400">{type}</p>
+        <p className="text-5xl font-bold text-violet-600 dark:text-violet-400">{type}</p>
         {info && (
           <>
             <p className="mt-2 text-lg font-semibold">{info.nickname}</p>
@@ -58,7 +58,7 @@ export default function Calculator() {
         <button
           type="button"
           onClick={restart}
-          className="mt-6 rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500"
+          className="mt-6 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
         >
           다시 하기
         </button>
@@ -67,7 +67,7 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-violet-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="mb-4 h-2 w-full overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
         <div
           className="h-full bg-blue-600 dark:bg-blue-400"
@@ -82,14 +82,14 @@ export default function Calculator() {
         <button
           type="button"
           onClick={() => answer(currentQuestion.optionA.letter)}
-          className="rounded-2xl border-2 border-orange-100 bg-white px-4 py-3 text-left text-sm shadow-sm transition hover:border-orange-300 hover:bg-orange-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-white/5"
+          className="rounded-2xl border-2 border-violet-100 bg-white px-4 py-3 text-left text-sm shadow-sm transition hover:border-violet-300 hover:bg-violet-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-white/5"
         >
           {currentQuestion.optionA.text}
         </button>
         <button
           type="button"
           onClick={() => answer(currentQuestion.optionB.letter)}
-          className="rounded-2xl border-2 border-orange-100 bg-white px-4 py-3 text-left text-sm shadow-sm transition hover:border-orange-300 hover:bg-orange-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-white/5"
+          className="rounded-2xl border-2 border-violet-100 bg-white px-4 py-3 text-left text-sm shadow-sm transition hover:border-violet-300 hover:bg-violet-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-white/5"
         >
           {currentQuestion.optionB.text}
         </button>

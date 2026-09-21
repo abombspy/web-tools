@@ -30,12 +30,12 @@ export default function Calculator({ rates }: { rates: WithholdingTaxRates }) {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-rose-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
         <label className="flex flex-col gap-1 text-sm">
           입력 기준
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-rose-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={mode}
             onChange={(e) => setMode(e.target.value as Mode)}
           >
@@ -48,7 +48,7 @@ export default function Calculator({ rates }: { rates: WithholdingTaxRates }) {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-rose-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             min={0}
@@ -65,7 +65,7 @@ export default function Calculator({ rates }: { rates: WithholdingTaxRates }) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-rose-100 pt-6 dark:border-white/10">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-zinc-500">세전 금액</p>
@@ -73,7 +73,7 @@ export default function Calculator({ rates }: { rates: WithholdingTaxRates }) {
             </div>
             <div>
               <p className="text-sm text-zinc-500">세후 실지급액</p>
-              <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+              <p className="text-2xl font-bold text-rose-600 dark:text-rose-400">
                 {result.netAmount.toLocaleString()}원
               </p>
             </div>

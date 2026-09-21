@@ -58,12 +58,12 @@ export default function Calculator() {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-emerald-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           성별
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={sex}
             onChange={(e) => setSex(e.target.value as Sex)}
           >
@@ -76,7 +76,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={age}
             onChange={(e) => setAge(e.target.value)}
             min={0}
@@ -87,7 +87,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={heightCm}
             onChange={(e) => setHeightCm(e.target.value)}
             min={0}
@@ -98,7 +98,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={weightKg}
             onChange={(e) => setWeightKg(e.target.value)}
             min={0}
@@ -107,7 +107,7 @@ export default function Calculator() {
         <label className="flex flex-col gap-1 text-sm sm:col-span-2">
           활동 수준
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={activityLevel}
             onChange={(e) => setActivityLevel(e.target.value as ActivityLevel)}
           >
@@ -121,7 +121,7 @@ export default function Calculator() {
         <label className="flex flex-col gap-1 text-sm sm:col-span-2">
           목표
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
           >
@@ -143,7 +143,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 grid grid-cols-1 gap-6 border-t-2 border-orange-100 pt-6 sm:grid-cols-2 dark:border-white/10">
+        <div className="mt-6 grid grid-cols-1 gap-6 border-t-2 border-emerald-100 pt-6 sm:grid-cols-2 dark:border-white/10">
           <div>
             <p className="text-sm text-zinc-500">BMI (체질량지수)</p>
             <p className="text-2xl font-bold">

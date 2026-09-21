@@ -44,11 +44,11 @@ export default function Calculator() {
   const csatGrade = mode === "csat" && blockingErrors.length === 0 ? calculateCsatGrade(percentileNum) : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-indigo-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="mb-4 flex flex-col gap-1 text-sm">
         구분
         <select
-          className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+          className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={mode}
           onChange={(e) => setMode(e.target.value as Mode)}
         >
@@ -62,7 +62,7 @@ export default function Calculator() {
           <label className="flex flex-col gap-1 text-sm">
             등급제
             <select
-              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={system}
               onChange={(e) => setSystem(e.target.value as GradeSystem)}
             >
@@ -75,7 +75,7 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={rank}
               onChange={(e) => setRank(e.target.value)}
               min={0}
@@ -86,7 +86,7 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={totalStudents}
               onChange={(e) => setTotalStudents(e.target.value)}
               min={0}
@@ -99,7 +99,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={percentile}
             onChange={(e) => setPercentile(e.target.value)}
             min={0}
@@ -117,7 +117,7 @@ export default function Calculator() {
       )}
 
       {schoolResult && (
-        <div className="mt-6 space-y-2 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-2 border-t-2 border-indigo-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">등급</p>
           <p className="text-3xl font-bold">{schoolResult.grade}등급</p>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -127,7 +127,7 @@ export default function Calculator() {
       )}
 
       {csatGrade !== null && (
-        <div className="mt-6 space-y-2 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-2 border-t-2 border-indigo-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">등급</p>
           <p className="text-3xl font-bold">{csatGrade}등급</p>
         </div>

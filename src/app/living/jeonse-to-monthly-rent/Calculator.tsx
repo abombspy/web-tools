@@ -42,14 +42,14 @@ export default function Calculator() {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-sky-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           기존 전세보증금 (원)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={jeonseDeposit}
             onChange={(e) => setJeonseDeposit(e.target.value)}
             min={0}
@@ -60,7 +60,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={newDeposit}
             onChange={(e) => setNewDeposit(e.target.value)}
             min={0}
@@ -71,7 +71,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={baseRatePercent}
             onChange={(e) => setBaseRatePercent(e.target.value)}
             min={0}
@@ -85,7 +85,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={appliedRatePercent}
             onChange={(e) => setAppliedRatePercent(e.target.value)}
             min={0}
@@ -102,7 +102,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-sky-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">적용 전환율 기준 월세</p>
           <p className="text-3xl font-bold">{result.appliedMonthlyRent.toLocaleString()}원</p>
           <ul className="mt-2 space-y-0.5 text-sm text-zinc-600 dark:text-zinc-400">

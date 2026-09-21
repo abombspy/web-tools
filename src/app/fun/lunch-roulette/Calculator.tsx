@@ -35,7 +35,7 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-violet-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <p className="mb-2 text-sm font-medium">카테고리 선택</p>
       <div className="flex flex-wrap gap-3">
         {LUNCH_CATEGORIES.map((category) => (
@@ -53,7 +53,7 @@ export default function Calculator() {
       <button
         type="button"
         onClick={spin}
-        className="mt-4 rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500"
+        className="mt-4 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
       >
         오늘의 점심 뽑기
       </button>
@@ -61,9 +61,9 @@ export default function Calculator() {
       {error && <p className="mt-4 text-sm text-red-600 dark:text-red-400">{error}</p>}
 
       {result && (
-        <div className="mt-6 border-t-2 border-orange-100 pt-6 text-center dark:border-white/10">
+        <div className="mt-6 border-t-2 border-violet-100 pt-6 text-center dark:border-white/10">
           <p className="text-sm text-zinc-500">오늘의 점심은</p>
-          <p className="text-4xl font-bold text-orange-600 dark:text-orange-400">{result}</p>
+          <p className="text-4xl font-bold text-violet-600 dark:text-violet-400">{result}</p>
         </div>
       )}
     </div>

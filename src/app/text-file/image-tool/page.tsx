@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ImageToolPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">이미지 압축·리사이즈·포맷 변환</h1>
+      <h1 className="text-2xl font-extrabold">🖼️ 이미지 압축·리사이즈·포맷 변환</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <p>
@@ -28,7 +28,7 @@ export default function ImageToolPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 도구:{" "}
-          <Link href="/text-file" className="font-medium text-orange-600 dark:text-orange-400">
+          <Link href="/text-file" className="font-medium text-teal-600 dark:text-teal-400">
             텍스트·파일 도구 모음
           </Link>
         </p>

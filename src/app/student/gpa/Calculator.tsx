@@ -35,7 +35,7 @@ export default function Calculator() {
   const result = blockingErrors.length === 0 ? calculateGpa(courses) : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-indigo-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="space-y-3">
         {rows.map((row, idx) => (
           <div key={row.id} className="flex items-center gap-3">
@@ -43,14 +43,14 @@ export default function Calculator() {
             <input
               type="number"
               inputMode="numeric"
-              className="w-20 rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="w-20 rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={row.credit}
               onChange={(e) => updateRow(row.id, { credit: e.target.value })}
               min={0}
               placeholder="학점"
             />
             <select
-              className="rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-2 py-1.5 text-sm focus:border-indigo-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={row.grade}
               onChange={(e) => updateRow(row.id, { grade: e.target.value as LetterGrade })}
             >
@@ -76,7 +76,7 @@ export default function Calculator() {
       <button
         type="button"
         onClick={addRow}
-        className="mt-3 text-sm font-medium text-orange-600 hover:underline dark:text-orange-400"
+        className="mt-3 text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-400"
       >
         + 과목 추가
       </button>
@@ -90,7 +90,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 grid grid-cols-3 gap-4 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 grid grid-cols-3 gap-4 border-t-2 border-indigo-100 pt-6 dark:border-white/10">
           <div>
             <p className="text-sm text-zinc-500">4.5 만점</p>
             <p className="text-2xl font-bold">{result.gpa45}</p>

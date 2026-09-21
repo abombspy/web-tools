@@ -13,7 +13,7 @@ export default function WeeklyHolidayPayPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">주휴수당 계산기</h1>
+      <h1 className="text-2xl font-extrabold">🏖️ 주휴수당 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>주휴수당이란?</h2>

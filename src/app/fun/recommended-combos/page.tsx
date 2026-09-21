@@ -68,7 +68,7 @@ const COMBOS = [
 export default function RecommendedCombosPage() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">추천 조합</h1>
+      <h1 className="text-2xl font-extrabold">✨ 추천 조합</h1>
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         상황별로 함께 쓰면 좋은 계산기들을 모아뒀습니다.
       </p>
@@ -86,7 +86,7 @@ export default function RecommendedCombosPage() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-orange-600 hover:underline dark:text-orange-400"
+                    className="text-sm font-medium text-violet-600 hover:underline dark:text-violet-400"
                   >
                     {link.name} →
                   </Link>
@@ -100,7 +100,7 @@ export default function RecommendedCombosPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           전체 도구는{" "}
-          <Link href="/" className="font-medium text-orange-600 dark:text-orange-400">
+          <Link href="/" className="font-medium text-violet-600 dark:text-violet-400">
             홈
           </Link>
           에서 카테고리별로 확인할 수 있습니다.

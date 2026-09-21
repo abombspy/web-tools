@@ -39,11 +39,11 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-teal-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="mb-4 flex flex-col gap-1 text-sm">
         변환 방향
         <select
-          className="w-56 rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+          className="w-56 rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
           value={mode}
           onChange={(e) => switchMode(e.target.value as Mode)}
         >
@@ -56,7 +56,7 @@ export default function Calculator() {
         <div>
           <p className="mb-1 text-xs text-zinc-500">입력</p>
           <textarea
-            className="h-64 w-full resize-y rounded-xl border-2 border-zinc-200 p-3 font-mono text-xs focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="h-64 w-full resize-y rounded-xl border-2 border-zinc-200 p-3 font-mono text-xs focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
@@ -77,7 +77,7 @@ export default function Calculator() {
         <button
           type="button"
           onClick={downloadOutput}
-          className="mt-4 rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500"
+          className="mt-4 rounded-full bg-teal-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-teal-500"
         >
           결과 파일 다운로드
         </button>

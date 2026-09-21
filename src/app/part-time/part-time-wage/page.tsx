@@ -21,7 +21,7 @@ export default function PartTimeWagePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">알바 월급 계산기</h1>
+      <h1 className="text-2xl font-extrabold">💰 알바 월급 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>무엇을 계산하나요?</h2>

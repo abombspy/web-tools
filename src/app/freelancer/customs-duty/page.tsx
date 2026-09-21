@@ -13,7 +13,7 @@ export default function CustomsDutyPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">해외직구 관세 계산기</h1>
+      <h1 className="text-2xl font-extrabold">✈️ 해외직구 관세 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>면세한도</h2>
@@ -52,7 +52,7 @@ export default function CustomsDutyPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/freelancer" className="font-medium text-orange-600 dark:text-orange-400">
+          <Link href="/freelancer" className="font-medium text-rose-600 dark:text-rose-400">
             프리랜서·사업자 계산기 모음
           </Link>
         </p>

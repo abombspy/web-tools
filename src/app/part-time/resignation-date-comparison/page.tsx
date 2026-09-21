@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ResignationDateComparisonPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">퇴사 시점 비교 계산기</h1>
+      <h1 className="text-2xl font-extrabold">📦 퇴사 시점 비교 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>무엇을 계산하나요?</h2>

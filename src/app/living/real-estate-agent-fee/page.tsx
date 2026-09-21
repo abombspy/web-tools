@@ -13,7 +13,7 @@ export default function RealEstateAgentFeePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">중개수수료 계산기</h1>
+      <h1 className="text-2xl font-extrabold">🤝 중개수수료 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>계산 방법</h2>
@@ -43,12 +43,12 @@ export default function RealEstateAgentFeePage() {
           함께 보면 좋은 계산기:{" "}
           <Link
             href="/living/jeonse-to-monthly-rent"
-            className="font-medium text-orange-600 dark:text-orange-400"
+            className="font-medium text-sky-600 dark:text-sky-400"
           >
             전월세 전환율 계산기
           </Link>{" "}
           ·{" "}
-          <Link href="/living" className="font-medium text-orange-600 dark:text-orange-400">
+          <Link href="/living" className="font-medium text-sky-600 dark:text-sky-400">
             생활·주거 계산기 모음
           </Link>
         </p>

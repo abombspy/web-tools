@@ -43,14 +43,14 @@ export default function Calculator({ rates, industries }: Props) {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-rose-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           연 매출(수입금액, 세전)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-rose-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={annualRevenue}
             onChange={(e) => setAnnualRevenue(e.target.value)}
             min={0}
@@ -59,7 +59,7 @@ export default function Calculator({ rates, industries }: Props) {
         <label className="flex flex-col gap-1 text-sm">
           업종
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-rose-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={industryCode}
             onChange={(e) => setIndustryCode(e.target.value)}
           >
@@ -77,7 +77,7 @@ export default function Calculator({ rates, industries }: Props) {
             <input
               type="number"
               inputMode="decimal"
-              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+              className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-rose-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
               value={customExpenseRate}
               onChange={(e) => setCustomExpenseRate(e.target.value)}
               min={0}
@@ -100,7 +100,7 @@ export default function Calculator({ rates, industries }: Props) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-rose-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">예상 산출세액 (지방소득세 별도)</p>
           <p className="text-3xl font-bold">{result.calculatedTax.toLocaleString()}원</p>
           <ul className="mt-2 space-y-0.5 text-sm text-zinc-600 dark:text-zinc-400">

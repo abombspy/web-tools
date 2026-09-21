@@ -82,7 +82,7 @@ export default function Calculator() {
   }
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-teal-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <label className="flex flex-col gap-1 text-sm">
         이미지 파일 선택 (최대 {MAX_FILE_SIZE_MB}MB)
         <input type="file" accept="image/*" onChange={handleFileChange} className="text-sm" />
@@ -93,7 +93,7 @@ export default function Calculator() {
           최대 가로(px)
           <input
             type="number"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={maxWidth}
             onChange={(e) => setMaxWidth(e.target.value)}
             min={1}
@@ -103,7 +103,7 @@ export default function Calculator() {
           최대 세로(px)
           <input
             type="number"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={maxHeight}
             onChange={(e) => setMaxHeight(e.target.value)}
             min={1}
@@ -112,7 +112,7 @@ export default function Calculator() {
         <label className="flex flex-col gap-1 text-sm">
           출력 포맷
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={format}
             onChange={(e) => setFormat(e.target.value as Format)}
           >
@@ -128,7 +128,7 @@ export default function Calculator() {
           <input
             type="number"
             step="0.1"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={quality}
             onChange={(e) => setQuality(e.target.value)}
             min={0.1}
@@ -142,7 +142,7 @@ export default function Calculator() {
         type="button"
         onClick={processImage}
         disabled={!originalFile || processing}
-        className="mt-4 rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500 disabled:opacity-50"
+        className="mt-4 rounded-full bg-teal-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-teal-500 disabled:opacity-50"
       >
         {processing ? "처리 중..." : "변환 실행"}
       </button>
@@ -152,7 +152,7 @@ export default function Calculator() {
       {error && <p className="mt-4 text-sm text-red-600 dark:text-red-400">{error}</p>}
 
       {resultUrl && resultSize !== null && originalFile && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-teal-100 pt-6 dark:border-white/10">
           {/* eslint-disable-next-line @next/next/no-img-element -- 사용자가 업로드한 임시 blob URL */}
           <img src={resultUrl} alt="변환된 이미지 미리보기" className="max-w-full rounded" />
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -163,7 +163,7 @@ export default function Calculator() {
           <a
             href={resultUrl}
             download={`converted.${format.split("/")[1]}`}
-            className="inline-block rounded-full bg-orange-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-orange-500"
+            className="inline-block rounded-full bg-teal-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-teal-500"
           >
             다운로드
           </a>

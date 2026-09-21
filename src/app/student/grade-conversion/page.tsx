@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function GradeConversionPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">내신·수능 등급 환산 계산기</h1>
+      <h1 className="text-2xl font-extrabold">📝 내신·수능 등급 환산 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>2026년은 내신 등급제 전환기입니다</h2>
@@ -53,7 +53,7 @@ export default function GradeConversionPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 계산기:{" "}
-          <Link href="/student" className="font-medium text-orange-600 dark:text-orange-400">
+          <Link href="/student" className="font-medium text-indigo-600 dark:text-indigo-400">
             학생·수험생 계산기 모음
           </Link>
         </p>

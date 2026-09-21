@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AnnualLeavePayPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
-      <h1 className="text-2xl font-extrabold">연차수당 계산기</h1>
+      <h1 className="text-2xl font-extrabold">🌴 연차수당 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         <h2>연차는 몇 일 발생하나요?</h2>

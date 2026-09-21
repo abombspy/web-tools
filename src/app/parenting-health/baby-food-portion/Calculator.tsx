@@ -26,13 +26,13 @@ export default function Calculator() {
   const stage = ageMonths !== null && blockingErrors.length === 0 ? findBabyFoodStage(ageMonths) : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-emerald-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           아기 생년월일
           <input
             type="date"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
           />
@@ -41,7 +41,7 @@ export default function Calculator() {
           기준일 (오늘 날짜)
           <input
             type="date"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-emerald-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={asOfDate}
             onChange={(e) => setAsOfDate(e.target.value)}
           />
@@ -57,7 +57,7 @@ export default function Calculator() {
       )}
 
       {stage && ageMonths !== null && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-emerald-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">현재 {ageMonths}개월 → 해당 단계</p>
           <p className="text-3xl font-bold">{stage.name}</p>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">{stage.description}</p>

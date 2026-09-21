@@ -31,14 +31,14 @@ export default function Calculator({ rates }: { rates: MovingCostRates }) {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-sky-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
           평수 (전용면적 기준, 평)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={pyeong}
             onChange={(e) => setPyeong(e.target.value)}
             min={0}
@@ -47,7 +47,7 @@ export default function Calculator({ rates }: { rates: MovingCostRates }) {
         <label className="flex flex-col gap-1 text-sm">
           이사 방식
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={method}
             onChange={(e) => setMethod(e.target.value as MovingMethod)}
           >
@@ -61,7 +61,7 @@ export default function Calculator({ rates }: { rates: MovingCostRates }) {
         <label className="flex flex-col gap-1 text-sm sm:col-span-2">
           사다리차가 필요한 곳 (출발지·도착지 중)
           <select
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={ladderTruckLocations}
             onChange={(e) => setLadderTruckLocations(Number(e.target.value))}
           >
@@ -81,7 +81,7 @@ export default function Calculator({ rates }: { rates: MovingCostRates }) {
       )}
 
       {result && (
-        <div className="mt-6 space-y-3 border-t-2 border-orange-100 pt-6 dark:border-white/10">
+        <div className="mt-6 space-y-3 border-t-2 border-sky-100 pt-6 dark:border-white/10">
           <p className="text-sm text-zinc-500">예상 이사 비용 (범위)</p>
           <p className="text-3xl font-bold">
             {result.estimateLow.toLocaleString()}원 ~ {result.estimateHigh.toLocaleString()}원

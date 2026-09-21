@@ -34,14 +34,14 @@ export default function Calculator() {
       : null;
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-sky-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <label className="flex flex-col gap-1 text-sm">
           대출금 (원)
           <input
             type="number"
             inputMode="numeric"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={principal}
             onChange={(e) => setPrincipal(e.target.value)}
             min={0}
@@ -52,7 +52,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={annualRatePercent}
             onChange={(e) => setAnnualRatePercent(e.target.value)}
             min={0}
@@ -63,7 +63,7 @@ export default function Calculator() {
           <input
             type="number"
             inputMode="decimal"
-            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+            className="rounded-xl border-2 border-zinc-200 px-3 py-2 focus:border-sky-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
             value={years}
             onChange={(e) => setYears(e.target.value)}
             min={0}
@@ -80,7 +80,7 @@ export default function Calculator() {
       )}
 
       {result && (
-        <div className="mt-6 grid grid-cols-1 gap-6 border-t-2 border-orange-100 pt-6 sm:grid-cols-2 dark:border-white/10">
+        <div className="mt-6 grid grid-cols-1 gap-6 border-t-2 border-sky-100 pt-6 sm:grid-cols-2 dark:border-white/10">
           <div>
             <p className="text-sm font-semibold">원리금균등상환</p>
             <p className="mt-1 text-xs text-zinc-500">매달 갚는 금액이 항상 동일</p>

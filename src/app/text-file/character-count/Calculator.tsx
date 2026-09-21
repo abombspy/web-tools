@@ -8,9 +8,9 @@ export default function Calculator() {
   const result = calculateCharacterCount(text);
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-orange-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+    <div className="mt-8 rounded-2xl border-2 border-teal-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
       <textarea
-        className="h-64 w-full resize-y rounded-xl border-2 border-zinc-200 p-3 text-sm focus:border-orange-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
+        className="h-64 w-full resize-y rounded-xl border-2 border-zinc-200 p-3 text-sm focus:border-teal-400 focus:outline-none dark:border-white/20 dark:bg-transparent"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="여기에 텍스트를 입력하거나 붙여넣으세요"
