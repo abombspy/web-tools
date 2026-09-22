@@ -82,12 +82,6 @@ export default function Header() {
               </div>
             </details>
           ))}
-          <Link href={isEnglish ? "/en/about" : "/about"} className="rounded px-1 py-1 font-medium hover:text-orange-500">
-            {isEnglish ? "About" : "소개"}
-          </Link>
-          <Link href={isEnglish ? "/en/contact" : "/contact"} className="rounded px-1 py-1 font-medium hover:text-orange-500">
-            {isEnglish ? "Contact" : "문의"}
-          </Link>
         </nav>
       </div>
     </header>

@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // 영문판(/en): 법률/세금 카테고리 제외, hasPageEn인 카테고리·nameEn 있는 도구만.
-  const enStaticPaths = ["/en", "/en/about", "/en/contact"];
+  const enStaticPaths = ["/en", "/en/about", "/en/contact", "/en/privacy-policy", "/en/terms"];
 
   const enCategoryPaths = CATEGORIES_WITH_PAGES_EN.map((c) => `/en/${c.slug}`);
 

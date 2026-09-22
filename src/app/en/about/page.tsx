@@ -18,13 +18,13 @@ export default function AboutPageEn() {
         </p>
         <p>
           All calculations run entirely in your browser — nothing you type is sent to or stored
-          on a server. See the (Korean-only){" "}
-          <a href="/privacy-policy">Privacy Policy</a> for details.
+          on a server. See the{" "}
+          <a href="/en/privacy-policy">Privacy Policy</a> for details.
         </p>
         <p>
           Results are for reference only and don&rsquo;t replace advice from a licensed
-          professional or an official government process. See the (Korean-only){" "}
-          <a href="/terms">Terms of Service</a> for details.
+          professional or an official government process. See the{" "}
+          <a href="/en/terms">Terms of Service</a> for details.
         </p>
         <p className="text-sm text-zinc-500">
           Note: this English section covers tools that don&rsquo;t depend on Korean statutes
