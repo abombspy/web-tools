@@ -1,11 +1,12 @@
 export const SITE_NAME = "생활계산소";
 export const SITE_DESCRIPTION =
   "세금·급여·생활 계산을 위한 무료 계산기 모음. 계산 원리와 법적 근거를 함께 설명합니다.";
-// 영문판(/en)용 사이트명·설명. 법률/세금 카테고리(알바·직장인, 프리랜서·사업자)는 법령 인용
-// 번역 정확도 리스크 때문에 영문판에서 제외 — .docs/plan.md §6.8, ui-plan.md 2026-09-22 결정.
+// 영문판(/en)용 사이트명·설명. 2026-09-23부터 알바·직장인, 프리랜서·사업자 포함 전체 카테고리
+// 번역 — 외국인 거주자를 위한 한국 노동법/세법 참고 자료로 제공(법령 인용은 원문 기준 직역,
+// 정확한 세액·수당은 공식 기관에서 재확인 권장).
 export const SITE_NAME_EN = "Life Calc";
 export const SITE_DESCRIPTION_EN =
-  "Free calculators for everyday life — housing, health, dates, school, files, and fun. English version covers non-legal tools only; Korean labor/tax law calculators remain Korean-only for translation accuracy.";
+  "Free calculators for everyday life in Korea — wages, taxes, housing, health, dates, school, files, and fun.";
 export const SITE_URL = "https://web-tools.gssystems.co.kr";
 export const CONTACT_EMAIL = "abombspy@gmail.com";
 export const GA_MEASUREMENT_ID = "G-KYE3JE4EB2";
@@ -56,7 +57,7 @@ export type CalculatorCategory = {
   tools?: CalculatorTool[];
   /** 카테고리 랜딩 페이지(/src/app/<slug>/page.tsx)가 실제로 구현되어 있으면 true */
   hasPage?: boolean;
-  /** 영문판 이름. 없으면 이 카테고리는 영문판이 없다는 뜻(알바·직장인, 프리랜서·사업자). */
+  /** 영문판 이름. 없으면 이 카테고리는 아직 영문판이 없다는 뜻. */
   nameEn?: string;
   /** 영문판 카테고리 설명 */
   descriptionEn?: string;
@@ -84,13 +85,17 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-orange-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Part-Time & Employee",
+    descriptionEn:
+      "Weekly holiday pay, part-time wages, severance pay comparison, annual leave payout, unemployment benefits, and parental leave pay calculators.",
     tools: [
-      { slug: "weekly-holiday-pay", name: "주휴수당 계산기", available: true, icon: "🏖️", tagline: "쉬어도 받는 돈, 얼마일까?" },
-      { slug: "part-time-wage", name: "알바 월급 계산기", available: true, icon: "💰", tagline: "4대보험 떼고 실수령액은?" },
-      { slug: "resignation-date-comparison", name: "퇴사 시점 비교 계산기", available: true, icon: "📦", tagline: "언제 나가야 더 유리할까?" },
-      { slug: "annual-leave-pay", name: "연차수당 계산기", available: true, icon: "🌴", tagline: "못 쓴 연차, 돈으로 받으면?" },
-      { slug: "unemployment-benefit", name: "실업급여 모의 계산기", available: true, icon: "🧳", tagline: "다음 스텝을 준비하는 동안" },
-      { slug: "parental-leave-pay", name: "육아휴직 급여 계산기", available: true, icon: "🍼", tagline: "쉬는 동안 얼마나 받을까?" },
+      { slug: "weekly-holiday-pay", name: "주휴수당 계산기", available: true, icon: "🏖️", tagline: "쉬어도 받는 돈, 얼마일까?", nameEn: "Weekly Holiday Pay Calculator", taglineEn: "Paid rest day — how much do you get?" },
+      { slug: "part-time-wage", name: "알바 월급 계산기", available: true, icon: "💰", tagline: "4대보험 떼고 실수령액은?", nameEn: "Part-Time Wage Calculator", taglineEn: "What's left after the 4 insurances?" },
+      { slug: "resignation-date-comparison", name: "퇴사 시점 비교 계산기", available: true, icon: "📦", tagline: "언제 나가야 더 유리할까?", nameEn: "Resignation Date Comparator", taglineEn: "Which date works out better?" },
+      { slug: "annual-leave-pay", name: "연차수당 계산기", available: true, icon: "🌴", tagline: "못 쓴 연차, 돈으로 받으면?", nameEn: "Annual Leave Payout Calculator", taglineEn: "Cash out your unused leave days" },
+      { slug: "unemployment-benefit", name: "실업급여 모의 계산기", available: true, icon: "🧳", tagline: "다음 스텝을 준비하는 동안", nameEn: "Unemployment Benefit Estimator", taglineEn: "While you plan your next step" },
+      { slug: "parental-leave-pay", name: "육아휴직 급여 계산기", available: true, icon: "🍼", tagline: "쉬는 동안 얼마나 받을까?", nameEn: "Parental Leave Pay Calculator", taglineEn: "How much while you're on leave?" },
     ],
   },
   {
@@ -108,13 +113,17 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-rose-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Freelancer & Self-Employed",
+    descriptionEn:
+      "3.3% withholding tax, VAT, income tax estimate, delivery rider net income, e-commerce margin, and customs duty calculators.",
     tools: [
-      { slug: "withholding-tax-3-3", name: "3.3% 원천징수 역산 계산기", available: true, icon: "🧾", tagline: "세전 받으려면 얼마 불러야 할까?" },
-      { slug: "vat", name: "부가세 계산기", available: true, icon: "🧮", tagline: "공급가액과 부가세, 한 번에" },
-      { slug: "income-tax-estimate", name: "종합소득세 예상 계산기", available: true, icon: "📊", tagline: "올해 낼 세금 미리 가늠해보기" },
-      { slug: "delivery-rider-net-income", name: "배달 라이더 순수익 계산기", available: true, icon: "🛵", tagline: "오늘 진짜 번 돈은 얼마?" },
-      { slug: "ecommerce-margin", name: "스마트스토어·쿠팡 마진 계산기", available: true, icon: "🛍️", tagline: "수수료 빼면 남는 이익은?" },
-      { slug: "customs-duty", name: "해외직구 관세 계산기", available: true, icon: "✈️", tagline: "면세 한도, 나는 안전할까?" },
+      { slug: "withholding-tax-3-3", name: "3.3% 원천징수 역산 계산기", available: true, icon: "🧾", tagline: "세전 받으려면 얼마 불러야 할까?", nameEn: "3.3% Withholding Tax Calculator", taglineEn: "What to invoice for your target take-home" },
+      { slug: "vat", name: "부가세 계산기", available: true, icon: "🧮", tagline: "공급가액과 부가세, 한 번에", nameEn: "VAT Calculator", taglineEn: "Supply price and VAT, in one go" },
+      { slug: "income-tax-estimate", name: "종합소득세 예상 계산기", available: true, icon: "📊", tagline: "올해 낼 세금 미리 가늠해보기", nameEn: "Income Tax Estimator", taglineEn: "Get a rough estimate of this year's tax" },
+      { slug: "delivery-rider-net-income", name: "배달 라이더 순수익 계산기", available: true, icon: "🛵", tagline: "오늘 진짜 번 돈은 얼마?", nameEn: "Delivery Rider Net Income Calculator", taglineEn: "What did you really earn today?" },
+      { slug: "ecommerce-margin", name: "스마트스토어·쿠팡 마진 계산기", available: true, icon: "🛍️", tagline: "수수료 빼면 남는 이익은?", nameEn: "E-Commerce Margin Calculator", taglineEn: "What's left after fees?" },
+      { slug: "customs-duty", name: "해외직구 관세 계산기", available: true, icon: "✈️", tagline: "면세 한도, 나는 안전할까?", nameEn: "Overseas Purchase Customs Duty Calculator", taglineEn: "Am I under the duty-free limit?" },
     ],
   },
   {
@@ -137,8 +146,8 @@ export const CATEGORIES: CalculatorCategory[] = [
     descriptionEn: "Electricity bills, loan repayment, and moving cost estimates.",
     tools: [
       { slug: "electricity-bill", name: "전기요금 계산기", available: true, icon: "💡", tagline: "이번 달 전기세, 미리 확인", nameEn: "Electricity Bill Calculator", taglineEn: "Check this month's bill in advance" },
-      { slug: "jeonse-to-monthly-rent", name: "전월세 전환율 계산기", available: true, icon: "🏘️", tagline: "전세를 월세로 바꾸면?" },
-      { slug: "real-estate-agent-fee", name: "중개수수료 계산기", available: true, icon: "🤝", tagline: "복비, 얼마가 적당할까?" },
+      { slug: "jeonse-to-monthly-rent", name: "전월세 전환율 계산기", available: true, icon: "🏘️", tagline: "전세를 월세로 바꾸면?", nameEn: "Jeonse-to-Monthly-Rent Conversion Calculator", taglineEn: "What if I convert my deposit to rent?" },
+      { slug: "real-estate-agent-fee", name: "중개수수료 계산기", available: true, icon: "🤝", tagline: "복비, 얼마가 적당할까?", nameEn: "Real Estate Agent Fee Calculator", taglineEn: "What's a fair brokerage fee?" },
       { slug: "loan-repayment", name: "대출 이자·상환 계산기", available: true, icon: "🏦", tagline: "매달 갚을 돈, 정확히 계산", nameEn: "Loan Repayment Calculator", taglineEn: "See exactly what you'll owe each month" },
       { slug: "moving-cost-estimate", name: "이사 비용 견적 계산기", available: true, icon: "🚚", tagline: "이사비, 대략 얼마 들까?", nameEn: "Moving Cost Estimator", taglineEn: "Roughly how much will moving cost?" },
     ],
@@ -283,8 +292,7 @@ export const CATEGORIES: CalculatorCategory[] = [
 // 죽은 링크가 생기는 걸 한곳에서 막는다.
 export const CATEGORIES_WITH_PAGES = CATEGORIES.filter((c) => c.hasPage);
 
-// 영문판(/en/<slug>)이 구현된 카테고리만 걸러낸다. 알바·직장인, 프리랜서·사업자는
-// 법령 번역 정확도 리스크로 영문판이 없다(§6.8, ui-plan.md 2026-09-22 결정).
+// 영문판(/en/<slug>)이 구현된 카테고리만 걸러낸다.
 export const CATEGORIES_WITH_PAGES_EN = CATEGORIES.filter((c) => c.hasPageEn);
 
 /**

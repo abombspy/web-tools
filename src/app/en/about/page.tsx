@@ -28,11 +28,11 @@ export default function AboutPageEn() {
           <Link href="/en/terms">Terms of Service</Link> for details.
         </p>
         <p className="text-sm text-zinc-500">
-          Note: this English section covers tools that don&rsquo;t depend on Korean statutes
-          (housing/bills, parenting/health, date/time, student, text/file, and fun tools). Korean
-          labor-law and tax calculators (part-time wages, freelancer taxes, etc.) are Korean-only,
-          since translating legal citations accurately is a separate, higher-stakes task we
-          haven&rsquo;t done yet.
+          Note: some calculators (part-time/employee wages, freelancer taxes, and a couple of
+          housing tools) are built around Korean statutes — labor law, tax law, and housing law.
+          This English section is a translation of the original Korean tool, including the legal
+          citations; it&rsquo;s meant as a reference for foreign residents, not a substitute for
+          advice from a licensed professional or an official government source.
         </p>
       </div>
     </div>
