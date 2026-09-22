@@ -49,7 +49,7 @@ export default function Header() {
         <nav
           key={pathname}
           ref={navRef}
-          className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-4 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
+          className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-3 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
         >
           {categories.map((c) => (
             <details key={c.slug} name="header-nav" className="group relative">
@@ -79,7 +79,7 @@ export default function Header() {
           ))}
           <Link
             href={getLanguageSwitchHref(pathname)}
-            className="shrink-0 rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-500 hover:border-orange-300 hover:text-orange-500 dark:border-white/10"
+            className="shrink-0 rounded-full border border-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-500 hover:border-orange-300 hover:text-orange-500 dark:border-white/10"
           >
             {isEnglish ? "한국어" : "English"}
           </Link>
