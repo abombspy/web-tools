@@ -295,12 +295,17 @@ export const CATEGORIES_WITH_PAGES = CATEGORIES.filter((c) => c.hasPage);
 // 영문판(/en/<slug>)이 구현된 카테고리만 걸러낸다.
 export const CATEGORIES_WITH_PAGES_EN = CATEGORIES.filter((c) => c.hasPageEn);
 
+// 카테고리가 아닌 고정 페이지 중 영문판이 있는 것들. 한→영 전환 시 이 목록에
+// 없으면(현재는 모두 있음) 영문 홈으로 보낸다.
+const STATIC_PAGES_WITH_EN = ["about", "contact", "privacy-policy", "terms"];
+
 /**
  * 헤더의 언어 전환 링크가 이동할 경로를 계산한다.
  * - 영문판(/en/...)에 있으면: 그냥 /en 접두사만 떼면 되는 한국어판이 항상 존재하므로
  *   (영문판은 한국어판의 부분집합) 단순히 접두사 제거.
- * - 한국어판에 있으면: 지금 보는 카테고리/도구에 영문판이 있는지 확인해서 있으면
- *   /en 접두사를 붙이고, 없으면(알바·직장인 등 법률 카테고리) 영문 홈으로 보낸다.
+ * - 한국어판에 있으면: 소개/문의/개인정보처리방침/이용약관 같은 고정 페이지는
+ *   STATIC_PAGES_WITH_EN에서 바로 매칭하고, 그 외에는 지금 보는 카테고리/도구에
+ *   영문판이 있는지 확인해서 있으면 /en 접두사를 붙이고, 없으면 영문 홈으로 보낸다.
  */
 export function getLanguageSwitchHref(pathname: string): string {
   if (pathname.startsWith("/en")) {
@@ -311,6 +316,10 @@ export function getLanguageSwitchHref(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
   const [categorySlug, toolSlug] = segments;
   if (!categorySlug) return "/en";
+
+  if (!toolSlug && STATIC_PAGES_WITH_EN.includes(categorySlug)) {
+    return `/en/${categorySlug}`;
+  }
 
   const category = CATEGORIES.find((c) => c.slug === categorySlug);
   if (!category?.hasPageEn) return "/en";
