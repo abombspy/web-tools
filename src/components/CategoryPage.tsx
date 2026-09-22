@@ -1,7 +1,17 @@
 import Link from "next/link";
 import type { CalculatorCategory } from "@/lib/site-config";
 
-export default function CategoryPage({ category }: { category: CalculatorCategory }) {
+export default function CategoryPage({
+  category,
+  locale = "ko",
+}: {
+  category: CalculatorCategory;
+  locale?: "ko" | "en";
+}) {
+  const isEnglish = locale === "en";
+  const basePath = isEnglish ? `/en/${category.slug}` : `/${category.slug}`;
+  const tools = isEnglish ? category.tools?.filter((t) => t.nameEn) : category.tools;
+
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-16">
       <div className="mb-2 flex items-center gap-3">
@@ -10,24 +20,28 @@ export default function CategoryPage({ category }: { category: CalculatorCategor
         >
           {category.icon}
         </span>
-        <h1 className="text-2xl font-extrabold">{category.name}</h1>
+        <h1 className="text-2xl font-extrabold">{isEnglish ? category.nameEn : category.name}</h1>
       </div>
-      <p className="mt-2 text-zinc-500">{category.description}</p>
+      <p className="mt-2 text-zinc-500">{isEnglish ? category.descriptionEn : category.description}</p>
 
       <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {category.tools?.map((tool) =>
+        {tools?.map((tool) =>
           tool.available ? (
             <li key={tool.slug}>
               <Link
-                href={`/${category.slug}/${tool.slug}`}
+                href={`${basePath}/${tool.slug}`}
                 className={`flex items-center gap-3 rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 hover:scale-[1.02] ${category.theme.cardBg}`}
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-2xl">
                   {tool.icon}
                 </div>
                 <div className="min-w-0 text-left">
-                  <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.name}</div>
-                  <p className={`truncate text-xs ${category.theme.descText}`}>{tool.tagline}</p>
+                  <div className={`truncate font-bold ${category.theme.titleText}`}>
+                    {isEnglish ? tool.nameEn : tool.name}
+                  </div>
+                  <p className={`truncate text-xs ${category.theme.descText}`}>
+                    {isEnglish ? tool.taglineEn : tool.tagline}
+                  </p>
                 </div>
               </Link>
             </li>
@@ -40,7 +54,8 @@ export default function CategoryPage({ category }: { category: CalculatorCategor
                 {tool.icon}
               </div>
               <div className="min-w-0 text-left text-sm">
-                {tool.name} <span className="text-xs">(준비 중)</span>
+                {isEnglish ? tool.nameEn : tool.name}{" "}
+                <span className="text-xs">{isEnglish ? "(coming soon)" : "(준비 중)"}</span>
               </div>
             </li>
           ),

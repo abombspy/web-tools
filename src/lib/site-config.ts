@@ -1,6 +1,11 @@
 export const SITE_NAME = "생활계산소";
 export const SITE_DESCRIPTION =
   "세금·급여·생활 계산을 위한 무료 계산기 모음. 계산 원리와 법적 근거를 함께 설명합니다.";
+// 영문판(/en)용 사이트명·설명. 법률/세금 카테고리(알바·직장인, 프리랜서·사업자)는 법령 인용
+// 번역 정확도 리스크 때문에 영문판에서 제외 — .docs/plan.md §6.8, ui-plan.md 2026-09-22 결정.
+export const SITE_NAME_EN = "Life Calc";
+export const SITE_DESCRIPTION_EN =
+  "Free calculators for everyday life — housing, health, dates, school, files, and fun. English version covers non-legal tools only; Korean labor/tax law calculators remain Korean-only for translation accuracy.";
 export const SITE_URL = "https://web-tools.gssystems.co.kr";
 export const CONTACT_EMAIL = "abombspy@gmail.com";
 export const GA_MEASUREMENT_ID = "G-KYE3JE4EB2";
@@ -14,6 +19,10 @@ export type CalculatorTool = {
   icon: string;
   /** 카드에 표시할 한 줄 소개 문구(친근한 톤) */
   tagline: string;
+  /** 영문판(/en) 이름. 없으면 이 도구는 영문판이 없다는 뜻(법률/세금 도구 등). */
+  nameEn?: string;
+  /** 영문판 카드 한 줄 소개 문구 */
+  taglineEn?: string;
 };
 
 /**
@@ -47,6 +56,12 @@ export type CalculatorCategory = {
   tools?: CalculatorTool[];
   /** 카테고리 랜딩 페이지(/src/app/<slug>/page.tsx)가 실제로 구현되어 있으면 true */
   hasPage?: boolean;
+  /** 영문판 이름. 없으면 이 카테고리는 영문판이 없다는 뜻(알바·직장인, 프리랜서·사업자). */
+  nameEn?: string;
+  /** 영문판 카테고리 설명 */
+  descriptionEn?: string;
+  /** 영문판 카테고리 랜딩 페이지(/src/app/en/<slug>/page.tsx)가 구현돼 있으면 true */
+  hasPageEn?: boolean;
 };
 
 // .docs/plan.md §3, §4 기준. Phase 1(알바·직장인, 프리랜서·사업자)부터 개발.
@@ -117,12 +132,15 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-sky-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Housing & Bills",
+    descriptionEn: "Electricity bills, loan repayment, and moving cost estimates.",
     tools: [
-      { slug: "electricity-bill", name: "전기요금 계산기", available: true, icon: "💡", tagline: "이번 달 전기세, 미리 확인" },
+      { slug: "electricity-bill", name: "전기요금 계산기", available: true, icon: "💡", tagline: "이번 달 전기세, 미리 확인", nameEn: "Electricity Bill Calculator", taglineEn: "Check this month's bill in advance" },
       { slug: "jeonse-to-monthly-rent", name: "전월세 전환율 계산기", available: true, icon: "🏘️", tagline: "전세를 월세로 바꾸면?" },
       { slug: "real-estate-agent-fee", name: "중개수수료 계산기", available: true, icon: "🤝", tagline: "복비, 얼마가 적당할까?" },
-      { slug: "loan-repayment", name: "대출 이자·상환 계산기", available: true, icon: "🏦", tagline: "매달 갚을 돈, 정확히 계산" },
-      { slug: "moving-cost-estimate", name: "이사 비용 견적 계산기", available: true, icon: "🚚", tagline: "이사비, 대략 얼마 들까?" },
+      { slug: "loan-repayment", name: "대출 이자·상환 계산기", available: true, icon: "🏦", tagline: "매달 갚을 돈, 정확히 계산", nameEn: "Loan Repayment Calculator", taglineEn: "See exactly what you'll owe each month" },
+      { slug: "moving-cost-estimate", name: "이사 비용 견적 계산기", available: true, icon: "🚚", tagline: "이사비, 대략 얼마 들까?", nameEn: "Moving Cost Estimator", taglineEn: "Roughly how much will moving cost?" },
     ],
   },
   {
@@ -140,12 +158,15 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-emerald-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Parenting & Health",
+    descriptionEn: "Baby growth, due dates, baby food portions, BMI, and alcohol detox time.",
     tools: [
-      { slug: "baby-growth-percentile", name: "아기 개월수·성장 백분위 계산기", available: true, icon: "📏", tagline: "우리 아기, 또래보다 어떨까?" },
-      { slug: "due-date", name: "출산 예정일 계산기", available: true, icon: "🤰", tagline: "언제쯤 만날 수 있을까?" },
-      { slug: "baby-food-portion", name: "이유식 단계별 양 계산기", available: true, icon: "🥣", tagline: "지금 몇 단계, 얼마나 먹여야 할까?" },
-      { slug: "bmi-calorie", name: "BMI·기초대사량·목표 칼로리 계산기", available: true, icon: "⚖️", tagline: "내 몸에 맞는 숫자 알아보기" },
-      { slug: "alcohol-detox-time", name: "음주 후 해독 시간 추정기", available: true, icon: "🍺", tagline: "지금 운전해도 괜찮을까?" },
+      { slug: "baby-growth-percentile", name: "아기 개월수·성장 백분위 계산기", available: true, icon: "📏", tagline: "우리 아기, 또래보다 어떨까?", nameEn: "Baby Growth Percentile Calculator", taglineEn: "How does my baby compare to peers?" },
+      { slug: "due-date", name: "출산 예정일 계산기", available: true, icon: "🤰", tagline: "언제쯤 만날 수 있을까?", nameEn: "Due Date Calculator", taglineEn: "When will you meet your baby?" },
+      { slug: "baby-food-portion", name: "이유식 단계별 양 계산기", available: true, icon: "🥣", tagline: "지금 몇 단계, 얼마나 먹여야 할까?", nameEn: "Baby Food Portion Guide", taglineEn: "What stage, and how much to feed?" },
+      { slug: "bmi-calorie", name: "BMI·기초대사량·목표 칼로리 계산기", available: true, icon: "⚖️", tagline: "내 몸에 맞는 숫자 알아보기", nameEn: "BMI & Calorie Calculator", taglineEn: "Find the numbers that fit your body" },
+      { slug: "alcohol-detox-time", name: "음주 후 해독 시간 추정기", available: true, icon: "🍺", tagline: "지금 운전해도 괜찮을까?", nameEn: "Alcohol Detox Time Estimator", taglineEn: "Is it safe to drive yet?" },
     ],
   },
   {
@@ -163,12 +184,15 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-amber-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Date & Time",
+    descriptionEn: "D-day countdowns, Korean age, military discharge dates, business days, and time zones.",
     tools: [
-      { slug: "d-day", name: "D-day·기념일 계산기", available: true, icon: "📆", tagline: "그날까지 며칠 남았을까?" },
-      { slug: "age-zodiac", name: "만 나이·띠·별자리 계산기", available: true, icon: "🐉", tagline: "나는 만 나이로 몇 살?" },
-      { slug: "military-discharge-date", name: "군 전역일 계산기", available: true, icon: "🪖", tagline: "전역까지 손꼽아 세기" },
-      { slug: "business-days", name: "근무일수(영업일) 계산기", available: true, icon: "🗓️", tagline: "공휴일 빼고 진짜 일하는 날" },
-      { slug: "time-difference", name: "시차 계산기", available: true, icon: "🌐", tagline: "그 나라는 지금 몇 시일까?" },
+      { slug: "d-day", name: "D-day·기념일 계산기", available: true, icon: "📆", tagline: "그날까지 며칠 남았을까?", nameEn: "D-Day Countdown Calculator", taglineEn: "How many days until the big day?" },
+      { slug: "age-zodiac", name: "만 나이·띠·별자리 계산기", available: true, icon: "🐉", tagline: "나는 만 나이로 몇 살?", nameEn: "Korean Age & Zodiac Calculator", taglineEn: "How old am I in Korean age?" },
+      { slug: "military-discharge-date", name: "군 전역일 계산기", available: true, icon: "🪖", tagline: "전역까지 손꼽아 세기", nameEn: "Military Discharge Date Calculator", taglineEn: "Counting down to discharge day" },
+      { slug: "business-days", name: "근무일수(영업일) 계산기", available: true, icon: "🗓️", tagline: "공휴일 빼고 진짜 일하는 날", nameEn: "Business Days Calculator", taglineEn: "Working days only, holidays excluded" },
+      { slug: "time-difference", name: "시차 계산기", available: true, icon: "🌐", tagline: "그 나라는 지금 몇 시일까?", nameEn: "Time Zone Difference Calculator", taglineEn: "What time is it over there?" },
     ],
   },
   {
@@ -186,11 +210,14 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-indigo-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Student Tools",
+    descriptionEn: "Grade conversion, GPA, civil service exam scores, and TOEIC/OPIc conversion.",
     tools: [
-      { slug: "grade-conversion", name: "내신·수능 등급 환산 계산기", available: true, icon: "📝", tagline: "내 점수는 몇 등급일까?" },
-      { slug: "gpa", name: "학점 평균(GPA) 계산기", available: true, icon: "📚", tagline: "이번 학기 평점, 미리 계산" },
-      { slug: "civil-service-passing-score", name: "공무원 시험 합격선 비교 도구", available: true, icon: "🏛️", tagline: "내 점수, 합격선과 비교해보기" },
-      { slug: "toeic-opic-conversion", name: "토익·오픽 점수 환산표", available: true, icon: "🗣️", tagline: "점수 환산, 헷갈릴 때" },
+      { slug: "grade-conversion", name: "내신·수능 등급 환산 계산기", available: true, icon: "📝", tagline: "내 점수는 몇 등급일까?", nameEn: "Korean School Grade Converter", taglineEn: "What grade is my score?" },
+      { slug: "gpa", name: "학점 평균(GPA) 계산기", available: true, icon: "📚", tagline: "이번 학기 평점, 미리 계산", nameEn: "GPA Calculator", taglineEn: "Calculate this semester's average" },
+      { slug: "civil-service-passing-score", name: "공무원 시험 합격선 비교 도구", available: true, icon: "🏛️", tagline: "내 점수, 합격선과 비교해보기", nameEn: "Civil Service Exam Score Comparison", taglineEn: "Compare your score to past cutoffs" },
+      { slug: "toeic-opic-conversion", name: "토익·오픽 점수 환산표", available: true, icon: "🗣️", tagline: "점수 환산, 헷갈릴 때", nameEn: "TOEIC/OPIc Score Conversion Table", taglineEn: "Confused about score conversion?" },
     ],
   },
   {
@@ -208,12 +235,17 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-teal-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Text & File Tools",
+    descriptionEn: "Character counter, JSON/CSV converter, QR code generator, image tools, and PDF tools.",
     tools: [
-      { slug: "character-count", name: "글자수 세기", available: true, icon: "🔤", tagline: "자소서 글자수, 딱 맞게" },
-      { slug: "json-csv-convert", name: "JSON·CSV 변환기", available: true, icon: "🔄", tagline: "형식 변환, 복붙 한 번에" },
-      { slug: "qr-code", name: "QR코드 생성기", available: true, icon: "📱", tagline: "링크를 QR코드로 뚝딱" },
-      { slug: "image-tool", name: "이미지 압축·리사이즈·포맷 변환", available: true, icon: "🖼️", tagline: "용량 줄이고 크기도 딱 맞게" },
-      { slug: "pdf-tool", name: "PDF 병합·분할", available: true, icon: "📑", tagline: "여러 장 PDF, 합치거나 나누기" },
+      { slug: "character-count", name: "글자수 세기", available: true, icon: "🔤", tagline: "자소서 글자수, 딱 맞게", nameEn: "Character Counter", taglineEn: "Get your word count exactly right" },
+      { slug: "json-csv-convert", name: "JSON·CSV 변환기", available: true, icon: "🔄", tagline: "형식 변환, 복붙 한 번에", nameEn: "JSON ⇄ CSV Converter", taglineEn: "Convert formats in one paste" },
+      { slug: "qr-code", name: "QR코드 생성기", available: true, icon: "📱", tagline: "링크를 QR코드로 뚝딱", nameEn: "QR Code Generator", taglineEn: "Turn any link into a QR code" },
+      { slug: "image-tool", name: "이미지 압축·리사이즈·포맷 변환", available: true, icon: "🖼️", tagline: "용량 줄이고 크기도 딱 맞게", nameEn: "Image Resize & Compress", taglineEn: "Shrink file size, fit the dimensions" },
+      { slug: "pdf-tool", name: "PDF 병합·분할", available: true, icon: "📑", tagline: "여러 장 PDF, 합치거나 나누기", nameEn: "PDF Merge & Split", taglineEn: "Combine or split multi-page PDFs" },
+      // 이 도구는 한국어 흔한 오타 교정(됬다→됐다 등)이 핵심 기능이라 영어 텍스트에는
+      // 의미가 없어 의도적으로 영문판(nameEn/taglineEn) 없음.
       { slug: "text-cleanup", name: "맞춤법 체크용 텍스트 정리 도구", available: true, icon: "✏️", tagline: "띄어쓰기·오타, 깔끔하게" },
     ],
   },
@@ -232,13 +264,16 @@ export const CATEGORIES: CalculatorCategory[] = [
       badgeHoverBg: "hover:bg-violet-200",
     },
     hasPage: true,
+    hasPageEn: true,
+    nameEn: "Fun & Viral",
+    descriptionEn: "MBTI test, name compatibility, random pickers, lunch roulette, and nickname generator.",
     tools: [
-      { slug: "mbti-test", name: "MBTI 성격 유형 테스트", available: true, icon: "🔮", tagline: "나는 어떤 사람일까?" },
-      { slug: "name-compatibility", name: "이름 궁합·MBTI 궁합 테스트", available: true, icon: "💘", tagline: "우리 얼마나 잘 맞을까?" },
-      { slug: "random-picker", name: "랜덤 추첨기·사다리타기·룰렛", available: true, icon: "🎲", tagline: "공정하게 딱 하나 뽑기" },
-      { slug: "lunch-roulette", name: "점심 메뉴 추천 룰렛", available: true, icon: "🍱", tagline: "오늘 뭐 먹지 고민 끝" },
-      { slug: "nickname-generator", name: "닉네임 생성기", available: true, icon: "🐣", tagline: "센스있는 닉네임, 뚝딱" },
-      { slug: "recommended-combos", name: "추천 조합", available: true, icon: "✨", tagline: "같이 하면 더 재밌는 조합" },
+      { slug: "mbti-test", name: "MBTI 성격 유형 테스트", available: true, icon: "🔮", tagline: "나는 어떤 사람일까?", nameEn: "MBTI Personality Test", taglineEn: "What type are you?" },
+      { slug: "name-compatibility", name: "이름 궁합·MBTI 궁합 테스트", available: true, icon: "💘", tagline: "우리 얼마나 잘 맞을까?", nameEn: "Name & MBTI Compatibility Test", taglineEn: "How well do you two match?" },
+      { slug: "random-picker", name: "랜덤 추첨기·사다리타기·룰렛", available: true, icon: "🎲", tagline: "공정하게 딱 하나 뽑기", nameEn: "Random Picker & Ladder Game", taglineEn: "Pick one, fair and square" },
+      { slug: "lunch-roulette", name: "점심 메뉴 추천 룰렛", available: true, icon: "🍱", tagline: "오늘 뭐 먹지 고민 끝", nameEn: "Lunch Menu Roulette", taglineEn: "What to eat today? Decided." },
+      { slug: "nickname-generator", name: "닉네임 생성기", available: true, icon: "🐣", tagline: "센스있는 닉네임, 뚝딱", nameEn: "Nickname Generator", taglineEn: "Get a fun nickname instantly" },
+      { slug: "recommended-combos", name: "추천 조합", available: true, icon: "✨", tagline: "같이 하면 더 재밌는 조합", nameEn: "Recommended Combos", taglineEn: "Tool combos that go well together" },
     ],
   },
 ];
@@ -247,3 +282,33 @@ export const CATEGORIES: CalculatorCategory[] = [
 // 헤더 내비게이션과 sitemap이 이 목록을 함께 써서, 페이지가 없는 카테고리로
 // 죽은 링크가 생기는 걸 한곳에서 막는다.
 export const CATEGORIES_WITH_PAGES = CATEGORIES.filter((c) => c.hasPage);
+
+// 영문판(/en/<slug>)이 구현된 카테고리만 걸러낸다. 알바·직장인, 프리랜서·사업자는
+// 법령 번역 정확도 리스크로 영문판이 없다(§6.8, ui-plan.md 2026-09-22 결정).
+export const CATEGORIES_WITH_PAGES_EN = CATEGORIES.filter((c) => c.hasPageEn);
+
+/**
+ * 헤더의 언어 전환 링크가 이동할 경로를 계산한다.
+ * - 영문판(/en/...)에 있으면: 그냥 /en 접두사만 떼면 되는 한국어판이 항상 존재하므로
+ *   (영문판은 한국어판의 부분집합) 단순히 접두사 제거.
+ * - 한국어판에 있으면: 지금 보는 카테고리/도구에 영문판이 있는지 확인해서 있으면
+ *   /en 접두사를 붙이고, 없으면(알바·직장인 등 법률 카테고리) 영문 홈으로 보낸다.
+ */
+export function getLanguageSwitchHref(pathname: string): string {
+  if (pathname.startsWith("/en")) {
+    const rest = pathname.slice(3);
+    return rest === "" ? "/" : rest;
+  }
+
+  const segments = pathname.split("/").filter(Boolean);
+  const [categorySlug, toolSlug] = segments;
+  if (!categorySlug) return "/en";
+
+  const category = CATEGORIES.find((c) => c.slug === categorySlug);
+  if (!category?.hasPageEn) return "/en";
+  if (!toolSlug) return `/en/${categorySlug}`;
+
+  const tool = category.tools?.find((t) => t.slug === toolSlug);
+  if (!tool?.nameEn) return "/en";
+  return `/en/${categorySlug}/${toolSlug}`;
+}
