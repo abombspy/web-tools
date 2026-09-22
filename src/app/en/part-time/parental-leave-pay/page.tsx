@@ -58,7 +58,7 @@ export default function ParentalLeavePayPageEn() {
         <p>
           More tools:{" "}
           <Link href="/en/part-time" className="font-medium text-orange-600 dark:text-orange-400">
-            Part-Time & Employee
+            Work & Pay
           </Link>
         </p>
       </section>

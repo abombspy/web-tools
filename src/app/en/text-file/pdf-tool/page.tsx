@@ -28,7 +28,7 @@ export default function PdfToolPageEn() {
         <p>
           More tools:{" "}
           <Link href="/en/text-file" className="font-medium text-teal-600 dark:text-teal-400">
-            Text & File Tools
+            Text & Files
           </Link>
         </p>
       </section>

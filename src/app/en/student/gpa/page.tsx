@@ -36,7 +36,7 @@ export default function GpaPageEn() {
         <p>
           More tools:{" "}
           <Link href="/en/student" className="font-medium text-indigo-600 dark:text-indigo-400">
-            Student Tools
+            Student
           </Link>
         </p>
       </section>

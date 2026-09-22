@@ -86,7 +86,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     },
     hasPage: true,
     hasPageEn: true,
-    nameEn: "Part-Time & Employee",
+    nameEn: "Work & Pay",
     descriptionEn:
       "Weekly holiday pay, part-time wages, severance pay comparison, annual leave payout, unemployment benefits, and parental leave pay calculators.",
     tools: [
@@ -114,7 +114,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     },
     hasPage: true,
     hasPageEn: true,
-    nameEn: "Freelancer & Self-Employed",
+    nameEn: "Freelance & Tax",
     descriptionEn:
       "3.3% withholding tax, VAT, income tax estimate, delivery rider net income, e-commerce margin, and customs duty calculators.",
     tools: [
@@ -168,7 +168,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     },
     hasPage: true,
     hasPageEn: true,
-    nameEn: "Parenting & Health",
+    nameEn: "Family & Health",
     descriptionEn: "Baby growth, due dates, baby food portions, BMI, and alcohol detox time.",
     tools: [
       { slug: "baby-growth-percentile", name: "아기 개월수·성장 백분위 계산기", available: true, icon: "📏", tagline: "우리 아기, 또래보다 어떨까?", nameEn: "Baby Growth Percentile Calculator", taglineEn: "How does my baby compare to peers?" },
@@ -220,7 +220,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     },
     hasPage: true,
     hasPageEn: true,
-    nameEn: "Student Tools",
+    nameEn: "Student",
     descriptionEn: "Grade conversion, GPA, civil service exam scores, and TOEIC/OPIc conversion.",
     tools: [
       { slug: "grade-conversion", name: "내신·수능 등급 환산 계산기", available: true, icon: "📝", tagline: "내 점수는 몇 등급일까?", nameEn: "Korean School Grade Converter", taglineEn: "What grade is my score?" },
@@ -245,7 +245,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     },
     hasPage: true,
     hasPageEn: true,
-    nameEn: "Text & File Tools",
+    nameEn: "Text & Files",
     descriptionEn: "Character counter, JSON/CSV converter, QR code generator, image tools, and PDF tools.",
     tools: [
       { slug: "character-count", name: "글자수 세기", available: true, icon: "🔤", tagline: "자소서 글자수, 딱 맞게", nameEn: "Character Counter", taglineEn: "Get your word count exactly right" },

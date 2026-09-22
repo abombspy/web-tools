@@ -33,7 +33,7 @@ export default function DueDatePageEn() {
         <p>
           More tools:{" "}
           <Link href="/en/parenting-health" className="font-medium text-emerald-600 dark:text-emerald-400">
-            Parenting & Health
+            Family & Health
           </Link>
         </p>
       </section>

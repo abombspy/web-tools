@@ -53,7 +53,7 @@ export default function CustomsDutyPageEn() {
         <p>
           More tools:{" "}
           <Link href="/en/freelancer" className="font-medium text-rose-600 dark:text-rose-400">
-            Freelancer & Self-Employed
+            Freelance & Tax
           </Link>
         </p>
       </section>
