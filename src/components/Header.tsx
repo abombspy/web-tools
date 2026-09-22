@@ -40,12 +40,20 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-100 bg-white/90 backdrop-blur dark:border-white/10 dark:bg-zinc-900/90">
       <div className="mx-auto flex max-w-5xl flex-nowrap items-center justify-between gap-3 px-4 py-4">
-        <Link
-          href={homeHref}
-          className="flex shrink-0 items-center gap-2 text-xl font-extrabold text-orange-500"
-        >
-          <span className="text-2xl">🧮</span> {isEnglish ? SITE_NAME_EN : SITE_NAME}
-        </Link>
+        <div className="flex shrink-0 items-center gap-3">
+          <Link
+            href={homeHref}
+            className="flex items-center gap-2 text-xl font-extrabold text-orange-500"
+          >
+            <span className="text-2xl">🧮</span> {isEnglish ? SITE_NAME_EN : SITE_NAME}
+          </Link>
+          <Link
+            href={getLanguageSwitchHref(pathname)}
+            className="shrink-0 rounded-full border border-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-500 hover:border-orange-300 hover:text-orange-500 dark:border-white/10"
+          >
+            {isEnglish ? "한국어" : "English"}
+          </Link>
+        </div>
         <nav
           key={pathname}
           ref={navRef}
@@ -77,12 +85,6 @@ export default function Header() {
               </div>
             </details>
           ))}
-          <Link
-            href={getLanguageSwitchHref(pathname)}
-            className="shrink-0 rounded-full border border-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-500 hover:border-orange-300 hover:text-orange-500 dark:border-white/10"
-          >
-            {isEnglish ? "한국어" : "English"}
-          </Link>
         </nav>
       </div>
     </header>
