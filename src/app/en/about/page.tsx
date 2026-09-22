@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE_NAME_EN } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -19,12 +20,12 @@ export default function AboutPageEn() {
         <p>
           All calculations run entirely in your browser — nothing you type is sent to or stored
           on a server. See the{" "}
-          <a href="/en/privacy-policy">Privacy Policy</a> for details.
+          <Link href="/en/privacy-policy">Privacy Policy</Link> for details.
         </p>
         <p>
           Results are for reference only and don&rsquo;t replace advice from a licensed
           professional or an official government process. See the{" "}
-          <a href="/en/terms">Terms of Service</a> for details.
+          <Link href="/en/terms">Terms of Service</Link> for details.
         </p>
         <p className="text-sm text-zinc-500">
           Note: this English section covers tools that don&rsquo;t depend on Korean statutes

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE_NAME } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -20,12 +21,12 @@ export default function AboutPage() {
         <p>
           모든 계산은 이용자의 브라우저 안에서만 이루어지며, 입력한 값을 서버로 전송하거나
           저장하지 않습니다. 자세한 내용은{" "}
-          <a href="/privacy-policy">개인정보처리방침</a>을 참고해 주세요.
+          <Link href="/privacy-policy">개인정보처리방침</Link>을 참고해 주세요.
         </p>
         <p>
           다만 사이트가 제공하는 계산 결과는 참고용이며, 세무사·노무사 등 전문가의 상담이나
           국가기관의 공식 절차를 대체하지 않습니다. 자세한 내용은{" "}
-          <a href="/terms">이용약관</a>을 참고해 주세요.
+          <Link href="/terms">이용약관</Link>을 참고해 주세요.
         </p>
         {/* TODO: 서비스가 실제로 오픈되면 팀/운영자 소개, 개발 배경 등을 추가 */}
       </div>
