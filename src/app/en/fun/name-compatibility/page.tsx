@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/fun/name-compatibility.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,11 +16,7 @@ export default function NameCompatibilityPageEn() {
       <h1 className="text-2xl font-extrabold">💘 Name & MBTI Compatibility Test</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p className="rounded-2xl bg-blue-50 p-4 text-sm not-prose dark:bg-blue-950/40">
-          This is <strong>purely for fun</strong> and has no scientific basis. It&rsquo;s designed to
-          always give the same score for the same name/MBTI pair (regardless of order) — it doesn&rsquo;t
-          analyze real compatibility or personality fit.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

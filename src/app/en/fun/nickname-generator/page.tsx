@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/fun/nickname-generator.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,7 +16,7 @@ export default function NicknameGeneratorPageEn() {
       <h1 className="text-2xl font-extrabold">🐣 Nickname Generator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>Need a game handle or a username? Hit the button for a random combo.</p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

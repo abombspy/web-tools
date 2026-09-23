@@ -1,0 +1,13 @@
+{
+  "blocks": [
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This is ",
+        { "text": "purely for fun", "bold": true },
+        " and has no scientific basis. It’s designed to always give the same score for the same name/MBTI pair (regardless of order) — it doesn’t analyze real compatibility or personality fit."
+      ]
+    }
+  ]
+}

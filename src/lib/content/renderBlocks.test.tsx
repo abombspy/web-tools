@@ -24,6 +24,11 @@ describe("renderBlocks", () => {
     expect(out).toBe('<p><span class="italic">기울임</span></p>');
   });
 
+  it("renders code runs", () => {
+    const out = html([{ type: "p", runs: [{ text: "Math.random()", code: true }] }]);
+    expect(out).toBe("<p><code>Math.random()</code></p>");
+  });
+
   it("renders an internal link run", () => {
     const out = html([{ type: "p", runs: [{ text: "링크", href: "/about" }] }]);
     expect(out).toContain('href="/about"');

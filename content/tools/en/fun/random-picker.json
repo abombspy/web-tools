@@ -1,0 +1,20 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "Handy for deciding on a meal or picking an order at a group gathering. Uses the browser’s cryptographic random number generator (",
+        { "text": "crypto.getRandomValues", "code": true },
+        ") instead of plain ",
+        { "text": "Math.random()", "code": true },
+        " for fairer results."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "“Random participant-outcome matching” doesn’t draw an actual ladder diagram, but it produces the same result as a ladder game — each participant gets randomly matched 1:1 to one outcome."
+      ]
+    }
+  ]
+}

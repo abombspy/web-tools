@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/fun/nickname-generator.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,7 +16,7 @@ export default function NicknameGeneratorPage() {
       <h1 className="text-2xl font-extrabold">🐣 닉네임 생성기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>게임 닉네임, 커뮤니티 아이디 등이 필요할 때 버튼을 눌러 조합을 뽑아보세요.</p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

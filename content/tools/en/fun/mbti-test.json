@@ -1,0 +1,19 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "For each of 28 questions, pick whichever answer feels closer to you. Based on which side you pick more often across four axes — Extraversion/Introversion (E/I), Sensing/Intuition (S/N), Thinking/Feeling (T/F), and Judging/Perceiving (J/P) — we’ll show you a personality type."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This isn’t an official MBTI (Myers-Briggs Type Indicator) assessment — it’s a ",
+        { "text": "reference-only personality quiz", "bold": true },
+        " inspired by the same concept. It hasn’t been validated as a psychological instrument, so please take it just for fun. For an official assessment, use a certified provider."
+      ]
+    }
+  ]
+}

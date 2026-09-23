@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/fun/random-picker.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,16 +16,7 @@ export default function RandomPickerPageEn() {
       <h1 className="text-2xl font-extrabold">🎲 Random Picker & Ladder Game</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          Handy for deciding on a meal or picking an order at a group gathering. Uses the
-          browser&rsquo;s cryptographic random number generator (<code>crypto.getRandomValues</code>)
-          instead of plain <code>Math.random()</code> for fairer results.
-        </p>
-        <p>
-          &ldquo;Random participant-outcome matching&rdquo; doesn&rsquo;t draw an actual ladder diagram,
-          but it produces the same result as a ladder game — each participant gets randomly matched
-          1:1 to one outcome.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

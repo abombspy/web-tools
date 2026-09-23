@@ -21,6 +21,7 @@ function renderRun(run: Run, key: number, dynamic: DynamicMap): ReactNode {
     );
   }
   let node: ReactNode = run.text;
+  if (run.code) node = <code>{node}</code>;
   if (run.italic) node = <span className="italic">{node}</span>;
   if (run.bold) node = <strong>{node}</strong>;
   return <Fragment key={key}>{node}</Fragment>;

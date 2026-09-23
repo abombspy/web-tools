@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/fun/lunch-roulette.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,7 +16,7 @@ export default function LunchRoulettePageEn() {
       <h1 className="text-2xl font-extrabold">🍱 Lunch Menu Roulette</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>Pick the food categories you&rsquo;re open to, hit the button, and get a random pick.</p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

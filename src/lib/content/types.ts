@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 export type Run =
   | string // 평문(축약형)
-  | { text: string; bold?: boolean; italic?: boolean }
+  | { text: string; bold?: boolean; italic?: boolean; code?: boolean }
   | { text: string; href: string } // 내부 링크. href는 locale에 맞게 이미 완성된 값.
   | { dynamic: string }; // 문장 중간에 동적 값 하나를 끼워 넣는 탈출구.
 

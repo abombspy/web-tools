@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/fun/lunch-roulette.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,7 +16,7 @@ export default function LunchRoulettePage() {
       <h1 className="text-2xl font-extrabold">🍱 점심 메뉴 추천 룰렛</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>원하는 음식 카테고리를 고르고 버튼을 누르면 그 안에서 무작위로 메뉴를 뽑아줍니다.</p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />
