@@ -1,0 +1,34 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What does this calculate?" },
+    {
+      "type": "p",
+      "runs": ["Calculates your monthly parental leave pay during a period of parental leave. The 2026 tiered rates and caps are as follows."]
+    },
+    { "type": "dynamic", "id": "tierList" },
+    {
+      "type": "p",
+      "runs": [
+        "Since January 2025, the “deferred payment” system (25% held back and paid 6 months after returning to work) has been abolished, so you now receive ",
+        { "text": "the full amount every month", "bold": true },
+        " right away."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This calculator doesn’t cover the special ",
+        { "text": "“6+6 Parental Leave Program”", "bold": true },
+        " (a separate scheme with progressively higher caps) that applies when both parents take parental leave together."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; the actual payout depends on the Employment Center’s review and how your ordinary wage is calculated."
+      ]
+    }
+  ]
+}
