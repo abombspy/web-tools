@@ -508,3 +508,43 @@ Phase 1~4 전체 구현 완료(§5.1) 및 GitHub Pages 실배포 이후, 실제 
   2. 언어 전환 버튼이 소개/문의/개인정보처리방침/이용약관 같은 **카테고리가 아닌 고정
      페이지**에서는 항상 영문 홈(`/en`)으로만 보내던 문제 → `getLanguageSwitchHref`에
      `STATIC_PAGES_WITH_EN` 목록을 추가해 해당 영문 페이지로 바로 연결되도록 수정.
+
+### 9.4 콘텐츠를 JSON 언어팩으로 전환 (2026-09-23)
+- **계기**: `config/rates/*.json`(JSON + 타입 레이어) 컨벤션을 텍스트에도 적용하면 어떻겠냐는
+  제안 → 범위(설명 본문 포함 전체 vs UI 문구만)와 포맷(JSON vs TS `as const`)을 사용자에게
+  물어 **설명 본문 포함 전체 범위 + JSON 파일**로 확정. 별도 계획서(`luminous-beaming-
+  hammock.md`)를 세워 Phase 0~6으로 단계별 진행, 각 단계 경계마다 계속 진행 여부를 확인받음.
+- **스키마**(`src/lib/content/types.ts`): 43개 도구의 실제 설명 본문을 전수 조사해 결정한
+  경량 블록/런 AST(`h2`/`p`/`list`/`callout`/`note`/`dynamic`, 런은 평문·굵게·이탤릭·`code`·
+  `sup`·내부/외부 링크·`br`·`dynamic`) — 조건문·반복문 없는 의도적으로 제한된 스키마. 실제
+  필요가 생길 때만 필드를 하나씩 늘림(예: `sup`은 대출상환 계산기의 지수 표기 때문에 추가).
+  동적 요율값·반복 리스트는 `DynamicMap`으로 페이지 컴포넌트가 직접 React 노드를 주입.
+  렌더러(`renderBlocks.tsx`)는 순수 함수이고, 콜아웃 톤 색상 클래스는 Tailwind 정적 스캔
+  제약 때문에 JSON이 아니라 렌더러 안 고정 상수로 둠(`site-config.ts`의 `theme` 필드와 동일
+  원칙).
+- **범위**: `content/catalog/*.json`(카테고리·도구 이름·태그라인), `content/ui/chrome.*.json`
+  (Header/Footer/쿠키배너), `content/pages/{ko,en}/{about,contact,privacy-policy,terms}.json`,
+  `content/tools/{ko,en}/**/*.json`(43 KO + 42 EN 도구 설명 본문), `content/tools/en/fun/
+  mbti-test.json`의 `questions`/`typeInfo`(구조화 데이터, MBTI 문항 28개·유형 16개) — 총
+  90여 개 신규 JSON 파일.
+- **`hasPageEn` 플래그**: 기존에 "`tool.nameEn`이 존재하는가"가 곧 "영문 페이지가 있는가"를
+  암묵적으로 결정하던 패턴(텍스트를 지우면 라우트/사이트맵까지 조용히 깨질 위험)을, `site-
+  config.ts`에 구조 전용 `hasPageEn: boolean`을 명시적으로 추가하고 `catalog.test.ts`로
+  플래그↔실제 JSON 존재 여부의 양방향 정합성을 검증하는 방식으로 대체. 이 마이그레이션에서
+  라우트가 실제로 바뀔 수 있는 유일한 지점이라 별도로 테스트를 둠.
+- **브ittle 번역 맵 4개 → 코드 기반 전환**(plan.md §4 대상): `age-zodiac`(띠·별자리),
+  `ecommerce-margin`(에러 메시지), `bmi-calorie`(BMI 판정), `weekly-holiday-pay`(비자격
+  사유)가 전부 "계산 함수가 한글 문자열을 반환하고, EN 쪽 Calculator에서만 그 한글 문자열을
+  키로 쓰는 번역 맵으로 변환"하던 취약한 패턴이었음(원문이 바뀌면 EN 조회가 조용히 깨짐) →
+  계산 함수가 영문 코드(예: `"rat"`, `"fee_margin_exceeds_100"`, `"normal"`,
+  `"under_15_hours"`)를 반환하도록 타입을 바꾸고, KO/EN 양쪽 Calculator.tsx가 동일하게
+  content JSON에서 코드로 조회하는 방식으로 통일. `income-tax-estimate`는 이미 요율 테이블의
+  `code` 필드를 쓰고 있어 대상에서 제외.
+- **검증 방식**: 매 배치마다 `git stash`로 전/후 상태를 각각 빌드해 113개 라우트 전체의
+  `<body>`(또는 `<section class="prose">`)를 스크립트로 diff(React SSR의 `<!-- -->` 하이드
+  레이션 마커는 무시), `sitemap.xml`의 `<loc>` 목록이 매번 불변임을 확인. 이 과정에서 원문
+  JSX의 줄바꿈이 의도치 않은 공백을 만든 진짜 버그를 몇 건 발견해 함께 수정(예: 이용약관
+  "세무사· 노무사" → "세무사·노무사").
+- **결과**: 전 구간 build+lint+tsc+vitest(248개 테스트) 통과, 배포 확인 완료. `site-config.ts`
+  는 완전히 구조 전용으로 정리됐고(`name`/`nameEn`/`tagline` 등 텍스트 필드 없음), 한글 문자열을
+  키로 쓰는 번역 맵은 더 이상 없음. `mbti-test-en.ts`(데이터 전용 파일)는 JSON 이전 후 삭제.
