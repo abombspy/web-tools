@@ -1,0 +1,51 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "2026 is a transition year for school grading" },
+    {
+      "type": "p",
+      "runs": [
+        "Under the Ministry of Education’s 2028 university admissions reform, high school internal grades (naesin) are shifting from a ",
+        { "text": "9-tier system", "bold": true },
+        " to a ",
+        { "text": "5-tier system", "bold": true },
+        ". As of 2026, ",
+        { "text": "3rd-year high schoolers (the last 9-tier cohort)", "bold": true },
+        " and ",
+        { "text": "1st/2nd-year students (on the new 5-tier system)", "bold": true },
+        " use different scales — pick the one that matches your grade level."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        ["5-tier cumulative %: Tier 1 = 10% / Tier 2 = 34% / Tier 3 = 66% / Tier 4 = 90% / Tier 5 = 100%"],
+        [
+          "9-tier cumulative % (used for both school grades and the CSAT): Tier 1 = 4% / Tier 2 = 11% / Tier 3 = 23% / Tier 4 = 40% / Tier 5 = 60% / Tier 6 = 77% / Tier 7 = 89% / Tier 8 = 96% / Tier 9 = 100%"
+        ]
+      ]
+    },
+    { "type": "h2", "text": "Calculating class rank percentage" },
+    {
+      "type": "p",
+      "runs": [
+        "Rank percentage = rank ÷ total students × 100 — a simple calculation. The actual school system (NEIS) applies a separate correction formula for tied ranks, so if there are ties, your real transcript may differ slightly from this result."
+      ]
+    },
+    { "type": "h2", "text": "Why doesn’t this accept a CSAT standard score?" },
+    {
+      "type": "p",
+      "runs": [
+        "The CSAT (College Scholastic Ability Test) standard score distribution shifts depending on that year’s difficulty, so a standard score alone can’t tell you the exact grade tier. The precise cutoffs are only confirmed by the official announcement from Korea’s testing authority after scoring, so this calculator only accepts a ",
+        { "text": "percentile you enter directly", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This result is for reference only. For your exact grade and how it was calculated, check your official school transcript or the testing authority’s announcement."
+      ]
+    }
+  ]
+}

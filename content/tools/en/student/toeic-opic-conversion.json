@@ -1,0 +1,30 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Conversion basis" },
+    {
+      "type": "p",
+      "runs": [
+        "Based on the ",
+        { "text": "“language proficiency conversion table”", "bold": true },
+        " commonly attached to Korean public institution and public enterprise job postings. Each OPIc level maps to a TOEIC score range and an assigned (average) score."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        ["IM1: 470–715 (average 593)"],
+        ["IM2: 720–815 (average 765)"],
+        ["IM3: 815–915 (average 860)"],
+        ["IH: 915–955 (average 935)"],
+        ["AL: 955–990 (average 980)"]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This table doesn’t cover below IM1 (IM, IL, NH, etc.), and individual employers may use their own conversion table — always check the official criteria in the job posting."
+      ]
+    }
+  ]
+}

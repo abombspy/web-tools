@@ -22,3 +22,12 @@ export type Block =
 export type ProseDoc = { blocks: Block[] };
 
 export type DynamicMap = Record<string, ReactNode>;
+
+// JSON import를 통해 들어온 값은 TypeScript가 "type" 필드를 리터럴 유니언이 아닌
+// string으로 구조적 추론하므로 Block[]에 바로 대입할 수 없다. 이 한 곳에서만
+// 캐스팅해 각 page.tsx가 반복해서 캐스팅하지 않도록 한다 — 스키마가 실제로
+// 어긋나면(오타 등) renderBlocks의 switch가 알 수 없는 type을 만나 아무것도
+// 렌더링하지 않는 정도로 그치므로, 빌드 타임에 못 잡는 리스크는 낮다.
+export function asBlocks(json: unknown): Block[] {
+  return (json as ProseDoc).blocks;
+}

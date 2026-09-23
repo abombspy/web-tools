@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": [
+        "Uses the standard 4.5-point scale common at Korean universities (A+ = 4.5 down to F = 0.0). For each course, multiply ",
+        { "text": "credits × grade points", "bold": true },
+        ", sum them up, and divide by total credits — a ",
+        { "text": "credit-weighted average", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "The 4.3-scale conversion (sometimes required for grad school or overseas applications) is your 4.5-scale GPA multiplied by 4.3/4.5."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "Grade point scales (whether A+ is 4.5 or 4.3) and how pass/fail courses are handled can differ by school, so check your official transcript for the exact figure."
+      ]
+    }
+  ]
+}
