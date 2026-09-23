@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/en/freelancer/income-tax-estimate.json";
 import {
   calculateComprehensiveIncomeTax,
   type ComprehensiveIncomeTaxRates,
@@ -12,13 +13,7 @@ type Props = {
   industries: IndustryExpenseRate[];
 };
 
-const INDUSTRY_NAME_EN: Record<string, string> = {
-  "940306": "Solo content creator (YouTuber, etc.)",
-  "940100": "Writer / author / translator",
-  "940903": "Tutor / private instructor",
-  "940918": "Quick-service / delivery rider",
-  "940909": "IT freelancer / programmer / other self-employed",
-};
+const INDUSTRY_NAME_EN: Record<string, string> = content.industryNames;
 
 export default function Calculator({ rates, industries }: Props) {
   const [annualRevenue, setAnnualRevenue] = useState("30000000");

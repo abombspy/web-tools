@@ -1,0 +1,50 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "p",
+      "runs": [
+        "Business income is your annual revenue minus a deemed necessary-expense amount (based on your industry’s expense ratio), then a basic deduction of ₩1.5M is subtracted to get your taxable base, to which Korea’s ",
+        { "text": "progressive comprehensive income tax rates (6–45%, 8 brackets)", "bold": true },
+        " apply."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "Calculated tax = taxable base × rate − progressive deduction. If your annual revenue is ",
+        { "text": "under", "bold": true },
+        " ₩",
+        { "dynamic": "simplifiedRateThreshold" },
+        ", the ",
+        { "text": "simplified expense ratio", "bold": true },
+        " applies; above that, the ",
+        { "text": "standard expense ratio", "bold": true },
+        " applies (the simplified ratio is much higher, which lowers your tax)."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This calculator only supports the ",
+        { "text": "top 5 industries", "bold": true },
+        " (solo content creator/YouTuber, writer/translator, tutor/instructor, quick-service/delivery rider, IT freelancer/other self-employed). For industries not on this list, look up your own industry code’s expense ratio on the National Tax Service’s Hometax site and enter it directly."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "The National Tax Service publishes industry expense ratios around April each year (for the prior year). The rates in this calculator are reference values gathered from several tax-reference sources, with different base years per industry (2019–2024). For exact figures, check the National Tax Service Hometax “Standard/Simplified Expense Ratio Lookup.” This English page is a translation of the original Korean tool; it also only applies your own basic deduction (₩1.5M) and doesn’t include dependent deductions, tax credits, or health-insurance-premium deductions — it’s a simplified estimate."
+      ]
+    }
+  ],
+  "industryNames": {
+    "940306": "Solo content creator (YouTuber, etc.)",
+    "940100": "Writer / author / translator",
+    "940903": "Tutor / private instructor",
+    "940918": "Quick-service / delivery rider",
+    "940909": "IT freelancer / programmer / other self-employed"
+  }
+}
