@@ -31,10 +31,14 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  // 구글 서치 콘솔 사이트 소유권 확인(2026-09-23). 네이버 서치어드바이저 코드는
-  // 발급받는 대로 verification.other["naver-site-verification"]에 추가할 것.
+  // 구글 서치 콘솔 + 네이버 서치어드바이저 사이트 소유권 확인(2026-09-23).
+  // 네이버는 호스트(도메인) 단위 확인이라, 커스텀 도메인 연결 시 그 도메인에서도
+  // 다시 확인해야 할 수 있음(§6.2 커스텀 도메인 전환 참고).
   verification: {
     google: "InoHQKXzv6QGp6P1oio0mZGAI0ZbKTPx_XD-3I-mSE4",
+    other: {
+      "naver-site-verification": "a87cc773740b44dfaaa446a45d422d636547accc",
+    },
   },
   openGraph: {
     title: SITE_NAME,
