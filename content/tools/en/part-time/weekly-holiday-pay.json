@@ -1,0 +1,47 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What is weekly holiday pay?" },
+    {
+      "type": "p",
+      "runs": [
+        "Under ",
+        { "text": "Article 55 of the Labor Standards Act and Article 30 of its Enforcement Decree", "bold": true },
+        ", an employer must give an employee who has worked all of their scheduled working days in a week at least one paid day off per week (the “weekly holiday”). The wage paid for that day is weekly holiday pay (“jujusudang”)."
+      ]
+    },
+    { "type": "h2", "text": "Eligibility" },
+    {
+      "type": "list",
+      "items": [
+        [
+          "Your scheduled weekly working hours must be ",
+          { "text": "15 hours or more", "bold": true },
+          ". (Strictly this is measured as a 4-week average, but if your hours are the same every week, judging by a single week is fine. If your hours vary a lot week to week, this calculator’s result may not match reality.)"
+        ],
+        [
+          "You must have ",
+          { "text": "worked all of your scheduled days", "bold": true },
+          " that week with no absences. (Being late or leaving early doesn’t matter, but an absence means no pay for that week.)"
+        ]
+      ]
+    },
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "p",
+      "runs": ["Weekly holiday pay = (weekly ", { "text": "scheduled hours", "bold": true }, " ÷ 40, capped at 40) × 8 × hourly wage"]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "“Scheduled hours” means the hours set in your labor contract, not the hours you actually worked more or less. Even if your contract is for more than 40 hours a week, only up to 8 hours (the maximum) counts toward this calculation."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; actual eligibility and amounts depend on your labor contract and workplace, and don’t replace an official check with the Ministry of Employment and Labor or a licensed labor attorney (nomusa)."
+      ]
+    }
+  ]
+}

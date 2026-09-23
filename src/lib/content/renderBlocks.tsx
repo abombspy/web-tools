@@ -12,7 +12,6 @@ const TONE_CLASS: Record<"amber" | "blue", string> = {
 
 function renderRun(run: Run, key: number, dynamic: DynamicMap): ReactNode {
   if (typeof run === "string") return run;
-  if ("dynamic" in run) return <Fragment key={key}>{dynamic[run.dynamic]}</Fragment>;
   if ("href" in run) {
     return (
       <Link key={key} href={run.href}>
@@ -20,8 +19,8 @@ function renderRun(run: Run, key: number, dynamic: DynamicMap): ReactNode {
       </Link>
     );
   }
-  let node: ReactNode = run.text;
-  if (run.code) node = <code>{node}</code>;
+  let node: ReactNode = "dynamic" in run ? dynamic[run.dynamic] : run.text;
+  if ("code" in run && run.code) node = <code>{node}</code>;
   if (run.italic) node = <span className="italic">{node}</span>;
   if (run.bold) node = <strong>{node}</strong>;
   return <Fragment key={key}>{node}</Fragment>;

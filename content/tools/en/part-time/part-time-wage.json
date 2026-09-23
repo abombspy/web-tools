@@ -1,0 +1,77 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What does this calculate?" },
+    {
+      "type": "p",
+      "runs": [
+        "Enter your hourly wage and this month’s hours (base, overtime, night, holiday) to get your gross pay including the premiums required by ",
+        { "text": "Article 56 of the Labor Standards Act", "bold": true },
+        ", then the amount after National Pension, Health Insurance, and Employment Insurance (the “4 insurances”) deductions."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This calculator ",
+        { "text": "does not include weekly holiday pay.", "bold": true },
+        " Calculate that separately with the ",
+        { "text": "Weekly Holiday Pay Calculator", "href": "/en/part-time/weekly-holiday-pay" },
+        " and add it on top."
+      ]
+    },
+    { "type": "h2", "text": "Premiums (overtime, night, holiday)" },
+    {
+      "type": "list",
+      "items": [
+        ["Overtime, night work (10 PM–6 AM), and the first 8 hours of holiday work: +50% of ordinary wage"],
+        ["Holiday work beyond 8 hours in a day: +100% of ordinary wage"],
+        [
+          { "text": "These premium rules don’t apply to workplaces with fewer than 5 regular employees", "bold": true },
+          " (Enforcement Decree of the Labor Standards Act, Schedule 1). Since many small workplaces — convenience stores, cafes — fall into this category, this calculator asks for workplace size and reflects it."
+        ]
+      ]
+    },
+    { "type": "h2", "text": "4-insurance deductions" },
+    {
+      "type": "p",
+      "runs": [
+        "Part-time employees whose scheduled monthly hours are under ",
+        { "dynamic": "monthlyHoursThreshold", "bold": true },
+        " are, in principle, exempt from National Pension, Health Insurance, and Employment Insurance (Industrial Accident Insurance applies regardless, fully employer-paid). There are additional exceptions — working 8+ days a month, earning ₩2.2M+ monthly, or 3+ months of continuous work — that this calculator doesn’t account for, so check with the National Pension Service or National Health Insurance Service if your case is borderline."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "When applicable, the employee’s share is National Pension ",
+        { "dynamic": "nationalPensionRate" },
+        ", Health Insurance ",
+        { "dynamic": "healthInsuranceRate" },
+        " + Long-Term Care Insurance (",
+        { "dynamic": "longTermCareRate" },
+        " of the health premium), and Employment Insurance ",
+        { "dynamic": "employmentInsuranceRate" },
+        "."
+      ]
+    },
+    { "type": "h2", "text": "Income tax withholding" },
+    {
+      "type": "p",
+      "runs": [
+        "If your monthly pay is under ",
+        { "dynamic": "incomeTaxThreshold", "bold": true },
+        " (single filer, no dependents), withheld income tax is ₩0. Above that, the exact amount follows the National Tax Service’s ",
+        { "text": "Simplified Tax Withholding Table", "bold": true },
+        ", a large table that varies by pay level and number of dependents — this calculator doesn’t compute that exact tax and only shows the amount after 4-insurance deductions."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; your actual pay depends on your labor contract, your company’s pay rules, and the exact tax owed."
+      ]
+    }
+  ]
+}

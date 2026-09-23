@@ -10,7 +10,11 @@ export type Run =
   | string // 평문(축약형)
   | { text: string; bold?: boolean; italic?: boolean; code?: boolean }
   | { text: string; href: string } // 내부 링크. href는 locale에 맞게 이미 완성된 값.
-  | { dynamic: string }; // 문장 중간에 동적 값 하나를 끼워 넣는 탈출구.
+  | { dynamic: string; bold?: boolean; italic?: boolean }; // 문장 중간에 동적 값 하나를 끼워
+  // 넣는 탈출구. bold/italic은 "<strong>{N}시간 미만</strong>"처럼 동적 값과 그 앞뒤
+  // 고정 문구가 하나의 굵게 표시 범위를 이룰 때, 그 고정 문구까지 포함한 완성된 문자열을
+  // vars로 넘기고 여기서 굵게 처리한다(문구를 dynamic 앞뒤로 쪼개 각각 bold 처리해도
+  // 시각적으로는 동일하지만, 굳이 두 run으로 나눌 이유가 없어 한 run에서 처리).
 
 export type Block =
   | { type: "h2"; text: string }

@@ -1,0 +1,45 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How many days of leave do you accrue?" },
+    {
+      "type": "p",
+      "runs": [
+        "Under ",
+        { "text": "Article 60 of the Labor Standards Act", "bold": true },
+        ", under ",
+        { "text": "1 year", "bold": true },
+        " of continuous service earns 1 day per full month of attendance (up to 11 days); ",
+        { "text": "1 year or more", "bold": true },
+        " (assuming 80%+ attendance) earns 15 days, plus 1 extra day every 2 years starting from year 3, up to a ",
+        { "text": "maximum of 25 days", "bold": true },
+        "."
+      ]
+    },
+    { "type": "h2", "text": "How the payout is calculated" },
+    { "type": "p", "runs": ["Annual leave payout = (accrued leave − leave already used) × 1 day’s ordinary wage"] },
+    {
+      "type": "p",
+      "runs": [
+        "1 day’s ordinary wage is calculated as ",
+        { "text": "monthly ordinary wage ÷ 209 hours × 8 hours", "bold": true },
+        ". 209 hours is the average monthly scheduled hours for a 40-hour work week plus 8 hours of paid weekly holiday ((40+8) hours × 52 weeks ÷ 12 months)."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This calculator assumes a ",
+        { "text": "full-time, 40-hour-a-week employee", "bold": true },
+        ". Part-time employees accrue leave on a pro-rated basis by scheduled hours, which this calculator doesn’t handle."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; actual leave accrual and usage depend on your company’s work rules and any absences or leave taken — check with your HR team for exact figures."
+      ]
+    }
+  ]
+}

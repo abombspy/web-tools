@@ -61,6 +61,14 @@ describe("renderBlocks", () => {
     expect(out).toBe("<p>상한액: <strong>66,000원</strong></p>");
   });
 
+  it("bolds a dynamic run whose value already includes surrounding fixed text", () => {
+    const out = html(
+      [{ type: "p", runs: [{ dynamic: "threshold", bold: true }, "인 근로자는"] }],
+      { threshold: "60시간 미만" },
+    );
+    expect(out).toBe("<p><strong>60시간 미만</strong>인 근로자는</p>");
+  });
+
   it("resolves a whole dynamic block", () => {
     const out = html([{ type: "dynamic", id: "tierList" }], {
       tierList: (
