@@ -10,6 +10,7 @@ import {
   getSocialInsurance,
 } from "@/lib/rates";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "Part-Time Wage Calculator",
@@ -25,6 +26,7 @@ export default function PartTimeWagePageEn() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">💰 Part-Time Wage Calculator</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content), {

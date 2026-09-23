@@ -1,6 +1,15 @@
 {
   "languageSwitchLabel": "한국어",
   "categoryViewAllTemplate": "All {name}",
+  "menuOpenLabel": "Open menu",
+  "menuCloseLabel": "Close menu",
+  "share": {
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "shareButton": "Share",
+    "shareX": "Share on X",
+    "shareFacebook": "Share on Facebook"
+  },
   "footer": {
     "disclaimer": "🙏 Every result on this site is a reference-only mock calculation. It doesn't replace individual advice from a licensed professional (accountant, labor attorney, etc.) — please double-check with the relevant official agency before filing or claiming anything.",
     "about": "About",

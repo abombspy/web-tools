@@ -4,6 +4,7 @@ import content from "@content/tools/en/student/grade-conversion.json";
 import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "Korean School Grade Converter",
@@ -14,6 +15,7 @@ export default function GradeConversionPageEn() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">📝 Korean School Grade Converter</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}

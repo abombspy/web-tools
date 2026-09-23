@@ -4,6 +4,7 @@ import content from "@content/tools/ko/fun/name-compatibility.json";
 import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "이름 궁합·MBTI 궁합 테스트",
@@ -14,6 +15,7 @@ export default function NameCompatibilityPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">💘 이름 궁합·MBTI 궁합 테스트</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}

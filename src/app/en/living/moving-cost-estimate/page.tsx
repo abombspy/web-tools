@@ -5,6 +5,7 @@ import content from "@content/tools/en/living/moving-cost-estimate.json";
 import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "Moving Cost Estimator",
@@ -17,6 +18,7 @@ export default function MovingCostEstimatePageEn() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">🚚 Moving Cost Estimator</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}

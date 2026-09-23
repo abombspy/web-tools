@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LanguageRedirect from "@/components/LanguageRedirect";
 import { getCategories } from "@/lib/content/catalog";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site-config";
 
@@ -7,6 +8,7 @@ export default function Home() {
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4">
+      <LanguageRedirect isEnglish={false} />
       <section className="py-14 text-center sm:py-16">
         <div className="mb-4 text-6xl">🧮💛</div>
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">

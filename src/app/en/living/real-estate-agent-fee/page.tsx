@@ -5,6 +5,7 @@ import content from "@content/tools/en/living/real-estate-agent-fee.json";
 import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "Real Estate Agent Fee Calculator",
@@ -17,6 +18,7 @@ export default function RealEstateAgentFeePageEn() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">🤝 Real Estate Agent Fee Calculator</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}

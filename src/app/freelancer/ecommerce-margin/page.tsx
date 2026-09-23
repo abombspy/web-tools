@@ -4,6 +4,7 @@ import content from "@content/tools/ko/freelancer/ecommerce-margin.json";
 import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "스마트스토어·쿠팡 마진 계산기",
@@ -14,6 +15,7 @@ export default function EcommerceMarginPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">🛍️ 스마트스토어·쿠팡 마진 계산기</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}

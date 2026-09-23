@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "Recommended Combos",
@@ -60,6 +61,7 @@ export default function RecommendedCombosPageEn() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">✨ Recommended Combos</h1>
+      <ShareButtons />
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         Tool combos that go well together for common situations.
       </p>

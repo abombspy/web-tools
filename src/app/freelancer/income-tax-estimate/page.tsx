@@ -5,6 +5,7 @@ import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import { getComprehensiveIncomeTax, getExpenseRatesByIndustry } from "@/lib/rates";
 import Calculator from "./Calculator";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "종합소득세 예상 계산기 (프리랜서 간이)",
@@ -18,6 +19,7 @@ export default function IncomeTaxEstimatePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">📊 종합소득세 예상 계산기 (프리랜서 간이)</h1>
+      <ShareButtons />
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content), {

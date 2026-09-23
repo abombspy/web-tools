@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
   title: "추천 조합",
@@ -69,6 +70,7 @@ export default function RecommendedCombosPage() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-16">
       <h1 className="text-2xl font-extrabold">✨ 추천 조합</h1>
+      <ShareButtons />
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         상황별로 함께 쓰면 좋은 계산기들을 모아뒀습니다.
       </p>
