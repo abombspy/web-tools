@@ -1,0 +1,17 @@
+{
+  "languageSwitchLabel": "한국어",
+  "categoryViewAllTemplate": "All {name}",
+  "footer": {
+    "disclaimer": "🙏 Every result on this site is a reference-only mock calculation. It doesn't replace individual advice from a licensed professional (accountant, labor attorney, etc.) — please double-check with the relevant official agency before filing or claiming anything.",
+    "about": "About",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "cookieBanner": {
+    "prefix": "This site uses cookies for ad serving and usage analytics. See the ",
+    "linkText": "Privacy Policy",
+    "suffix": " for details.",
+    "acknowledge": "Got it"
+  }
+}

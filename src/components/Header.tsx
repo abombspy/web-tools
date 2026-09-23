@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getCategories } from "@/lib/content/catalog";
+import { getChrome } from "@/lib/content/chrome";
 import { SITE_NAME, SITE_NAME_EN, getLanguageSwitchHref } from "@/lib/site-config";
 
 // Header는 루트 레이아웃에 있어 페이지 이동 시 다시 마운트되지 않으므로,
@@ -19,6 +20,7 @@ export default function Header() {
   const navRef = useRef<HTMLElement>(null);
   const isEnglish = pathname.startsWith("/en");
   const categories = getCategories(isEnglish ? "en" : "ko");
+  const chrome = getChrome(isEnglish ? "en" : "ko");
   const homeHref = isEnglish ? "/en" : "/";
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Header() {
             href={getLanguageSwitchHref(pathname)}
             className="shrink-0 rounded-full border border-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-500 hover:border-orange-300 hover:text-orange-500 dark:border-white/10"
           >
-            {isEnglish ? "한국어" : "English"}
+            {chrome.languageSwitchLabel}
           </Link>
         </div>
         <nav
@@ -64,7 +66,7 @@ export default function Header() {
                   href={isEnglish ? `/en/${c.slug}` : `/${c.slug}`}
                   className="block rounded-xl px-3 py-2 text-xs font-semibold text-zinc-500 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-white/10"
                 >
-                  {isEnglish ? `All ${c.name}` : `${c.name} 전체 보기`}
+                  {chrome.categoryViewAllTemplate.replace("{name}", c.name)}
                 </Link>
                 {c.tools
                   ?.filter((tool) => tool.available)

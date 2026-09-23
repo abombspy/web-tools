@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getChrome } from "@/lib/content/chrome";
 
 const STORAGE_KEY = "cookie-consent-ack";
 
@@ -10,6 +11,7 @@ export default function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
   const isEnglish = pathname.startsWith("/en");
+  const chrome = getChrome(isEnglish ? "en" : "ko");
 
   useEffect(() => {
     // 마이크로태스크로 감싸 effect 본문에서 동기적으로 setState하지 않도록 한다
@@ -42,30 +44,18 @@ export default function CookieConsentBanner() {
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-black/10 bg-white/95 p-4 backdrop-blur dark:border-white/10 dark:bg-zinc-900/95">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 sm:flex-row sm:justify-between">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          {isEnglish ? (
-            <>
-              This site uses cookies for ad serving and usage analytics. See the{" "}
-              <Link href="/en/privacy-policy" className="underline">
-                Privacy Policy
-              </Link>{" "}
-              for details.
-            </>
-          ) : (
-            <>
-              이 사이트는 광고 게재와 이용 현황 분석을 위해 쿠키를 사용합니다. 자세한 내용은{" "}
-              <Link href="/privacy-policy" className="underline">
-                개인정보처리방침
-              </Link>
-              을 확인해 주세요.
-            </>
-          )}
+          {chrome.cookieBanner.prefix}
+          <Link href={isEnglish ? "/en/privacy-policy" : "/privacy-policy"} className="underline">
+            {chrome.cookieBanner.linkText}
+          </Link>
+          {chrome.cookieBanner.suffix}
         </p>
         <button
           type="button"
           onClick={acknowledge}
           className="shrink-0 rounded border border-black/20 px-4 py-2 text-sm font-medium hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
         >
-          {isEnglish ? "Got it" : "확인"}
+          {chrome.cookieBanner.acknowledge}
         </button>
       </div>
     </div>
