@@ -1,0 +1,52 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Article 1 (Purpose)" },
+    {
+      "type": "p",
+      "runs": [
+        "These terms set out the rights, obligations, and responsibilities between ",
+        { "dynamic": "siteName" },
+        " (the “Site”) and users of its calculator services."
+      ]
+    },
+    { "type": "h2", "text": "Article 2 (Description of service)" },
+    {
+      "type": "p",
+      "runs": ["The Site provides free calculators for tax, pay, and everyday-life questions, along with content explaining the formula and basis behind each calculation."]
+    },
+    { "type": "h2", "text": "Article 3 (Disclaimer)" },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        [
+          "All results provided by the Site are ",
+          { "text": "reference estimates only", "bold": true },
+          " and do not replace individual advice from a licensed professional (accountant, labor attorney, lawyer, etc.) or an official calculation or review by a government agency."
+        ],
+        ["The rates, statutes, and reference values behind these calculations can change over time. The Site makes a good-faith effort to keep them current but does not guarantee their accuracy or completeness."],
+        ["The Site is not liable for damages arising from actions taken in reliance on a calculation result, except where caused by the Site’s intentional misconduct or gross negligence."]
+      ]
+    },
+    { "type": "h2", "text": "Article 4 (User obligations)" },
+    {
+      "type": "p",
+      "runs": ["Users must use the Site in accordance with applicable law and these terms, and must not interfere with the Site’s normal operation."]
+    },
+    { "type": "h2", "text": "Article 5 (Intellectual property)" },
+    {
+      "type": "p",
+      "runs": ["Content created by the Site (explanations, design, code, etc.) is protected by copyright and may not be copied or distributed without prior consent."]
+    },
+    { "type": "h2", "text": "Article 6 (Changes to these terms)" },
+    {
+      "type": "p",
+      "runs": ["The Site may revise these terms as needed, within the limits of applicable law. Changes will be posted on this page."]
+    },
+    { "type": "h2", "text": "Article 7 (Governing law and jurisdiction)" },
+    {
+      "type": "p",
+      "runs": ["These terms are governed by the laws of the Republic of Korea, and any disputes are subject to the jurisdiction of the competent court under applicable law."]
+    }
+  ]
+}

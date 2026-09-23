@@ -1,0 +1,6 @@
+{
+  "blocks": [
+    { "type": "p", "runs": ["Found a calculation error, have a tool idea, or want to talk advertising/partnership? Email us below."] },
+    { "type": "p", "runs": [{ "dynamic": "mailtoLink" }] }
+  ]
+}

@@ -12,6 +12,7 @@ const TONE_CLASS: Record<"amber" | "blue", string> = {
 
 function renderRun(run: Run, key: number, dynamic: DynamicMap): ReactNode {
   if (typeof run === "string") return run;
+  if ("br" in run) return <br key={key} />;
   if ("href" in run) {
     if (run.external) {
       return (
@@ -61,6 +62,12 @@ export function renderBlocks(blocks: Block[], dynamic: DynamicMap = {}): ReactNo
       case "callout":
         return (
           <p key={i} className={TONE_CLASS[block.tone]}>
+            {renderRuns(block.runs, dynamic)}
+          </p>
+        );
+      case "note":
+        return (
+          <p key={i} className="text-sm text-zinc-500">
             {renderRuns(block.runs, dynamic)}
           </p>
         );

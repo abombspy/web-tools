@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import content from "@content/pages/en/contact.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import { CONTACT_EMAIL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -11,13 +14,9 @@ export default function ContactPageEn() {
       <h1 className="text-2xl font-extrabold">Contact</h1>
 
       <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert">
-        <p>
-          Found a calculation error, have a tool idea, or want to talk advertising/partnership?
-          Email us below.
-        </p>
-        <p>
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-        </p>
+        {renderBlocks(asBlocks(content), {
+          mailtoLink: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>,
+        })}
       </div>
     </div>
   );

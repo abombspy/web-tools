@@ -44,6 +44,11 @@ describe("renderBlocks", () => {
     );
   });
 
+  it("renders a line break run", () => {
+    const out = html([{ type: "p", runs: ["문의사항은 아래로.", { br: true }, "이메일: a@b.com"] }]);
+    expect(out).toBe("<p>문의사항은 아래로.<br/>이메일: a@b.com</p>");
+  });
+
   it("renders superscript runs", () => {
     const out = html([{ type: "p", runs: ["x", { text: "n", sup: true }] }]);
     expect(out).toBe("<p>x<sup>n</sup></p>");
@@ -65,6 +70,11 @@ describe("renderBlocks", () => {
     const blue = html([{ type: "callout", tone: "blue", runs: ["안내"] }]);
     expect(blue).toContain("bg-blue-50");
     expect(blue).toContain("dark:bg-blue-950/40");
+  });
+
+  it("renders a note block with muted small-text class", () => {
+    const out = html([{ type: "note", runs: ["참고"] }]);
+    expect(out).toBe('<p class="text-sm text-zinc-500">참고</p>');
   });
 
   it("resolves a dynamic run inside a sentence", () => {

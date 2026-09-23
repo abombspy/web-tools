@@ -1,0 +1,58 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        { "dynamic": "siteName" },
+        " (the “Site”) takes your privacy seriously and follows applicable data-protection laws, including Korea’s Personal Information Protection Act. This policy applies whenever you use the calculators on the Site."
+      ]
+    },
+    { "type": "h2", "text": "1. Information we collect" },
+    {
+      "type": "p",
+      "runs": [
+        "The Site’s calculators process the values you enter (hours worked, income amounts, etc.) ",
+        { "text": "entirely in your browser", "bold": true },
+        " — nothing is sent to or stored on a server. The Site does not require sign-up and does not directly collect personal identifiers such as your name or email address."
+      ]
+    },
+    { "type": "h2", "text": "2. Cookies, advertising, and analytics" },
+    {
+      "type": "p",
+      "runs": [
+        "The Site may use cookies for ad serving (Google AdSense) and usage analytics. Google and other third-party ad providers may use cookies to serve ads based on your interests; you can opt out of personalized ads at ",
+        { "text": "Google Ads Settings", "href": "https://adssettings.google.com", "external": true },
+        "."
+      ]
+    },
+    { "type": "h2", "text": "3. Retention" },
+    {
+      "type": "p",
+      "runs": [
+        "Since the Site does not store the values you enter, there is no personal information to separately retain or use. Any information collected by advertising or analytics tools follows that provider’s own policy."
+      ]
+    },
+    { "type": "h2", "text": "4. Third-party processing" },
+    {
+      "type": "p",
+      "runs": ["The Site shares ad-related data with Google AdSense for ad serving purposes."]
+    },
+    { "type": "h2", "text": "5. Your rights" },
+    {
+      "type": "p",
+      "runs": [
+        "Because the Site does not store personal information itself, there is no personal data to request access to, correct, or delete. To exercise rights related to ad personalization, please use the Google Ads Settings page linked above."
+      ]
+    },
+    { "type": "h2", "text": "6. Contact" },
+    {
+      "type": "p",
+      "runs": ["For questions, please reach out at the email below.", { "br": true }, "Email: ", { "dynamic": "email" }]
+    },
+    { "type": "h2", "text": "7. Changes" },
+    {
+      "type": "p",
+      "runs": ["This policy may be updated to reflect changes in law, policy, or the Site’s services. Updates will be posted on this page."]
+    }
+  ]
+}

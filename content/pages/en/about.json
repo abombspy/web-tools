@@ -1,0 +1,35 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        { "dynamic": "siteName" },
+        " is a free collection of everyday calculators. Instead of just showing a number, each tool explains ",
+        { "text": "why", "bold": true },
+        " it comes out that way (the formula, the source, the conditions), so you can understand and double-check the result yourself."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "All calculations run entirely in your browser — nothing you type is sent to or stored on a server. See the ",
+        { "text": "Privacy Policy", "href": "/en/privacy-policy" },
+        " for details."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "Results are for reference only and don’t replace advice from a licensed professional or an official government process. See the ",
+        { "text": "Terms of Service", "href": "/en/terms" },
+        " for details."
+      ]
+    },
+    {
+      "type": "note",
+      "runs": [
+        "Note: some calculators (part-time/employee wages, freelancer taxes, and a couple of housing tools) are built around Korean statutes — labor law, tax law, and housing law. This English section is a translation of the original Korean tool, including the legal citations; it’s meant as a reference for foreign residents, not a substitute for advice from a licensed professional or an official government source."
+      ]
+    }
+  ]
+}
