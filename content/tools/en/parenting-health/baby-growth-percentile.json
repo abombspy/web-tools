@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What this tool does" },
+    {
+      "type": "p",
+      "runs": [
+        "Calculates your baby’s age in full months from their birth date, and compares the weight/height you enter against a ",
+        { "text": "reference average", "bold": true },
+        " for that age."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        { "text": "This does not calculate a true “percentile.”", "bold": true },
+        " Official WHO growth percentiles are computed from large statistical parameter tables (LMS), which can’t be reliably reproduced here. Instead, we use the midpoint of the commonly-cited “3rd–97th percentile range” as a reference average, and just show how far above or below that average your numbers are. Supported range: 0–24 months."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "For an accurate growth percentile and developmental assessment, check with a pediatrician at a well-baby visit. Don’t judge your baby’s growth from this result alone."
+      ]
+    }
+  ]
+}

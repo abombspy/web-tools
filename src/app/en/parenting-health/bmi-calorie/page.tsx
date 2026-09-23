@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/parenting-health/bmi-calorie.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,33 +16,7 @@ export default function BmiCaloriePageEn() {
       <h1 className="text-2xl font-extrabold">⚖️ BMI & Calorie Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>BMI thresholds (Korean Society for the Study of Obesity, 2022 guideline)</h2>
-        <p>
-          The Korean (Asian) thresholds are lower than the WHO&rsquo;s international standard,
-          because Asian populations tend to have higher body fat at the same BMI, and health risks
-          like diabetes and hypertension rise starting at a lower BMI.
-        </p>
-        <ul>
-          <li>Underweight: below 18.5</li>
-          <li>Normal: 18.5–22.9</li>
-          <li>Pre-obese (overweight): 23–24.9</li>
-          <li>Obese stage 1: 25–29.9</li>
-          <li>Obese stage 2 (severe): 30–34.9</li>
-          <li>Obese stage 3 (extreme): 35 and above</li>
-        </ul>
-
-        <h2>BMR and calorie target</h2>
-        <p>
-          Basal metabolic rate (BMR) is calculated with the <strong>Mifflin-St Jeor equation</strong>.
-          Multiplying by an activity-level factor gives your total daily energy expenditure (TDEE);
-          we then suggest a calorie target by subtracting 500 kcal/day for weight loss or adding 500
-          kcal/day for weight gain (a common rule of thumb for roughly 0.5kg/week of change).
-        </p>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          This result is for reference only. If you have a medical condition or are pregnant,
-          different targets may apply — please consult a healthcare professional.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

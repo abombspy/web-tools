@@ -1,0 +1,32 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": ["Uses the ", { "text": "Widmark formula", "bold": true }, ", widely used in forensic and clinical medicine."]
+    },
+    {
+      "type": "list",
+      "items": [
+        ["Pure alcohol (g) = volume (mL) × ABV (%) × 0.8 (alcohol density)"],
+        ["Initial blood alcohol concentration (BAC, %) = alcohol grams ÷ (body weight (g) × Widmark factor) × 100"],
+        ["Time to sober up (hours) = initial BAC ÷ elimination rate per hour (about 0.015%pt)"]
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "The Widmark factor accounts for differences in body water distribution: 0.7 for men and 0.6 for women (so women reach a higher BAC at the same weight and drink amount)."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a ",
+        { "text": "rough estimate only", "bold": true },
+        ". Actual alcohol metabolism varies a lot by individual — body composition, liver function, whether you ate, medications, and more. Don’t use this result to decide whether it’s safe to drive."
+      ]
+    }
+  ]
+}

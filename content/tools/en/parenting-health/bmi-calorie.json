@@ -1,0 +1,38 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "BMI thresholds (Korean Society for the Study of Obesity, 2022 guideline)" },
+    {
+      "type": "p",
+      "runs": [
+        "The Korean (Asian) thresholds are lower than the WHO’s international standard, because Asian populations tend to have higher body fat at the same BMI, and health risks like diabetes and hypertension rise starting at a lower BMI."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        ["Underweight: below 18.5"],
+        ["Normal: 18.5–22.9"],
+        ["Pre-obese (overweight): 23–24.9"],
+        ["Obese stage 1: 25–29.9"],
+        ["Obese stage 2 (severe): 30–34.9"],
+        ["Obese stage 3 (extreme): 35 and above"]
+      ]
+    },
+    { "type": "h2", "text": "BMR and calorie target" },
+    {
+      "type": "p",
+      "runs": [
+        "Basal metabolic rate (BMR) is calculated with the ",
+        { "text": "Mifflin-St Jeor equation", "bold": true },
+        ". Multiplying by an activity-level factor gives your total daily energy expenditure (TDEE); we then suggest a calorie target by subtracting 500 kcal/day for weight loss or adding 500 kcal/day for weight gain (a common rule of thumb for roughly 0.5kg/week of change)."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This result is for reference only. If you have a medical condition or are pregnant, different targets may apply — please consult a healthcare professional."
+      ]
+    }
+  ]
+}

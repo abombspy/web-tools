@@ -1,0 +1,20 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": [
+        "Uses ",
+        { "text": "Naegele’s Rule", "bold": true },
+        ", the standard method used by obstetricians: add 280 days (40 weeks) to the first day of your last menstrual period. This assumes a regular 28-day cycle, so it’s an average-case estimate."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This result is an estimate for reference only. Your actual due date depends on an ultrasound-based obstetric assessment, and the margin of error is larger if your cycle is irregular. Confirm the exact date with your doctor."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "4 stages of weaning food" },
+    {
+      "type": "list",
+      "items": [
+        [{ "text": "Early (4–6 months)", "bold": true }, ": thin rice porridge, once a day, 5–80ml"],
+        [{ "text": "Mid (7–8 months)", "bold": true }, ": thicker porridge, twice a day, 50–100g per meal"],
+        [{ "text": "Late (9–11 months)", "bold": true }, ": introducing chunky food, 3x a day, 90–120g per meal"],
+        [{ "text": "Final stage (12–15 months)", "bold": true }, ": soft rice & side dishes, 3x a day + snacks, 100–130g per meal"]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This table isn’t an official government standard — it’s a ",
+        { "text": "general guideline", "bold": true },
+        " drawn from pediatric and parenting resources. Every baby develops at a different pace, so actual needs can vary; talk to a pediatrician about allergies or anything unusual."
+      ]
+    }
+  ]
+}
