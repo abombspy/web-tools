@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getWithholdingTax } from "@/lib/rates";
+import content from "@content/tools/ko/freelancer/delivery-rider-net-income.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -16,22 +19,7 @@ export default function DeliveryRiderNetIncomePage() {
       <h1 className="text-2xl font-extrabold">🛵 배달 라이더 순수익 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>계산 방법</h2>
-        <p>
-          순수익 = (건당 배달료 × 배달 건수) − 플랫폼 수수료 − 사업소득세 원천징수(3.3%) −
-          고정비용(유류비·소모품비 등)
-        </p>
-
-        <p className="rounded-md bg-blue-50 p-4 text-sm not-prose dark:bg-blue-950/40">
-          배달 플랫폼별 수수료율은 배달의민족·쿠팡이츠·요기요 등 플랫폼마다, 그리고 계약
-          조건마다 다르고 자주 바뀝니다. 그래서 특정 플랫폼의 수수료율을 미리 넣어두는 대신
-          <strong>본인이 실제로 확인한 수수료율을 직접 입력</strong>하도록 만들었습니다.
-        </p>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          이 계산기의 결과는 참고용입니다. 보험료(유상운송보험 등), 4대보험 가입 여부에 따른
-          공제는 반영하지 않습니다.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       {/* TODO: 애드센스 승인 후 이 위치에 광고 슬롯 삽입 (plan.md §2.3) */}

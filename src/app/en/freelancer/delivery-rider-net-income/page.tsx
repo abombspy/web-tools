@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getWithholdingTax } from "@/lib/rates";
+import content from "@content/tools/en/freelancer/delivery-rider-net-income.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -16,24 +19,7 @@ export default function DeliveryRiderNetIncomePageEn() {
       <h1 className="text-2xl font-extrabold">🛵 Delivery Rider Net Income Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>How it&rsquo;s calculated</h2>
-        <p>
-          Net income = (fee per delivery × number of deliveries) − platform commission −
-          business income tax withholding (3.3%) − fixed costs (fuel, supplies, etc.)
-        </p>
-
-        <p className="rounded-md bg-blue-50 p-4 text-sm not-prose dark:bg-blue-950/40">
-          Commission rates vary by delivery platform (Baemin, Coupang Eats, Yogiyo, etc.) and by
-          contract terms, and change often. Instead of hardcoding a specific platform&rsquo;s
-          rate, this calculator asks you to <strong>enter the commission rate you&rsquo;ve
-          actually confirmed</strong>.
-        </p>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          This is a reference-only calculation. This English page is a translation of the
-          original Korean tool; it doesn&rsquo;t account for insurance premiums (commercial
-          delivery insurance, etc.) or deductions from 4-insurance enrollment.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator withholdingRates={withholdingRates} />

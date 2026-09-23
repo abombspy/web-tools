@@ -1,0 +1,27 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "p",
+      "runs": [
+        "Net income = (fee per delivery × number of deliveries) − platform commission − business income tax withholding (3.3%) − fixed costs (fuel, supplies, etc.)"
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "Commission rates vary by delivery platform (Baemin, Coupang Eats, Yogiyo, etc.) and by contract terms, and change often. Instead of hardcoding a specific platform’s rate, this calculator asks you to ",
+        { "text": "enter the commission rate you’ve actually confirmed", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only calculation. This English page is a translation of the original Korean tool; it doesn’t account for insurance premiums (commercial delivery insurance, etc.) or deductions from 4-insurance enrollment."
+      ]
+    }
+  ]
+}

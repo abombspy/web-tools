@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it’s calculated" },
+    { "type": "p", "runs": ["Net profit = sale price − cost − seller commission − payment fee − shipping cost"] },
+    { "type": "p", "runs": ["Or work backward: set a target margin and see what price you’d need to charge to hit it."] },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "Marketplace seller commissions (Naver Smart Store, Coupang, etc.) vary by category and change often. Instead of hardcoding a rate table, this calculator asks you to ",
+        { "text": "enter the commission rate you confirmed in your seller dashboard", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only calculation. This English page is a translation of the original Korean tool; it doesn’t include promotional discounts, VAT, or return/exchange costs."
+      ]
+    }
+  ]
+}

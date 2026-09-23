@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Where does 3.3% come from?" },
+    {
+      "type": "p",
+      "runs": [
+        "The party paying a freelancer or other business-income earner in Korea must, under the ",
+        { "text": "Income Tax Act", "bold": true },
+        ", withhold 3% of the payment as income tax, and under the ",
+        { "text": "Local Tax Act", "bold": true },
+        ", withhold an additional 10% of that income tax as local income tax. In total that’s 3% + 0.3% = ",
+        { "text": "3.3%", "bold": true },
+        " withheld before payment."
+      ]
+    },
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "list",
+      "items": [
+        ["Pre-tax (contract amount) → post-tax: pre-tax × (1 − 0.033)"],
+        ["Post-tax (actual deposit) → pre-tax: post-tax ÷ (1 − 0.033) (an approximation due to rounding)"]
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "Local income tax isn’t exactly 0.3% of the pre-tax amount — it’s ",
+        { "text": "10% of the income tax amount", "bold": true },
+        ", so there can be a small, won-level difference. This calculator computes income tax first and then derives local income tax as 10% of it, matching the actual withholding method."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only calculation. This English page is a translation of the original Korean tool; exceptions (simplified taxpayers, tax-exempt businesses, etc.) may result in a different actual withholding amount."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "p",
+      "runs": [
+        "Under the ",
+        { "text": "Value-Added Tax Act", "bold": true },
+        ", the VAT rate for general taxpayers is ",
+        { "text": "10%", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        ["Supply price → total amount: supply price × 1.1"],
+        ["Total amount → supply price: total amount ÷ 1.1 (rounded if not evenly divisible)"]
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "Use this when you want to split a “VAT included” total on a receipt or invoice into the supply price and VAT, or to add VAT onto a supply price to get the final billed amount."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": ["This calculator uses the general taxpayer rate (10%). Simplified taxpayers have different rates by business type, so results may differ."]
+    }
+  ]
+}
