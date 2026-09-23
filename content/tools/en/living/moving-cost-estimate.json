@@ -1,0 +1,30 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Why a range, not a single number?" },
+    {
+      "type": "p",
+      "runs": [
+        "Unlike customs duty or electricity rates, there’s ",
+        { "text": "no official government price table", "bold": true },
+        " for moving costs in Korea. Each company prices freely, and even for the same size home, the price swings a lot based on how much stuff you have, distance, and the moving date — demand spikes on “lucky moving days” (son-eomneun-nal, traditional auspicious dates) and during peak season."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "This estimate is built from publicly available rates and comparison-platform data from several moving companies: a per-pyeong (about 3.3m² / 35.6 sq ft, the standard Korean area unit) rate by service type, plus a ladder-truck fee, shown as a ",
+        { "text": "±20–30% range", "bold": true },
+        "."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a rough reference only. ",
+        { "text": "Always get 2–3 real quotes", "bold": true },
+        " before you move. During peak season (March–April, auspicious dates) actual prices can run well above this range."
+      ]
+    }
+  ]
+}

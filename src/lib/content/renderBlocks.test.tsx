@@ -35,6 +35,20 @@ describe("renderBlocks", () => {
     expect(out).toContain(">링크<");
   });
 
+  it("renders an external link run with target=_blank", () => {
+    const out = html([
+      { type: "p", runs: [{ text: "한국은행", href: "https://www.bok.or.kr", external: true }] },
+    ]);
+    expect(out).toBe(
+      '<p><a href="https://www.bok.or.kr" target="_blank" rel="noopener noreferrer">한국은행</a></p>',
+    );
+  });
+
+  it("renders superscript runs", () => {
+    const out = html([{ type: "p", runs: ["x", { text: "n", sup: true }] }]);
+    expect(out).toBe("<p>x<sup>n</sup></p>");
+  });
+
   it("renders unordered and ordered lists", () => {
     const ul = html([{ type: "list", items: [["첫째"], ["둘째"]] }]);
     expect(ul).toBe("<ul><li>첫째</li><li>둘째</li></ul>");

@@ -8,8 +8,10 @@ import type { ReactNode } from "react";
 
 export type Run =
   | string // 평문(축약형)
-  | { text: string; bold?: boolean; italic?: boolean; code?: boolean }
-  | { text: string; href: string } // 내부 링크. href는 locale에 맞게 이미 완성된 값.
+  | { text: string; bold?: boolean; italic?: boolean; code?: boolean; sup?: boolean }
+  | { text: string; href: string; external?: boolean } // href는 locale에 맞게 이미 완성된
+  // 값. external이 true면 새 탭(target="_blank" rel="noopener noreferrer")으로 여는 일반
+  // <a>(예: 한국은행 홈페이지), 아니면 next/link의 <Link>(내부 라우트).
   | { dynamic: string; bold?: boolean; italic?: boolean }; // 문장 중간에 동적 값 하나를 끼워
   // 넣는 탈출구. bold/italic은 "<strong>{N}시간 미만</strong>"처럼 동적 값과 그 앞뒤
   // 고정 문구가 하나의 굵게 표시 범위를 이룰 때, 그 고정 문구까지 포함한 완성된 문자열을

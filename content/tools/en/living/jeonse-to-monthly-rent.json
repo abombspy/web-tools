@@ -1,0 +1,37 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Background" },
+    {
+      "type": "p",
+      "runs": [
+        { "text": "Jeonse", "bold": true },
+        " is a Korea-specific lease type where the tenant pays a large lump-sum deposit (often 50–80% of the home’s value) instead of monthly rent, and gets the deposit back in full at the end of the lease. Landlords sometimes offer to convert part of that deposit into monthly rent instead — this calculator figures out what rent that conversion works out to, and the legal cap on the rate used."
+      ]
+    },
+    { "type": "h2", "text": "How it’s calculated" },
+    { "type": "p", "runs": ["Monthly rent = (original jeonse deposit − deposit after conversion) × conversion rate ÷ 12"] },
+    {
+      "type": "p",
+      "runs": [
+        "Under ",
+        { "text": "Article 7-2 of the Housing Lease Protection Act and Article 9 of its Enforcement Decree", "bold": true },
+        ", the legal maximum conversion rate is whichever is ",
+        { "text": "lower", "bold": true },
+        " of ",
+        { "text": "the Bank of Korea base rate + 2 percentage points", "bold": true },
+        " and ",
+        { "text": "10% per year", "bold": true },
+        ". If the base rate rises, the cap rises with it, but it never exceeds 10% annually."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "The Bank of Korea’s Monetary Policy Board adjusts the base rate periodically, so check the current rate on the ",
+        { "text": "Bank of Korea website", "href": "https://www.bok.or.kr/portal/singl/baseRate/list.do", "external": true },
+        " before entering it here. This calculator only computes the legal cap that applies to both new and renewal leases, and doesn’t account for special conditions in individual contracts. This English page is a translation of the original Korean tool."
+      ]
+    }
+  ]
+}

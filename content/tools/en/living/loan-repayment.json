@@ -1,0 +1,35 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Equal payment vs. equal principal" },
+    {
+      "type": "list",
+      "items": [
+        [
+          { "text": "Equal payment (amortizing)", "bold": true },
+          ": your total monthly payment (principal + interest) stays the same throughout. Early payments are interest-heavy, later ones are principal-heavy. Easier to budget for."
+        ],
+        [
+          { "text": "Equal principal", "bold": true },
+          ": the principal portion you pay each month stays the same, and interest shrinks as the remaining balance drops. Higher payments early on, but less total interest than equal payment."
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "Monthly payment (equal payment) = principal × monthly rate × (1+monthly rate)",
+        { "text": "months", "sup": true },
+        " ÷ ((1+monthly rate)",
+        { "text": "months", "sup": true },
+        " − 1)"
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference calculation using standard financial formulas. Actual loan products may differ due to early-repayment fees, preferential rate conditions, first-payment-date rules, and similar terms."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it’s calculated" },
+    {
+      "type": "p",
+      "runs": [
+        "Under the ",
+        { "text": "Enforcement Rules of the Licensed Real Estate Agents Act", "bold": true },
+        " and local ordinances, maximum fee rates and caps are set by transaction-amount bracket. The actual brokerage fee is negotiated with the agent within this maximum."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "For lease (jeonse/monthly rent) transactions, the deposit and monthly rent are combined into a ",
+        { "text": "converted deposit", "bold": true },
+        ": deposit + (monthly rent × 100) — or deposit + (monthly rent × 70) if that total is under ₩50M."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "The rate table in this calculator is based on official Seoul city data. Most local governments use the same standard table, but rates can vary by region, so check your local ordinance or a licensed agent for the exact figure. The amount shown is the maximum, and VAT is separate. This English page is a translation of the original Korean tool."
+      ]
+    }
+  ]
+}
