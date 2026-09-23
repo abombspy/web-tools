@@ -1,14 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/en/part-time/weekly-holiday-pay.json";
 import { calculateWeeklyHolidayPay } from "@/lib/calculators/weekly-holiday-pay";
-
-const REASON_EN: Record<string, string> = {
-  "주 소정근로시간이 15시간 미만이라 주휴수당 발생 조건을 충족하지 않습니다.":
-    "Your scheduled weekly hours are under 15, so you don't meet the eligibility condition for weekly holiday pay.",
-  "해당 주 소정근로일에 결근이 있어 주휴수당이 발생하지 않습니다.":
-    "You had an absence on a scheduled working day this week, so weekly holiday pay doesn't apply.",
-};
 
 export default function Calculator({ minimumWage }: { minimumWage: number }) {
   const [hourlyWage, setHourlyWage] = useState("10320");
@@ -113,7 +107,7 @@ export default function Calculator({ minimumWage }: { minimumWage: number }) {
             </>
           ) : (
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              {REASON_EN[result.reason] ?? result.reason} (₩0)
+              {content.reasons[result.reasonCode]} (₩0)
             </p>
           )}
         </div>

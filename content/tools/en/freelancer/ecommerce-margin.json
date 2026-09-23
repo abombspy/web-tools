@@ -19,5 +19,8 @@
         "This is a reference-only calculation. This English page is a translation of the original Korean tool; it doesn’t include promotional discounts, VAT, or return/exchange costs."
       ]
     }
-  ]
+  ],
+  "errors": {
+    "fee_margin_exceeds_100": "The commission rate and target margin you entered add up to 100% or more, so there's no achievable price."
+  }
 }

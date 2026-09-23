@@ -2,24 +2,24 @@ import { describe, expect, it } from "vitest";
 import { calculateBmiCalorie, classifyBmi } from "./bmi-calorie";
 
 describe("classifyBmi (대한비만학회 2022 기준)", () => {
-  it("18.5 미만은 저체중, 정확히 18.5는 정상이다(경계값)", () => {
-    expect(classifyBmi(18.4)).toBe("저체중");
-    expect(classifyBmi(18.5)).toBe("정상");
+  it("18.5 미만은 underweight, 정확히 18.5는 normal이다(경계값)", () => {
+    expect(classifyBmi(18.4)).toBe("underweight");
+    expect(classifyBmi(18.5)).toBe("normal");
   });
 
-  it("23 미만은 정상, 정확히 23은 비만 전단계다(경계값)", () => {
-    expect(classifyBmi(22.9)).toBe("정상");
-    expect(classifyBmi(23)).toBe("비만 전단계");
+  it("23 미만은 normal, 정확히 23은 pre_obese다(경계값)", () => {
+    expect(classifyBmi(22.9)).toBe("normal");
+    expect(classifyBmi(23)).toBe("pre_obese");
   });
 
-  it("정확히 25는 1단계 비만이다(경계값)", () => {
-    expect(classifyBmi(24.9)).toBe("비만 전단계");
-    expect(classifyBmi(25)).toBe("1단계 비만");
+  it("정확히 25는 obese_1이다(경계값)", () => {
+    expect(classifyBmi(24.9)).toBe("pre_obese");
+    expect(classifyBmi(25)).toBe("obese_1");
   });
 
-  it("정확히 30은 2단계 고도비만, 35는 3단계 초고도비만이다(경계값)", () => {
-    expect(classifyBmi(30)).toBe("2단계 고도비만");
-    expect(classifyBmi(35)).toBe("3단계 초고도비만");
+  it("정확히 30은 obese_2, 35는 obese_3이다(경계값)", () => {
+    expect(classifyBmi(30)).toBe("obese_2");
+    expect(classifyBmi(35)).toBe("obese_3");
   });
 });
 
@@ -35,7 +35,7 @@ describe("calculateBmiCalorie", () => {
     });
     expect(result.bmr).toBe(1649); // 10*70+6.25*175-5*30+5
     expect(result.bmi).toBe(22.9); // 70/1.75^2
-    expect(result.bmiCategory).toBe("정상");
+    expect(result.bmiCategory).toBe("normal");
   });
 
   it("여성 BMR은 남성과 상수항이 다르다(-161)", () => {

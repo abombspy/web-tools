@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { calculateEcommerceMargin } from "@/lib/calculators/ecommerce-margin";
+import content from "@content/tools/ko/freelancer/ecommerce-margin.json";
+import { EcommerceMarginError, calculateEcommerceMargin } from "@/lib/calculators/ecommerce-margin";
 
 type Mode = "fromPrice" | "fromTargetMargin";
 
@@ -65,7 +66,7 @@ export default function Calculator() {
             },
       );
     } catch (e) {
-      calcError = e instanceof Error ? e.message : "계산할 수 없습니다.";
+      calcError = e instanceof EcommerceMarginError ? content.errors[e.code] : "계산할 수 없습니다.";
     }
   }
 

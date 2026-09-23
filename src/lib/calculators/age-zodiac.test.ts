@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest";
 import { calculateAgeZodiac, calculateKoreanZodiac, calculateWesternZodiac } from "./age-zodiac";
 
 describe("calculateKoreanZodiac", () => {
-  it("2020년은 쥐띠, 2021년은 소띠다", () => {
-    expect(calculateKoreanZodiac(2020)).toBe("쥐");
-    expect(calculateKoreanZodiac(2021)).toBe("소");
+  it("2020년은 쥐띠(rat), 2021년은 소띠(ox)다", () => {
+    expect(calculateKoreanZodiac(2020)).toBe("rat");
+    expect(calculateKoreanZodiac(2021)).toBe("ox");
   });
 
   it("기준연도보다 이전 연도도 올바르게 계산된다(음수 나머지 처리)", () => {
-    expect(calculateKoreanZodiac(2019)).toBe("돼지");
+    expect(calculateKoreanZodiac(2019)).toBe("pig");
   });
 
   it("12년 주기로 같은 띠가 반복된다", () => {
@@ -17,19 +17,19 @@ describe("calculateKoreanZodiac", () => {
 });
 
 describe("calculateWesternZodiac", () => {
-  it("2월 18일은 물병자리, 2월 19일은 물고기자리다(경계값)", () => {
-    expect(calculateWesternZodiac(2, 18)).toBe("물병자리");
-    expect(calculateWesternZodiac(2, 19)).toBe("물고기자리");
+  it("2월 18일은 물병자리(aquarius), 2월 19일은 물고기자리(pisces)다(경계값)", () => {
+    expect(calculateWesternZodiac(2, 18)).toBe("aquarius");
+    expect(calculateWesternZodiac(2, 19)).toBe("pisces");
   });
 
-  it("12월 21일은 사수자리, 12월 22일은 염소자리다(경계값, 연말 전환)", () => {
-    expect(calculateWesternZodiac(12, 21)).toBe("사수자리");
-    expect(calculateWesternZodiac(12, 22)).toBe("염소자리");
+  it("12월 21일은 사수자리(sagittarius), 12월 22일은 염소자리(capricorn)다(경계값, 연말 전환)", () => {
+    expect(calculateWesternZodiac(12, 21)).toBe("sagittarius");
+    expect(calculateWesternZodiac(12, 22)).toBe("capricorn");
   });
 
-  it("1월 19일은 염소자리, 1월 20일은 물병자리다(경계값, 연초 전환)", () => {
-    expect(calculateWesternZodiac(1, 19)).toBe("염소자리");
-    expect(calculateWesternZodiac(1, 20)).toBe("물병자리");
+  it("1월 19일은 염소자리(capricorn), 1월 20일은 물병자리(aquarius)다(경계값, 연초 전환)", () => {
+    expect(calculateWesternZodiac(1, 19)).toBe("capricorn");
+    expect(calculateWesternZodiac(1, 20)).toBe("aquarius");
   });
 });
 

@@ -24,5 +24,16 @@
     },
     { "type": "h2", "text": "별자리" },
     { "type": "p", "runs": ["태어난 날짜(월/일)를 서양 별자리의 표준 날짜 구간에 대응시켜 계산합니다."] }
-  ]
+  ],
+  "zodiacNames": {
+    "koreanZodiac": {
+      "rat": "쥐", "ox": "소", "tiger": "호랑이", "rabbit": "토끼", "dragon": "용", "snake": "뱀",
+      "horse": "말", "goat": "양", "monkey": "원숭이", "rooster": "닭", "dog": "개", "pig": "돼지"
+    },
+    "westernZodiac": {
+      "aquarius": "물병자리", "pisces": "물고기자리", "aries": "양자리", "taurus": "황소자리",
+      "gemini": "쌍둥이자리", "cancer": "게자리", "leo": "사자자리", "virgo": "처녀자리",
+      "libra": "천칭자리", "scorpio": "전갈자리", "sagittarius": "사수자리", "capricorn": "염소자리"
+    }
+  }
 }

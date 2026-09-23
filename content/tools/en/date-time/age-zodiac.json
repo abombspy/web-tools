@@ -24,5 +24,16 @@
     },
     { "type": "h2", "text": "Star sign" },
     { "type": "p", "runs": ["Matches your birth date (month/day) to the standard Western zodiac date ranges."] }
-  ]
+  ],
+  "zodiacNames": {
+    "koreanZodiac": {
+      "rat": "Rat", "ox": "Ox", "tiger": "Tiger", "rabbit": "Rabbit", "dragon": "Dragon", "snake": "Snake",
+      "horse": "Horse", "goat": "Goat", "monkey": "Monkey", "rooster": "Rooster", "dog": "Dog", "pig": "Pig"
+    },
+    "westernZodiac": {
+      "aquarius": "Aquarius", "pisces": "Pisces", "aries": "Aries", "taurus": "Taurus",
+      "gemini": "Gemini", "cancer": "Cancer", "leo": "Leo", "virgo": "Virgo",
+      "libra": "Libra", "scorpio": "Scorpio", "sagittarius": "Sagittarius", "capricorn": "Capricorn"
+    }
+  }
 }

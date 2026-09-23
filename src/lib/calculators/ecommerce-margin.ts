@@ -22,6 +22,20 @@ export type EcommerceMarginResult = {
   marginRate: number;
 };
 
+// 코드로 던지고(KO/EN 공통), 화면 문구는 content/tools/{ko,en}/freelancer/ecommerce-margin.json의
+// errors에서 코드로 조회한다 — 나중에 "읽기 좋은 메시지로 바꿔야지" 하고 이 코드 문자열
+// 자체를 고치면 EN 조회가 조용히 깨지니, 값을 바꾸려면 반드시 두 JSON의 errors도 같이 바꿀 것.
+export type EcommerceMarginErrorCode = "fee_margin_exceeds_100";
+
+export class EcommerceMarginError extends Error {
+  code: EcommerceMarginErrorCode;
+
+  constructor(code: EcommerceMarginErrorCode) {
+    super(code);
+    this.code = code;
+  }
+}
+
 function fromPrice(
   salePrice: number,
   costs: EcommerceMarginCosts,
@@ -44,9 +58,7 @@ export function calculateEcommerceMargin(input: EcommerceMarginInput): Ecommerce
   // => P = (원가 + 배송비) / (1 - 수수료율 - 결제수수료율 - m)
   const denominator = 1 - input.commissionRate - input.paymentFeeRate - input.targetMarginRate;
   if (denominator <= 0) {
-    throw new Error(
-      "입력한 수수료율과 목표 마진율의 합이 100% 이상이라 달성 가능한 판매가가 없습니다.",
-    );
+    throw new EcommerceMarginError("fee_margin_exceeds_100");
   }
   const salePrice = Math.round((input.costPrice + input.shippingCost) / denominator);
   return fromPrice(salePrice, input);

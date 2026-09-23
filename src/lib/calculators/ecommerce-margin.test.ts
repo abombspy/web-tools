@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { calculateEcommerceMargin } from "./ecommerce-margin";
+import { EcommerceMarginError, calculateEcommerceMargin } from "./ecommerce-margin";
 
 describe("calculateEcommerceMargin", () => {
   it("판매가 기준으로 수수료·배송비를 뺀 순이익과 마진율을 계산한다", () => {
@@ -29,8 +29,8 @@ describe("calculateEcommerceMargin", () => {
     expect(result.marginRate).toBeCloseTo(0.2, 2);
   });
 
-  it("수수료율+목표마진율 합이 100%를 넘으면 에러를 던진다(경계값)", () => {
-    expect(() =>
+  it("수수료율+목표마진율 합이 100%를 넘으면 fee_margin_exceeds_100 코드로 에러를 던진다(경계값)", () => {
+    try {
       calculateEcommerceMargin({
         mode: "fromTargetMargin",
         targetMarginRate: 0.2,
@@ -38,8 +38,12 @@ describe("calculateEcommerceMargin", () => {
         commissionRate: 0.5,
         paymentFeeRate: 0.4,
         shippingCost: 3000,
-      }),
-    ).toThrow();
+      });
+      expect.unreachable();
+    } catch (e) {
+      expect(e).toBeInstanceOf(EcommerceMarginError);
+      expect((e as EcommerceMarginError).code).toBe("fee_margin_exceeds_100");
+    }
   });
 
   it("판매가가 0이면 마진율도 0이다(0으로 나누기 방지)", () => {

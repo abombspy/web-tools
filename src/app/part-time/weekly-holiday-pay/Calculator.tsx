@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/ko/part-time/weekly-holiday-pay.json";
 import { calculateWeeklyHolidayPay } from "@/lib/calculators/weekly-holiday-pay";
 
 export default function Calculator({ minimumWage }: { minimumWage: number }) {
@@ -106,7 +107,9 @@ export default function Calculator({ minimumWage }: { minimumWage: number }) {
               </p>
             </>
           ) : (
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">{result.reason} (0원)</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              {content.reasons[result.reasonCode]} (0원)
+            </p>
           )}
         </div>
       )}

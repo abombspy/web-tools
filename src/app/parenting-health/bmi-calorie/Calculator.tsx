@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/ko/parenting-health/bmi-calorie.json";
 import {
   calculateBmiCalorie,
   type ActivityLevel,
@@ -147,7 +148,8 @@ export default function Calculator() {
           <div>
             <p className="text-sm text-zinc-500">BMI (체질량지수)</p>
             <p className="text-2xl font-bold">
-              {result.bmi} <span className="text-base font-normal">({result.bmiCategory})</span>
+              {result.bmi}{" "}
+              <span className="text-base font-normal">({content.bmiCategories[result.bmiCategory]})</span>
             </p>
           </div>
           <div>

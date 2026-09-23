@@ -34,5 +34,13 @@
         "This result is for reference only. If you have a medical condition or are pregnant, different targets may apply — please consult a healthcare professional."
       ]
     }
-  ]
+  ],
+  "bmiCategories": {
+    "underweight": "Underweight",
+    "normal": "Normal",
+    "pre_obese": "Pre-obese",
+    "obese_1": "Obese (stage 1)",
+    "obese_2": "Obese (stage 2)",
+    "obese_3": "Obese (stage 3)"
+  }
 }

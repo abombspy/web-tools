@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/ko/date-time/age-zodiac.json";
 import { calculateAgeZodiac } from "@/lib/calculators/age-zodiac";
+
+const { zodiacNames } = content;
 
 export default function Calculator() {
   const [birthDate, setBirthDate] = useState("");
@@ -62,11 +65,11 @@ export default function Calculator() {
           </div>
           <div>
             <p className="text-sm text-zinc-500">띠</p>
-            <p className="text-2xl font-bold">{result.koreanZodiac}띠</p>
+            <p className="text-2xl font-bold">{zodiacNames.koreanZodiac[result.koreanZodiac]}띠</p>
           </div>
           <div>
             <p className="text-sm text-zinc-500">별자리</p>
-            <p className="text-2xl font-bold">{result.westernZodiac}</p>
+            <p className="text-2xl font-bold">{zodiacNames.westernZodiac[result.westernZodiac]}</p>
           </div>
         </div>
       )}

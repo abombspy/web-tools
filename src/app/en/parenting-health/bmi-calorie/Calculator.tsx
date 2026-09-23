@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/en/parenting-health/bmi-calorie.json";
 import {
   calculateBmiCalorie,
   type ActivityLevel,
@@ -20,16 +21,6 @@ const goalLabels: Record<Goal, string> = {
   lose: "Lose weight",
   maintain: "Maintain weight",
   gain: "Gain weight",
-};
-
-// calculateBmiCalorie()의 bmiCategory는 한국어 문자열이라 표시 단계에서만 영문으로 옮긴다.
-const BMI_CATEGORY_EN: Record<string, string> = {
-  저체중: "Underweight",
-  정상: "Normal",
-  "비만 전단계": "Pre-obese",
-  "1단계 비만": "Obese (stage 1)",
-  "2단계 고도비만": "Obese (stage 2)",
-  "3단계 초고도비만": "Obese (stage 3)",
 };
 
 export default function Calculator() {
@@ -159,7 +150,7 @@ export default function Calculator() {
             <p className="text-2xl font-bold">
               {result.bmi}{" "}
               <span className="text-base font-normal">
-                ({BMI_CATEGORY_EN[result.bmiCategory] ?? result.bmiCategory})
+                ({content.bmiCategories[result.bmiCategory]})
               </span>
             </p>
           </div>

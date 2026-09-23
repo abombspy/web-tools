@@ -8,8 +8,12 @@ export type WeeklyHolidayPayInput = {
   fullAttendance: boolean;
 };
 
+// 코드로 반환하고, 화면 문구는 content/tools/{ko,en}/part-time/weekly-holiday-pay.json의
+// reasons에서 코드로 조회한다(KO/EN 공통 메커니즘).
+export type WeeklyHolidayPayIneligibleReason = "under_15_hours" | "absence";
+
 export type WeeklyHolidayPayResult =
-  | { eligible: false; reason: string; pay: 0 }
+  | { eligible: false; reasonCode: WeeklyHolidayPayIneligibleReason; pay: 0 }
   | { eligible: true; pay: number; cappedHours: number };
 
 export function calculateWeeklyHolidayPay({
@@ -20,14 +24,14 @@ export function calculateWeeklyHolidayPay({
   if (scheduledWeeklyHours < 15) {
     return {
       eligible: false,
-      reason: "주 소정근로시간이 15시간 미만이라 주휴수당 발생 조건을 충족하지 않습니다.",
+      reasonCode: "under_15_hours",
       pay: 0,
     };
   }
   if (!fullAttendance) {
     return {
       eligible: false,
-      reason: "해당 주 소정근로일에 결근이 있어 주휴수당이 발생하지 않습니다.",
+      reasonCode: "absence",
       pay: 0,
     };
   }

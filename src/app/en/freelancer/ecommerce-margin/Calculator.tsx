@@ -1,14 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { calculateEcommerceMargin } from "@/lib/calculators/ecommerce-margin";
+import content from "@content/tools/en/freelancer/ecommerce-margin.json";
+import { EcommerceMarginError, calculateEcommerceMargin } from "@/lib/calculators/ecommerce-margin";
 
 type Mode = "fromPrice" | "fromTargetMargin";
-
-const ERROR_EN: Record<string, string> = {
-  "입력한 수수료율과 목표 마진율의 합이 100% 이상이라 달성 가능한 판매가가 없습니다.":
-    "The commission rate and target margin you entered add up to 100% or more, so there's no achievable price.",
-};
 
 export default function Calculator() {
   const [mode, setMode] = useState<Mode>("fromPrice");
@@ -70,8 +66,7 @@ export default function Calculator() {
             },
       );
     } catch (e) {
-      const msg = e instanceof Error ? e.message : null;
-      calcError = (msg && ERROR_EN[msg]) ?? msg ?? "Couldn't calculate a result.";
+      calcError = e instanceof EcommerceMarginError ? content.errors[e.code] : "Couldn't calculate a result.";
     }
   }
 

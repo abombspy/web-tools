@@ -20,7 +20,9 @@ const GOAL_ADJUSTMENT_KCAL: Record<Goal, number> = {
   gain: 500,
 };
 
-export type BmiCategory = "저체중" | "정상" | "비만 전단계" | "1단계 비만" | "2단계 고도비만" | "3단계 초고도비만";
+// 코드로 반환하고, 화면 라벨은 content/tools/{ko,en}/parenting-health/bmi-calorie.json의
+// bmiCategories에서 코드로 조회한다(KO/EN 공통 메커니즘 — age-zodiac과 동일 패턴).
+export type BmiCategory = "underweight" | "normal" | "pre_obese" | "obese_1" | "obese_2" | "obese_3";
 
 export type BmiCalorieInput = {
   sex: Sex;
@@ -40,12 +42,12 @@ export type BmiCalorieResult = {
 };
 
 export function classifyBmi(bmi: number): BmiCategory {
-  if (bmi < 18.5) return "저체중";
-  if (bmi < 23) return "정상";
-  if (bmi < 25) return "비만 전단계";
-  if (bmi < 30) return "1단계 비만";
-  if (bmi < 35) return "2단계 고도비만";
-  return "3단계 초고도비만";
+  if (bmi < 18.5) return "underweight";
+  if (bmi < 23) return "normal";
+  if (bmi < 25) return "pre_obese";
+  if (bmi < 30) return "obese_1";
+  if (bmi < 35) return "obese_2";
+  return "obese_3";
 }
 
 export function calculateBmiCalorie(input: BmiCalorieInput): BmiCalorieResult {

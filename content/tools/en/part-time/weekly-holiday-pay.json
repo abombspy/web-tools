@@ -43,5 +43,9 @@
         "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; actual eligibility and amounts depend on your labor contract and workplace, and don’t replace an official check with the Ministry of Employment and Labor or a licensed labor attorney (nomusa)."
       ]
     }
-  ]
+  ],
+  "reasons": {
+    "under_15_hours": "Your scheduled weekly hours are under 15, so you don't meet the eligibility condition for weekly holiday pay.",
+    "absence": "You had an absence on a scheduled working day this week, so weekly holiday pay doesn't apply."
+  }
 }

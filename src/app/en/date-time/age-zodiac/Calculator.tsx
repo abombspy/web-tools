@@ -1,20 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import content from "@content/tools/en/date-time/age-zodiac.json";
 import { calculateAgeZodiac } from "@/lib/calculators/age-zodiac";
 
-// calculateAgeZodiac()는 결과 문자열(띠·별자리)을 한국어로 반환하므로, 표시 단계에서만
-// 영문으로 옮긴다(계산 로직 자체는 그대로 재사용).
-const KOREAN_ZODIAC_EN: Record<string, string> = {
-  쥐: "Rat", 소: "Ox", 호랑이: "Tiger", 토끼: "Rabbit", 용: "Dragon", 뱀: "Snake",
-  말: "Horse", 양: "Goat", 원숭이: "Monkey", 닭: "Rooster", 개: "Dog", 돼지: "Pig",
-};
-
-const WESTERN_ZODIAC_EN: Record<string, string> = {
-  물병자리: "Aquarius", 물고기자리: "Pisces", 양자리: "Aries", 황소자리: "Taurus",
-  쌍둥이자리: "Gemini", 게자리: "Cancer", 사자자리: "Leo", 처녀자리: "Virgo",
-  천칭자리: "Libra", 전갈자리: "Scorpio", 사수자리: "Sagittarius", 염소자리: "Capricorn",
-};
+const { zodiacNames } = content;
 
 export default function Calculator() {
   const [birthDate, setBirthDate] = useState("");
@@ -75,11 +65,11 @@ export default function Calculator() {
           </div>
           <div>
             <p className="text-sm text-zinc-500">Zodiac animal</p>
-            <p className="text-2xl font-bold">{KOREAN_ZODIAC_EN[result.koreanZodiac] ?? result.koreanZodiac}</p>
+            <p className="text-2xl font-bold">{zodiacNames.koreanZodiac[result.koreanZodiac]}</p>
           </div>
           <div>
             <p className="text-sm text-zinc-500">Star sign</p>
-            <p className="text-2xl font-bold">{WESTERN_ZODIAC_EN[result.westernZodiac] ?? result.westernZodiac}</p>
+            <p className="text-2xl font-bold">{zodiacNames.westernZodiac[result.westernZodiac]}</p>
           </div>
         </div>
       )}
