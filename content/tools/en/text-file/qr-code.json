@@ -1,0 +1,10 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "Instantly generate an ISO/IEC 18004-compliant QR code from whatever text you type. Everything runs in your browser — what you type is never sent to a server."
+      ]
+    }
+  ]
+}

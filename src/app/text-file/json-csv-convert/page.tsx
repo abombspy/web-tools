@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/text-file/json-csv-convert.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,12 +16,7 @@ export default function JsonCsvConvertPage() {
       <h1 className="text-2xl font-extrabold">🔄 JSON·CSV 변환기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          JSON 배열(객체들의 배열, 또는 객체 하나)을 CSV로, 또는 CSV를 JSON 배열로 변환합니다.
-          RFC 4180 표준에 따라 따옴표로 감싼 필드 안의 쉼표·줄바꿈·이스케이프된 따옴표도
-          정확히 처리합니다. 모든 변환은 브라우저 안에서만 이루어지며 서버로 전송되지
-          않습니다.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

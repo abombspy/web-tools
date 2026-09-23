@@ -1,0 +1,13 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": ["Merge several PDF files into one, in the order you pick them, or pull out a specific page range from a PDF and save it as a new file."]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": ["Your PDF is ", { "text": "never uploaded — it’s processed entirely in your browser", "bold": true }, "."]
+    }
+  ]
+}

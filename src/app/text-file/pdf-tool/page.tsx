@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/text-file/pdf-tool.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,13 +16,7 @@ export default function PdfToolPage() {
       <h1 className="text-2xl font-extrabold">📑 PDF 병합·분할</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          여러 PDF 파일을 선택한 순서대로 하나로 합치거나, PDF에서 원하는 페이지 범위만
-          뽑아 새 파일로 저장할 수 있습니다.
-        </p>
-        <p className="rounded-md bg-blue-50 p-4 text-sm not-prose dark:bg-blue-950/40">
-          PDF는 <strong>서버에 업로드되지 않고 브라우저 안에서만 처리</strong>됩니다.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

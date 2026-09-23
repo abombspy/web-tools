@@ -1,0 +1,19 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "Set a maximum width/height and a compression quality, and this tool shrinks your image while keeping the original aspect ratio, then converts it to JPEG, PNG, or WebP."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "Your image is ",
+        { "text": "never uploaded — it’s processed entirely in your browser", "bold": true },
+        ". Selecting a file doesn’t send it anywhere."
+      ]
+    }
+  ]
+}

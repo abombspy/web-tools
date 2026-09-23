@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/text-file/json-csv-convert.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,11 +16,7 @@ export default function JsonCsvConvertPageEn() {
       <h1 className="text-2xl font-extrabold">🔄 JSON ⇄ CSV Converter</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          Convert a JSON array (or a single object) to CSV, or CSV back to a JSON array. Follows
-          the RFC 4180 standard, so commas, newlines, and escaped quotes inside quoted fields are
-          handled correctly. Everything runs in your browser — nothing is sent to a server.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

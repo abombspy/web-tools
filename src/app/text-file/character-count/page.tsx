@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/text-file/character-count.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,11 +16,7 @@ export default function CharacterCountPage() {
       <h1 className="text-2xl font-extrabold">🔤 글자수 세기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          자기소개서·에세이 등 글자수 제한이 있는 글을 쓸 때, 공백 포함/제외 글자수와 단어
-          수를 실시간으로 확인하세요. 입력한 텍스트는 서버로 전송되지 않고 브라우저 안에서만
-          계산됩니다.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/text-file/qr-code.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,10 +16,7 @@ export default function QrCodePageEn() {
       <h1 className="text-2xl font-extrabold">📱 QR Code Generator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          Instantly generate an ISO/IEC 18004-compliant QR code from whatever text you type.
-          Everything runs in your browser — what you type is never sent to a server.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

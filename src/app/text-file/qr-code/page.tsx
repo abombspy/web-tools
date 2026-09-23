@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/text-file/qr-code.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,10 +16,7 @@ export default function QrCodePage() {
       <h1 className="text-2xl font-extrabold">📱 QR코드 생성기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <p>
-          ISO/IEC 18004 표준을 따르는 QR코드를 입력한 텍스트로 즉시 생성합니다. 모든 처리는
-          브라우저 안에서 이루어지며, 입력한 내용은 서버로 전송되지 않습니다.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />
