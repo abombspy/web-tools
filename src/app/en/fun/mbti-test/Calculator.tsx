@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { calculateMbtiType } from "@/lib/calculators/mbti-test";
-import { MBTI_QUESTIONS_EN, MBTI_TYPE_INFO_EN, type Letter } from "@/lib/calculators/mbti-test-en";
+import content from "@content/tools/en/fun/mbti-test.json";
+import { calculateMbtiType, type Letter, type MbtiQuestion, type MbtiTypeInfo } from "@/lib/calculators/mbti-test";
+
+const MBTI_QUESTIONS_EN = content.questions as MbtiQuestion[];
+const MBTI_TYPE_INFO_EN: Record<string, MbtiTypeInfo> = content.typeInfo;
 
 export default function Calculator() {
   const [answers, setAnswers] = useState<Letter[]>([]);
