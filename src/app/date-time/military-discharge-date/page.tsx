@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/date-time/military-discharge-date.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,19 +16,7 @@ export default function MilitaryDischargeDatePage() {
       <h1 className="text-2xl font-extrabold">🪖 군 전역일 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>2026년 기준 복무기간</h2>
-        <ul>
-          <li>육군·해병대: 18개월</li>
-          <li>해군: 20개월</li>
-          <li>공군: 21개월</li>
-          <li>사회복무요원: 21개월</li>
-        </ul>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          복무기간은 병역법 개정에 따라 바뀔 수 있고, 휴가·징계 등에 따라 실제 전역일이
-          달라질 수 있습니다. 정확한 전역일은 병무청 나라사랑포털이나 소속 부대에서
-          확인하세요.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

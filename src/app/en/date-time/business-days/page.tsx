@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/date-time/business-days.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import { getHolidays } from "@/lib/rates";
 import Calculator from "./Calculator";
 
@@ -16,18 +19,7 @@ export default function BusinessDaysPageEn() {
       <h1 className="text-2xl font-extrabold">🗓️ Business Days Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>How it works</h2>
-        <p>
-          Counts weekdays between a start and end date (inclusive), excluding{" "}
-          <strong>Saturdays and Sundays</strong> and South Korea&rsquo;s official public holidays.
-        </p>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          Holiday data covers {holidayData.year}. Lunar New Year, Chuseok, and substitute holidays
-          shift every year, so double-check against the official Ministry of the Interior and
-          Safety announcement before relying on this. Labor Day (May 1) isn&rsquo;t an official
-          public holiday in Korea, so it isn&rsquo;t counted here.
-        </p>
+        {renderBlocks(asBlocks(content), { holidayYear: holidayData.year })}
       </section>
 
       <Calculator holidays={holidayData.holidays} coveredYear={holidayData.year} />

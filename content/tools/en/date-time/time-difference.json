@@ -1,0 +1,17 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": [
+        "Looks up each city’s UTC offset using standard time zone data and calculates the difference. Some regions (the US, Europe, and others) observe ",
+        { "text": "daylight saving time (DST)", "bold": true },
+        " in summer, which changes the offset — so you need to pick a reference date."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": ["For example, the Seoul–New York time difference is 14 hours in winter, but drops to 13 hours during US daylight saving time."]
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/date-time/military-discharge-date.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,19 +16,7 @@ export default function MilitaryDischargeDatePageEn() {
       <h1 className="text-2xl font-extrabold">🪖 Military Discharge Date Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>Service length (as of 2026)</h2>
-        <ul>
-          <li>Army / Marine Corps: 18 months</li>
-          <li>Navy: 20 months</li>
-          <li>Air Force: 21 months</li>
-          <li>Alternative social service: 21 months</li>
-        </ul>
-
-        <p className="rounded-2xl bg-amber-50 p-4 text-sm not-prose dark:bg-amber-950/40">
-          Service length can change with amendments to the Military Service Act, and your actual
-          discharge date can shift due to leave, disciplinary action, etc. For the exact date,
-          check the Military Manpower Administration&rsquo;s portal or your unit.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

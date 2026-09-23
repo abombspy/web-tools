@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/date-time/age-zodiac.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,24 +16,7 @@ export default function AgeZodiacPageEn() {
       <h1 className="text-2xl font-extrabold">🐉 Korean Age & Zodiac Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>Korean age</h2>
-        <p>
-          Since South Korea&rsquo;s <strong>&ldquo;international age&rdquo; unification law</strong> took
-          effect on June 28, 2023, official age counting works the same way as most of the world:
-          you turn a year older on your birthday, not on New Year&rsquo;s Day.
-        </p>
-
-        <h2>Zodiac animal — a note on the method</h2>
-        <p>
-          This calculator uses the common <strong>simplified method based on the solar calendar
-          (January 1st)</strong>. Traditionally, the zodiac year changes on the <strong>Lunar New Year
-          (or the Ipchun solar term)</strong>, so if you were born in January or early February, your
-          traditional zodiac animal <strong>may differ</strong> from this result. For the precise
-          traditional zodiac, check your birthday against a lunar calendar converter.
-        </p>
-
-        <h2>Star sign</h2>
-        <p>Matches your birth date (month/day) to the standard Western zodiac date ranges.</p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

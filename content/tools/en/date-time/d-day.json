@@ -1,0 +1,11 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": [
+        "Calculates the number of days between a target date and a reference date (today). Useful for anniversaries, 100-day/200-day milestones, or counting down to an exam."
+      ]
+    }
+  ]
+}

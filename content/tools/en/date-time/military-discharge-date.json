@@ -1,0 +1,21 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Service length (as of 2026)" },
+    {
+      "type": "list",
+      "items": [
+        ["Army / Marine Corps: 18 months"],
+        ["Navy: 20 months"],
+        ["Air Force: 21 months"],
+        ["Alternative social service: 21 months"]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "Service length can change with amendments to the Military Service Act, and your actual discharge date can shift due to leave, disciplinary action, etc. For the exact date, check the Military Manpower Administration’s portal or your unit."
+      ]
+    }
+  ]
+}

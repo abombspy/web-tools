@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/ko/date-time/d-day.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,11 +16,7 @@ export default function DDayPage() {
       <h1 className="text-2xl font-extrabold">📆 D-day·기념일 계산기</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>계산 방법</h2>
-        <p>
-          목표 날짜와 기준일(오늘)의 날짜 차이를 계산합니다. 100일, 200일, 1주년 같은
-          기념일이나 시험일까지 남은 날을 확인할 때 사용하세요.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

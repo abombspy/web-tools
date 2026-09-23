@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/date-time/d-day.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,11 +16,7 @@ export default function DDayPageEn() {
       <h1 className="text-2xl font-extrabold">📆 D-Day Countdown Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>How it works</h2>
-        <p>
-          Calculates the number of days between a target date and a reference date (today).
-          Useful for anniversaries, 100-day/200-day milestones, or counting down to an exam.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import content from "@content/tools/en/date-time/time-difference.json";
+import { renderBlocks } from "@/lib/content/renderBlocks";
+import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
@@ -13,17 +16,7 @@ export default function TimeDifferencePageEn() {
       <h1 className="text-2xl font-extrabold">🌐 Time Zone Difference Calculator</h1>
 
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
-        <h2>How it works</h2>
-        <p>
-          Looks up each city&rsquo;s UTC offset using standard time zone data and calculates the
-          difference. Some regions (the US, Europe, and others) observe{" "}
-          <strong>daylight saving time (DST)</strong> in summer, which changes the offset — so you
-          need to pick a reference date.
-        </p>
-        <p>
-          For example, the Seoul–New York time difference is 14 hours in winter, but drops to 13
-          hours during US daylight saving time.
-        </p>
+        {renderBlocks(asBlocks(content))}
       </section>
 
       <Calculator />

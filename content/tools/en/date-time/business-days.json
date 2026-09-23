@@ -1,0 +1,22 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "How it works" },
+    {
+      "type": "p",
+      "runs": [
+        "Counts weekdays between a start and end date (inclusive), excluding ",
+        { "text": "Saturdays and Sundays", "bold": true },
+        " and South Korea’s official public holidays."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "Holiday data covers ",
+        { "dynamic": "holidayYear" },
+        ". Lunar New Year, Chuseok, and substitute holidays shift every year, so double-check against the official Ministry of the Interior and Safety announcement before relying on this. Labor Day (May 1) isn’t an official public holiday in Korea, so it isn’t counted here. Constitution Day (July 17) was excluded from public holidays starting in 2008, but has been re-designated as an official public holiday since 2026, so it is included here."
+      ]
+    }
+  ]
+}

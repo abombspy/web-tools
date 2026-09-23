@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "Korean age" },
+    {
+      "type": "p",
+      "runs": [
+        "Since South Korea’s ",
+        { "text": "“international age” unification law", "bold": true },
+        " took effect on June 28, 2023, official age counting works the same way as most of the world: you turn a year older on your birthday, not on New Year’s Day."
+      ]
+    },
+    { "type": "h2", "text": "Zodiac animal — a note on the method" },
+    {
+      "type": "p",
+      "runs": [
+        "This calculator uses the common ",
+        { "text": "simplified method based on the solar calendar (January 1st)", "bold": true },
+        ". Traditionally, the zodiac year changes on the ",
+        { "text": "Lunar New Year (or the Ipchun solar term)", "bold": true },
+        ", so if you were born in January or early February, your traditional zodiac animal ",
+        { "text": "may differ", "bold": true },
+        " from this result. For the precise traditional zodiac, check your birthday against a lunar calendar converter."
+      ]
+    },
+    { "type": "h2", "text": "Star sign" },
+    { "type": "p", "runs": ["Matches your birth date (month/day) to the standard Western zodiac date ranges."] }
+  ]
+}
