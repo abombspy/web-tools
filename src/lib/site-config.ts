@@ -7,7 +7,10 @@ export const SITE_DESCRIPTION =
 export const SITE_NAME_EN = "Life Calc";
 export const SITE_DESCRIPTION_EN =
   "Free calculators for everyday life in Korea — wages, taxes, housing, health, dates, school, files, and fun.";
-export const SITE_URL = "https://web-tools.gssystems.co.kr";
+// 커스텀 도메인(web-tools.gssystems.co.kr) 연결 전까지는 실제 배포 주소를 그대로 쓴다.
+// 나중에 커스텀 도메인이 연결되면 이 값만 바꾸면 됨(sitemap.ts/robots.ts/layout.tsx의
+// metadataBase·OG url·JSON-LD가 전부 이 값 하나를 참조).
+export const SITE_URL = "https://abombspy.github.io/web-tools";
 export const CONTACT_EMAIL = "abombspy@gmail.com";
 export const GA_MEASUREMENT_ID = "G-KYE3JE4EB2";
 
