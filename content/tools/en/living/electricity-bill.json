@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What is the progressive rate system?" },
+    {
+      "type": "p",
+      "runs": [
+        "Korean residential (low-voltage) electricity billing uses a ",
+        { "text": "3-tier progressive rate", "bold": true },
+        ": as usage increases, each tier is billed at a higher unit price. The basic (base) fee is also set by whichever tier your total usage reaches."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "In ",
+        { "text": "summer (July–August)", "bold": true },
+        ", the tier thresholds are relaxed to account for higher air-conditioner use (tier 1: 200→300kWh, tier 2: 400→450kWh)."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "The rates used here are a reference compiled from cross-checked sources — for the exact current rate, check KEPCO’s official site (Han-jeon ON). VAT (10%) and the Electric Power Industry Fund levy (3.7%) are added as estimates, and this doesn’t replicate your actual bill’s rounding-to-the-nearest-10-won rule."
+      ]
+    }
+  ]
+}
