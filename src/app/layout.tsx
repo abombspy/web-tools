@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  // 구글 서치 콘솔 사이트 소유권 확인(2026-09-23). 네이버 서치어드바이저 코드는
+  // 발급받는 대로 verification.other["naver-site-verification"]에 추가할 것.
+  verification: {
+    google: "InoHQKXzv6QGp6P1oio0mZGAI0ZbKTPx_XD-3I-mSE4",
+  },
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
