@@ -1,0 +1,46 @@
+{
+  "blocks": [
+    { "type": "h2", "text": "What does this calculate?" },
+    {
+      "type": "p",
+      "runs": [
+        "Estimates job-seeking benefits (“unemployment benefits”) under the ",
+        { "text": "Employment Insurance Act", "bold": true },
+        ". The daily benefit amount = 60% of your average daily wage before separation, within an upper and lower bound. The total amount = daily benefit × number of payment days."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "blue",
+      "runs": [
+        "This calculator only computes ",
+        { "text": "the amount you’d receive assuming you qualify", "bold": true },
+        ". Unemployment benefits are, in principle, only available for ",
+        { "text": "involuntary separation", "bold": true },
+        " (recommended resignation, contract expiry, company circumstances, etc.) — a simple voluntary resignation generally doesn’t qualify (with some exceptions). Check your eligibility with your local Employment Center."
+      ]
+    },
+    { "type": "h2", "text": "Upper/lower bounds and payment days" },
+    {
+      "type": "list",
+      "items": [
+        ["2026 daily upper bound: ", { "dynamic": "dailyCapLine", "bold": true }],
+        ["Daily lower bound: minimum wage at separation × 8 hours × 80% = ", { "dynamic": "dailyFloorLine", "bold": true }],
+        [
+          "The number of payment days is set between 120 and 270 days based on your ",
+          { "text": "age at separation", "bold": true },
+          " and ",
+          { "text": "employment insurance enrollment period", "bold": true },
+          " (age 50+ gets a longer period for the same enrollment length)."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        "This is a reference-only mock calculation. This English page is a translation of the original Korean tool; the average wage is approximated assuming your last 3 months of pay were identical, and the actual payout depends on the Employment Center’s review and exact average-wage calculation."
+      ]
+    }
+  ]
+}
