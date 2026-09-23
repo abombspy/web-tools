@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { CATEGORIES, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site-config";
+import { getCategories } from "@/lib/content/catalog";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site-config";
 
 export default function Home() {
+  const categories = getCategories("ko");
+
   return (
     <div className="mx-auto w-full max-w-5xl px-4">
       <section className="py-14 text-center sm:py-16">
@@ -13,7 +16,7 @@ export default function Home() {
       </section>
 
       <div className="space-y-12 pb-20">
-        {CATEGORIES.map((category) => (
+        {categories.map((category) => (
           <section key={category.slug}>
             <div className="mb-4 flex items-center gap-3">
               <span
@@ -23,44 +26,33 @@ export default function Home() {
               </span>
               <div>
                 <div className="flex items-center gap-2">
-                  {category.hasPage ? (
-                    <Link href={`/${category.slug}`} className="text-lg font-extrabold hover:underline">
-                      {category.name}
-                    </Link>
-                  ) : (
-                    <h2 className="text-lg font-extrabold">{category.name}</h2>
-                  )}
-                  {!category.hasPage && (
-                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                      준비 중
-                    </span>
-                  )}
+                  <Link href={`/${category.slug}`} className="text-lg font-extrabold hover:underline">
+                    {category.name}
+                  </Link>
                 </div>
                 <p className="text-sm text-zinc-500">{category.description}</p>
               </div>
             </div>
-            {category.hasPage && (
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {category.tools
-                  ?.filter((tool) => tool.available)
-                  .map((tool) => (
-                    <li key={tool.slug}>
-                      <Link
-                        href={`/${category.slug}/${tool.slug}`}
-                        className={`flex items-center gap-3 rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 hover:scale-[1.02] ${category.theme.cardBg}`}
-                      >
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-2xl">
-                          {tool.icon}
-                        </div>
-                        <div className="min-w-0 text-left">
-                          <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.name}</div>
-                          <p className={`truncate text-xs ${category.theme.descText}`}>{tool.tagline}</p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            )}
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {category.tools
+                ?.filter((tool) => tool.available)
+                .map((tool) => (
+                  <li key={tool.slug}>
+                    <Link
+                      href={`/${category.slug}/${tool.slug}`}
+                      className={`flex items-center gap-3 rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 hover:scale-[1.02] ${category.theme.cardBg}`}
+                    >
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-2xl">
+                        {tool.icon}
+                      </div>
+                      <div className="min-w-0 text-left">
+                        <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.name}</div>
+                        <p className={`truncate text-xs ${category.theme.descText}`}>{tool.tagline}</p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
           </section>
         ))}
       </div>

@@ -3,13 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  CATEGORIES_WITH_PAGES,
-  CATEGORIES_WITH_PAGES_EN,
-  SITE_NAME,
-  SITE_NAME_EN,
-  getLanguageSwitchHref,
-} from "@/lib/site-config";
+import { getCategories } from "@/lib/content/catalog";
+import { SITE_NAME, SITE_NAME_EN, getLanguageSwitchHref } from "@/lib/site-config";
 
 // Header는 루트 레이아웃에 있어 페이지 이동 시 다시 마운트되지 않으므로,
 // <details>의 열림 상태(open)가 이전 페이지에서 그대로 남아있는 문제가 있었다.
@@ -23,7 +18,7 @@ export default function Header() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
   const isEnglish = pathname.startsWith("/en");
-  const categories = isEnglish ? CATEGORIES_WITH_PAGES_EN : CATEGORIES_WITH_PAGES;
+  const categories = getCategories(isEnglish ? "en" : "ko");
   const homeHref = isEnglish ? "/en" : "/";
 
   useEffect(() => {
@@ -62,24 +57,24 @@ export default function Header() {
           {categories.map((c) => (
             <details key={c.slug} name="header-nav" className="group relative">
               <summary className="cursor-pointer list-none rounded px-1 py-1 font-medium hover:text-orange-500">
-                {isEnglish ? c.nameEn : c.name}
+                {c.name}
               </summary>
               <div className="absolute left-0 z-10 mt-2 w-64 rounded-2xl border border-zinc-100 bg-white p-2 shadow-xl dark:border-white/10 dark:bg-zinc-900">
                 <Link
                   href={isEnglish ? `/en/${c.slug}` : `/${c.slug}`}
                   className="block rounded-xl px-3 py-2 text-xs font-semibold text-zinc-500 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-white/10"
                 >
-                  {isEnglish ? `All ${c.nameEn}` : `${c.name} 전체 보기`}
+                  {isEnglish ? `All ${c.name}` : `${c.name} 전체 보기`}
                 </Link>
                 {c.tools
-                  ?.filter((tool) => tool.available && (!isEnglish || tool.nameEn))
+                  ?.filter((tool) => tool.available)
                   .map((tool) => (
                     <Link
                       key={tool.slug}
                       href={isEnglish ? `/en/${c.slug}/${tool.slug}` : `/${c.slug}/${tool.slug}`}
                       className="block rounded-xl px-3 py-2 text-zinc-700 hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-white/10"
                     >
-                      {tool.icon} {isEnglish ? tool.nameEn : tool.name}
+                      {tool.icon} {tool.name}
                     </Link>
                   ))}
               </div>

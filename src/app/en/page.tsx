@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CATEGORIES_WITH_PAGES_EN, SITE_DESCRIPTION_EN, SITE_NAME_EN } from "@/lib/site-config";
+import { getCategories } from "@/lib/content/catalog";
+import { SITE_DESCRIPTION_EN, SITE_NAME_EN } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: SITE_NAME_EN },
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomeEn() {
+  const categories = getCategories("en");
+
   return (
     <div className="mx-auto w-full max-w-5xl px-4">
       <section className="py-14 text-center sm:py-16">
@@ -19,7 +22,7 @@ export default function HomeEn() {
       </section>
 
       <div className="space-y-12 pb-20">
-        {CATEGORIES_WITH_PAGES_EN.map((category) => (
+        {categories.map((category) => (
           <section key={category.slug}>
             <div className="mb-4 flex items-center gap-3">
               <span
@@ -29,14 +32,14 @@ export default function HomeEn() {
               </span>
               <div>
                 <Link href={`/en/${category.slug}`} className="text-lg font-extrabold hover:underline">
-                  {category.nameEn}
+                  {category.name}
                 </Link>
-                <p className="text-sm text-zinc-500">{category.descriptionEn}</p>
+                <p className="text-sm text-zinc-500">{category.description}</p>
               </div>
             </div>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {category.tools
-                ?.filter((tool) => tool.available && tool.nameEn)
+                ?.filter((tool) => tool.available)
                 .map((tool) => (
                   <li key={tool.slug}>
                     <Link
@@ -47,8 +50,8 @@ export default function HomeEn() {
                         {tool.icon}
                       </div>
                       <div className="min-w-0 text-left">
-                        <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.nameEn}</div>
-                        <p className={`truncate text-xs ${category.theme.descText}`}>{tool.taglineEn}</p>
+                        <div className={`truncate font-bold ${category.theme.titleText}`}>{tool.name}</div>
+                        <p className={`truncate text-xs ${category.theme.descText}`}>{tool.tagline}</p>
                       </div>
                     </Link>
                   </li>

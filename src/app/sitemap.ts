@@ -14,13 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (c.tools ?? []).filter((t) => t.available).map((t) => `/${c.slug}/${t.slug}`),
   );
 
-  // 영문판(/en): 법률/세금 카테고리 제외, hasPageEn인 카테고리·nameEn 있는 도구만.
+  // 영문판(/en): hasPageEn인 카테고리·도구만(text-cleanup은 영문판 없음).
   const enStaticPaths = ["/en", "/en/about", "/en/contact", "/en/privacy-policy", "/en/terms"];
 
   const enCategoryPaths = CATEGORIES_WITH_PAGES_EN.map((c) => `/en/${c.slug}`);
 
   const enToolPaths = CATEGORIES_WITH_PAGES_EN.flatMap((c) =>
-    (c.tools ?? []).filter((t) => t.available && t.nameEn).map((t) => `/en/${c.slug}/${t.slug}`),
+    (c.tools ?? []).filter((t) => t.available && t.hasPageEn).map((t) => `/en/${c.slug}/${t.slug}`),
   );
 
   const allPaths = [

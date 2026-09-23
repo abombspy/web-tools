@@ -1,0 +1,96 @@
+{
+  "categories": {
+    "part-time": {
+      "name": "Work & Pay",
+      "description": "Weekly holiday pay, part-time wages, severance pay comparison, annual leave payout, unemployment benefits, and parental leave pay calculators."
+    },
+    "freelancer": {
+      "name": "Freelance & Tax",
+      "description": "3.3% withholding tax, VAT, income tax estimate, delivery rider net income, e-commerce margin, and customs duty calculators."
+    },
+    "living": {
+      "name": "Housing & Bills",
+      "description": "Electricity bills, loan repayment, and moving cost estimates."
+    },
+    "parenting-health": {
+      "name": "Family & Health",
+      "description": "Baby growth, due dates, baby food portions, BMI, and alcohol detox time."
+    },
+    "date-time": {
+      "name": "Date & Time",
+      "description": "D-day countdowns, Korean age, military discharge dates, business days, and time zones."
+    },
+    "student": {
+      "name": "Student",
+      "description": "Grade conversion, GPA, civil service exam scores, and TOEIC/OPIc conversion."
+    },
+    "text-file": {
+      "name": "Text & Files",
+      "description": "Character counter, JSON/CSV converter, QR code generator, image tools, and PDF tools."
+    },
+    "fun": {
+      "name": "Fun & Viral",
+      "description": "MBTI test, name compatibility, random pickers, lunch roulette, and nickname generator."
+    }
+  },
+  "tools": {
+    "part-time": {
+      "weekly-holiday-pay": { "name": "Weekly Holiday Pay Calculator", "tagline": "Paid rest day — how much do you get?" },
+      "part-time-wage": { "name": "Part-Time Wage Calculator", "tagline": "What's left after the 4 insurances?" },
+      "resignation-date-comparison": { "name": "Resignation Date Comparator", "tagline": "Which date works out better?" },
+      "annual-leave-pay": { "name": "Annual Leave Payout Calculator", "tagline": "Cash out your unused leave days" },
+      "unemployment-benefit": { "name": "Unemployment Benefit Estimator", "tagline": "While you plan your next step" },
+      "parental-leave-pay": { "name": "Parental Leave Pay Calculator", "tagline": "How much while you're on leave?" }
+    },
+    "freelancer": {
+      "withholding-tax-3-3": { "name": "3.3% Withholding Tax Calculator", "tagline": "What to invoice for your target take-home" },
+      "vat": { "name": "VAT Calculator", "tagline": "Supply price and VAT, in one go" },
+      "income-tax-estimate": { "name": "Income Tax Estimator", "tagline": "Get a rough estimate of this year's tax" },
+      "delivery-rider-net-income": { "name": "Delivery Rider Net Income Calculator", "tagline": "What did you really earn today?" },
+      "ecommerce-margin": { "name": "E-Commerce Margin Calculator", "tagline": "What's left after fees?" },
+      "customs-duty": { "name": "Overseas Purchase Customs Duty Calculator", "tagline": "Am I under the duty-free limit?" }
+    },
+    "living": {
+      "electricity-bill": { "name": "Electricity Bill Calculator", "tagline": "Check this month's bill in advance" },
+      "jeonse-to-monthly-rent": { "name": "Jeonse-to-Monthly-Rent Conversion Calculator", "tagline": "What if I convert my deposit to rent?" },
+      "real-estate-agent-fee": { "name": "Real Estate Agent Fee Calculator", "tagline": "What's a fair brokerage fee?" },
+      "loan-repayment": { "name": "Loan Repayment Calculator", "tagline": "See exactly what you'll owe each month" },
+      "moving-cost-estimate": { "name": "Moving Cost Estimator", "tagline": "Roughly how much will moving cost?" }
+    },
+    "parenting-health": {
+      "baby-growth-percentile": { "name": "Baby Growth Percentile Calculator", "tagline": "How does my baby compare to peers?" },
+      "due-date": { "name": "Due Date Calculator", "tagline": "When will you meet your baby?" },
+      "baby-food-portion": { "name": "Baby Food Portion Guide", "tagline": "What stage, and how much to feed?" },
+      "bmi-calorie": { "name": "BMI & Calorie Calculator", "tagline": "Find the numbers that fit your body" },
+      "alcohol-detox-time": { "name": "Alcohol Detox Time Estimator", "tagline": "Is it safe to drive yet?" }
+    },
+    "date-time": {
+      "d-day": { "name": "D-Day Countdown Calculator", "tagline": "How many days until the big day?" },
+      "age-zodiac": { "name": "Korean Age & Zodiac Calculator", "tagline": "How old am I in Korean age?" },
+      "military-discharge-date": { "name": "Military Discharge Date Calculator", "tagline": "Counting down to discharge day" },
+      "business-days": { "name": "Business Days Calculator", "tagline": "Working days only, holidays excluded" },
+      "time-difference": { "name": "Time Zone Difference Calculator", "tagline": "What time is it over there?" }
+    },
+    "student": {
+      "grade-conversion": { "name": "Korean School Grade Converter", "tagline": "What grade is my score?" },
+      "gpa": { "name": "GPA Calculator", "tagline": "Calculate this semester's average" },
+      "civil-service-passing-score": { "name": "Civil Service Exam Score Comparison", "tagline": "Compare your score to past cutoffs" },
+      "toeic-opic-conversion": { "name": "TOEIC/OPIc Score Conversion Table", "tagline": "Confused about score conversion?" }
+    },
+    "text-file": {
+      "character-count": { "name": "Character Counter", "tagline": "Get your word count exactly right" },
+      "json-csv-convert": { "name": "JSON ⇄ CSV Converter", "tagline": "Convert formats in one paste" },
+      "qr-code": { "name": "QR Code Generator", "tagline": "Turn any link into a QR code" },
+      "image-tool": { "name": "Image Resize & Compress", "tagline": "Shrink file size, fit the dimensions" },
+      "pdf-tool": { "name": "PDF Merge & Split", "tagline": "Combine or split multi-page PDFs" }
+    },
+    "fun": {
+      "mbti-test": { "name": "MBTI Personality Test", "tagline": "What type are you?" },
+      "name-compatibility": { "name": "Name & MBTI Compatibility Test", "tagline": "How well do you two match?" },
+      "random-picker": { "name": "Random Picker & Ladder Game", "tagline": "Pick one, fair and square" },
+      "lunch-roulette": { "name": "Lunch Menu Roulette", "tagline": "What to eat today? Decided." },
+      "nickname-generator": { "name": "Nickname Generator", "tagline": "Get a fun nickname instantly" },
+      "recommended-combos": { "name": "Recommended Combos", "tagline": "Tool combos that go well together" }
+    }
+  }
+}

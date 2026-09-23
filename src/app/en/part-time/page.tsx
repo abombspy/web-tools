@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/CategoryPage";
-import { CATEGORIES } from "@/lib/site-config";
+import { getCategory } from "@/lib/content/catalog";
 
-const category = CATEGORIES.find((c) => c.slug === "part-time")!;
+const category = getCategory("en", "part-time")!;
 
 export const metadata: Metadata = {
-  title: category.nameEn,
-  description: category.descriptionEn,
+  title: category.name,
+  description: category.description,
 };
 
 export default function PartTimeCategoryPageEn() {

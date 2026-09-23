@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/CategoryPage";
-import { CATEGORIES } from "@/lib/site-config";
+import { getCategory } from "@/lib/content/catalog";
 
-const category = CATEGORIES.find((c) => c.slug === "text-file")!;
+const category = getCategory("ko", "text-file")!;
 
 export const metadata: Metadata = {
   title: category.name,
