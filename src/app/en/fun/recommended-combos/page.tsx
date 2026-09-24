@@ -50,7 +50,8 @@ const COMBOS = [
     description: "Icebreakers and games for a group hangout.",
     links: [
       { name: "MBTI Personality Test", href: "/en/fun/mbti-test" },
-      { name: "Name & MBTI Compatibility Test", href: "/en/fun/name-compatibility" },
+      { name: "Name Compatibility Test", href: "/en/fun/name-compatibility" },
+      { name: "MBTI Compatibility Test", href: "/en/fun/mbti-compatibility" },
       { name: "Lunch Menu Roulette", href: "/en/fun/lunch-roulette" },
       { name: "Random Picker & Ladder Game", href: "/en/fun/random-picker" },
     ],

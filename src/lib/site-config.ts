@@ -241,6 +241,7 @@ export const CATEGORIES: CalculatorCategory[] = [
     tools: [
       { slug: "mbti-test", available: true, icon: "🔮", hasPageEn: true },
       { slug: "name-compatibility", available: true, icon: "💘", hasPageEn: true },
+      { slug: "mbti-compatibility", available: true, icon: "💞", hasPageEn: true },
       { slug: "random-picker", available: true, icon: "🎲", hasPageEn: true },
       { slug: "lunch-roulette", available: true, icon: "🍱", hasPageEn: true },
       { slug: "nickname-generator", available: true, icon: "🐣", hasPageEn: true },

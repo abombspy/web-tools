@@ -26,7 +26,7 @@ export default function MbtiTestPage() {
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>
           함께 보면 좋은 도구:{" "}
-          <Link href="/fun/name-compatibility" className="font-medium text-violet-600 dark:text-violet-400">
+          <Link href="/fun/mbti-compatibility" className="font-medium text-violet-600 dark:text-violet-400">
             MBTI 궁합 테스트
           </Link>{" "}
           ·{" "}

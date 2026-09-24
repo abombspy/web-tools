@@ -86,7 +86,8 @@
     },
     "fun": {
       "mbti-test": { "name": "MBTI Personality Test", "tagline": "What type are you?" },
-      "name-compatibility": { "name": "Name & MBTI Compatibility Test", "tagline": "How well do you two match?" },
+      "name-compatibility": { "name": "Name Compatibility Test", "tagline": "How well do your names match?" },
+      "mbti-compatibility": { "name": "MBTI Compatibility Test", "tagline": "How well do your MBTI types match?" },
       "random-picker": { "name": "Random Picker & Ladder Game", "tagline": "Pick one, fair and square" },
       "lunch-roulette": { "name": "Lunch Menu Roulette", "tagline": "What to eat today? Decided." },
       "nickname-generator": { "name": "Nickname Generator", "tagline": "Get a fun nickname instantly" },

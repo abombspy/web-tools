@@ -87,7 +87,8 @@
     },
     "fun": {
       "mbti-test": { "name": "MBTI 성격 유형 테스트", "tagline": "나는 어떤 사람일까?" },
-      "name-compatibility": { "name": "이름 궁합·MBTI 궁합 테스트", "tagline": "우리 얼마나 잘 맞을까?" },
+      "name-compatibility": { "name": "이름 궁합 테스트", "tagline": "이름으로 보는 우리 궁합" },
+      "mbti-compatibility": { "name": "MBTI 궁합 테스트", "tagline": "MBTI로 보는 우리 궁합" },
       "random-picker": { "name": "랜덤 추첨기·사다리타기·룰렛", "tagline": "공정하게 딱 하나 뽑기" },
       "lunch-roulette": { "name": "점심 메뉴 추천 룰렛", "tagline": "오늘 뭐 먹지 고민 끝" },
       "nickname-generator": { "name": "닉네임 생성기", "tagline": "센스있는 닉네임, 뚝딱" },
