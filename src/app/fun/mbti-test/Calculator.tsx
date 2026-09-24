@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import {
   calculateMbtiType,
   getMbtiTypeInfo,
@@ -55,10 +56,18 @@ export default function Calculator() {
             </div>
           </>
         )}
+        <div className="mt-6 flex justify-center">
+          <ResultShareCard
+            toolName="MBTI 성격 유형 테스트"
+            headline={type}
+            lines={info ? [info.nickname] : []}
+            accentColor="#8b5cf6"
+          />
+        </div>
         <button
           type="button"
           onClick={restart}
-          className="mt-6 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
+          className="mt-4 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
         >
           다시 하기
         </button>

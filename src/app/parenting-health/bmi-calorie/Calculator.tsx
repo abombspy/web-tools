@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/ko/parenting-health/bmi-calorie.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import {
   calculateBmiCalorie,
   type ActivityLevel,
@@ -161,6 +162,17 @@ export default function Calculator() {
               <li>기초대사량(BMR): {result.bmr.toLocaleString()}kcal</li>
               <li>활동대사량(TDEE): {result.tdee.toLocaleString()}kcal</li>
             </ul>
+          </div>
+          <div className="sm:col-span-2 flex justify-center">
+            <ResultShareCard
+              toolName="BMI·기초대사량·목표 칼로리 계산기"
+              headline={`BMI ${result.bmi}`}
+              lines={[
+                content.bmiCategories[result.bmiCategory],
+                `목표 칼로리 ${result.targetCalories.toLocaleString()}kcal/일`,
+              ]}
+              accentColor="#10b981"
+            />
           </div>
         </div>
       )}

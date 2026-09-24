@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/en/fun/mbti-test.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateMbtiType, type Letter, type MbtiQuestion, type MbtiTypeInfo } from "@/lib/calculators/mbti-test";
 
 const MBTI_QUESTIONS_EN = content.questions as MbtiQuestion[];
@@ -54,10 +55,18 @@ export default function Calculator() {
             </div>
           </>
         )}
+        <div className="mt-6 flex justify-center">
+          <ResultShareCard
+            toolName="MBTI Personality Test"
+            headline={type}
+            lines={info ? [info.nickname] : []}
+            accentColor="#8b5cf6"
+          />
+        </div>
         <button
           type="button"
           onClick={restart}
-          className="mt-6 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
+          className="mt-4 rounded-full bg-violet-400 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-violet-500"
         >
           Retake
         </button>

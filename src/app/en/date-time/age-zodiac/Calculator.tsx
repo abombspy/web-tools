@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/en/date-time/age-zodiac.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateAgeZodiac } from "@/lib/calculators/age-zodiac";
 
 const { zodiacNames } = content;
@@ -71,6 +72,17 @@ export default function Calculator() {
             <p className="text-sm text-zinc-500">Star sign</p>
             <p className="text-2xl font-bold">{zodiacNames.westernZodiac[result.westernZodiac]}</p>
           </div>
+        </div>
+      )}
+
+      {result && (
+        <div className="mt-4 flex justify-center">
+          <ResultShareCard
+            toolName="Korean Age, Zodiac & Star Sign Calculator"
+            headline={zodiacNames.koreanZodiac[result.koreanZodiac]}
+            lines={[`Korean age: ${result.internationalAge}`, `Star sign: ${zodiacNames.westernZodiac[result.westernZodiac]}`]}
+            accentColor="#f59e0b"
+          />
         </div>
       )}
     </div>

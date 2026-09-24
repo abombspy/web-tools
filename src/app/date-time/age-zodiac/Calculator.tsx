@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/ko/date-time/age-zodiac.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateAgeZodiac } from "@/lib/calculators/age-zodiac";
 
 const { zodiacNames } = content;
@@ -71,6 +72,17 @@ export default function Calculator() {
             <p className="text-sm text-zinc-500">별자리</p>
             <p className="text-2xl font-bold">{zodiacNames.westernZodiac[result.westernZodiac]}</p>
           </div>
+        </div>
+      )}
+
+      {result && (
+        <div className="mt-4 flex justify-center">
+          <ResultShareCard
+            toolName="만 나이·띠·별자리 계산기"
+            headline={`${zodiacNames.koreanZodiac[result.koreanZodiac]}띠`}
+            lines={[`만 나이 ${result.internationalAge}세`, `별자리 ${zodiacNames.westernZodiac[result.westernZodiac]}`]}
+            accentColor="#f59e0b"
+          />
         </div>
       )}
     </div>

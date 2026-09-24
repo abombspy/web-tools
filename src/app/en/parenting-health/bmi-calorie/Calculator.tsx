@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/en/parenting-health/bmi-calorie.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import {
   calculateBmiCalorie,
   type ActivityLevel,
@@ -163,6 +164,17 @@ export default function Calculator() {
               <li>Basal metabolic rate (BMR): {result.bmr.toLocaleString()}kcal</li>
               <li>Total daily energy expenditure (TDEE): {result.tdee.toLocaleString()}kcal</li>
             </ul>
+          </div>
+          <div className="sm:col-span-2 flex justify-center">
+            <ResultShareCard
+              toolName="BMI & Calorie Calculator"
+              headline={`BMI ${result.bmi}`}
+              lines={[
+                content.bmiCategories[result.bmiCategory],
+                `Target: ${result.targetCalories.toLocaleString()}kcal/day`,
+              ]}
+              accentColor="#10b981"
+            />
           </div>
         </div>
       )}

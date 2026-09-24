@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateCompatibilityScore, getCompatibilityComment } from "@/lib/calculators/compatibility-score";
 
 const MBTI_TYPES = [
@@ -87,6 +88,14 @@ export default function Calculator() {
         <div className="mt-6 space-y-2 border-t-2 border-violet-100 pt-6 text-center dark:border-white/10">
           <p className="text-5xl font-bold text-violet-600 dark:text-violet-400">{score}점</p>
           <p className="text-lg">{getCompatibilityComment(score)}</p>
+          <div className="flex justify-center pt-2">
+            <ResultShareCard
+              toolName="이름 궁합·MBTI 궁합 테스트"
+              headline={`${score}점`}
+              lines={[getCompatibilityComment(score)]}
+              accentColor="#8b5cf6"
+            />
+          </div>
         </div>
       )}
     </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import content from "@content/tools/ko/part-time/weekly-holiday-pay.json";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateWeeklyHolidayPay } from "@/lib/calculators/weekly-holiday-pay";
 
 export default function Calculator({ minimumWage }: { minimumWage: number }) {
@@ -105,6 +106,14 @@ export default function Calculator({ minimumWage }: { minimumWage: number }) {
                 {hourlyWageNum.toLocaleString()}원 = {result.pay.toLocaleString()}원
                 {scheduledWeeklyHoursNum > 40 && " (40시간 상한 적용)"}
               </p>
+              <div className="mt-4 flex justify-center">
+                <ResultShareCard
+                  toolName="주휴수당 계산기"
+                  headline={`${result.pay.toLocaleString()}원`}
+                  lines={[`시급 ${hourlyWageNum.toLocaleString()}원 · 주 ${scheduledWeeklyHoursNum}시간 근무`]}
+                  accentColor="#f97316"
+                />
+              </div>
             </>
           ) : (
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
