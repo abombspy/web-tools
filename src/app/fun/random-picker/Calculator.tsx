@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import { pickRandom, randomMatch, shuffle } from "@/lib/calculators/random-picker";
 
 type Mode = "pick" | "shuffle" | "match";
@@ -92,6 +93,9 @@ export default function Calculator() {
       {result && (
         <div className="mt-6 border-t-2 border-violet-100 pt-6 text-center dark:border-white/10">
           <p className="text-3xl font-bold text-violet-600 dark:text-violet-400">{result}</p>
+          <div className="mt-4 flex justify-center">
+            <ResultShareCard toolName="랜덤 추첨기·사다리타기·룰렛" headline={result} accentColor="#8b5cf6" />
+          </div>
         </div>
       )}
 

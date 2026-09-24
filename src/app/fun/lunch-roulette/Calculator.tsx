@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import { pickRandom } from "@/lib/calculators/random-picker";
 import { LUNCH_CATEGORIES, LUNCH_MENUS, type LunchCategory } from "@/lib/calculators/lunch-menu";
 
@@ -64,6 +65,9 @@ export default function Calculator() {
         <div className="mt-6 border-t-2 border-violet-100 pt-6 text-center dark:border-white/10">
           <p className="text-sm text-zinc-500">오늘의 점심은</p>
           <p className="text-4xl font-bold text-violet-600 dark:text-violet-400">{result}</p>
+          <div className="mt-4 flex justify-center">
+            <ResultShareCard toolName="점심 메뉴 추천 룰렛" headline={result} accentColor="#8b5cf6" />
+          </div>
         </div>
       )}
     </div>

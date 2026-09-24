@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import { calculateDDay } from "@/lib/calculators/d-day";
 
 export default function Calculator() {
@@ -59,6 +60,14 @@ export default function Calculator() {
           <p className="text-3xl font-bold">
             {result.isToday ? "D-DAY" : `D${result.isPast ? "+" : "-"}${Math.abs(result.daysDiff)}`}
           </p>
+          <div className="mt-4 flex justify-center">
+            <ResultShareCard
+              toolName="D-day & Anniversary Calculator"
+              headline={result.isToday ? "D-DAY" : `D${result.isPast ? "+" : "-"}${Math.abs(result.daysDiff)}`}
+              lines={[`Target date: ${targetDate}`]}
+              accentColor="#f59e0b"
+            />
+          </div>
         </div>
       )}
     </div>

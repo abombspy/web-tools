@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ResultShareCard from "@/components/ResultShareCard";
 import { pickRandom } from "@/lib/calculators/random-picker";
 
 // 한국어판(lunch-menu.ts)과 카테고리 표기가 달라(한식/중식 등) 별도 영문 데이터셋을
@@ -93,6 +94,9 @@ export default function Calculator() {
         <div className="mt-6 border-t-2 border-violet-100 pt-6 text-center dark:border-white/10">
           <p className="text-sm text-zinc-500">Today&rsquo;s lunch is</p>
           <p className="text-4xl font-bold text-violet-600 dark:text-violet-400">{result}</p>
+          <div className="mt-4 flex justify-center">
+            <ResultShareCard toolName="Lunch Menu Roulette" headline={result} accentColor="#8b5cf6" />
+          </div>
         </div>
       )}
     </div>
