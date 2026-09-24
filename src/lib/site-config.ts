@@ -1,4 +1,4 @@
-export const SITE_NAME = "생활계산소";
+export const SITE_NAME = "생활계산소1";
 export const SITE_DESCRIPTION =
   "세금·급여·생활 계산을 위한 무료 계산기 모음. 계산 원리와 법적 근거를 함께 설명합니다.";
 // 영문판(/en)용 사이트명·설명. 2026-09-23부터 알바·직장인, 프리랜서·사업자 포함 전체 카테고리
