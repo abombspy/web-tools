@@ -69,6 +69,32 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
   return lines.length > 0 ? lines : [text];
 }
 
+const PAD = 48;
+const CONTENT_X = PAD + 48;
+const MAX_TEXT_WIDTH = CARD_WIDTH - PAD * 2 - 96;
+const HEADLINE_LINE_HEIGHT = 104;
+const DETAIL_LINE_HEIGHT = 42;
+const TOP_BLOCK_HEIGHT = 92 + 64; // 배지+도구명 영역 + 헤드라인 시작 전 여백
+const BOTTOM_PAD = 56;
+
+// 카드 높이는 내용(특히 lines의 설명 문구 길이)에 따라 달라진다 — 먼저 측정 전용
+// 컨텍스트로 줄바꿈 결과를 계산해 필요한 높이를 구한 뒤, 그 높이로 실제 캔버스를
+// 만든다(두 번 그리지 않으려면 폭 고정 상태에서 텍스트 측정이 캔버스 크기와
+// 무관하다는 성질을 이용).
+function measureContent(headline: string, lines: string[]) {
+  const measureCanvas = document.createElement("canvas");
+  const measureCtx = measureCanvas.getContext("2d");
+  if (!measureCtx) throw new Error("2D canvas context unavailable");
+
+  measureCtx.font = "800 92px sans-serif";
+  const headlineLines = wrapText(measureCtx, headline, MAX_TEXT_WIDTH);
+
+  measureCtx.font = "400 30px sans-serif";
+  const detailLines = lines.flatMap((line) => wrapText(measureCtx, line, MAX_TEXT_WIDTH));
+
+  return { headlineLines, detailLines };
+}
+
 function renderCard({
   toolName,
   headline,
@@ -76,55 +102,60 @@ function renderCard({
   accentColor = "#f97316",
   siteName,
 }: ResultShareCardProps & { siteName: string }): Promise<Blob> {
+  const { headlineLines, detailLines } = measureContent(headline, lines);
+
+  const contentHeight =
+    PAD + // 상단 카드 여백
+    TOP_BLOCK_HEIGHT +
+    headlineLines.length * HEADLINE_LINE_HEIGHT +
+    (detailLines.length > 0 ? 20 + detailLines.length * DETAIL_LINE_HEIGHT : 0) +
+    BOTTOM_PAD;
+  const cardHeight = Math.max(CARD_HEIGHT, contentHeight);
+
   const canvas = document.createElement("canvas");
   canvas.width = CARD_WIDTH;
-  canvas.height = CARD_HEIGHT;
+  canvas.height = cardHeight;
   const ctx = canvas.getContext("2d");
   if (!ctx) return Promise.reject(new Error("2D canvas context unavailable"));
 
   const accent = hexToRgb(accentColor);
   const accentDark = darken(accent, 40);
 
-  const bgGradient = ctx.createLinearGradient(0, 0, CARD_WIDTH, CARD_HEIGHT);
+  const bgGradient = ctx.createLinearGradient(0, 0, CARD_WIDTH, cardHeight);
   bgGradient.addColorStop(0, `rgb(${accent.r}, ${accent.g}, ${accent.b})`);
   bgGradient.addColorStop(1, `rgb(${accentDark.r}, ${accentDark.g}, ${accentDark.b})`);
   ctx.fillStyle = bgGradient;
-  ctx.fillRect(0, 0, CARD_WIDTH, CARD_HEIGHT);
+  ctx.fillRect(0, 0, CARD_WIDTH, cardHeight);
 
-  const pad = 48;
-  const contentX = pad + 48;
   ctx.fillStyle = "#ffffff";
-  drawRoundedRect(ctx, pad, pad, CARD_WIDTH - pad * 2, CARD_HEIGHT - pad * 2, 32);
+  drawRoundedRect(ctx, PAD, PAD, CARD_WIDTH - PAD * 2, cardHeight - PAD * 2, 32);
   ctx.fill();
 
   ctx.textBaseline = "top";
   ctx.fillStyle = "#71717a";
   ctx.font = "600 28px sans-serif";
-  ctx.fillText(`🧮 ${siteName}`, contentX, pad + 40);
+  ctx.fillText(`🧮 ${siteName}`, CONTENT_X, PAD + 40);
 
   ctx.fillStyle = "#52525b";
   ctx.font = "500 32px sans-serif";
-  ctx.fillText(toolName, contentX, pad + 92);
+  ctx.fillText(toolName, CONTENT_X, PAD + 92);
 
+  let y = PAD + TOP_BLOCK_HEIGHT;
   ctx.fillStyle = `rgb(${accent.r}, ${accent.g}, ${accent.b})`;
   ctx.font = "800 92px sans-serif";
-  const maxTextWidth = CARD_WIDTH - pad * 2 - 96;
-  const headlineLines = wrapText(ctx, headline, maxTextWidth);
-  const headlineLineHeight = 104;
-  let y = CARD_HEIGHT / 2 - ((headlineLines.length - 1) * headlineLineHeight) / 2;
-  ctx.textBaseline = "middle";
   for (const line of headlineLines) {
-    ctx.fillText(line, contentX, y);
-    y += headlineLineHeight;
+    ctx.fillText(line, CONTENT_X, y);
+    y += HEADLINE_LINE_HEIGHT;
   }
 
-  ctx.fillStyle = "#3f3f46";
-  ctx.font = "400 30px sans-serif";
-  ctx.textBaseline = "alphabetic";
-  y = CARD_HEIGHT / 2 + (headlineLines.length * headlineLineHeight) / 2 + 20;
-  for (const line of lines) {
-    ctx.fillText(line, contentX, y);
-    y += 42;
+  if (detailLines.length > 0) {
+    y += 20;
+    ctx.fillStyle = "#3f3f46";
+    ctx.font = "400 30px sans-serif";
+    for (const line of detailLines) {
+      ctx.fillText(line, CONTENT_X, y);
+      y += DETAIL_LINE_HEIGHT;
+    }
   }
 
   return new Promise((resolve, reject) => {

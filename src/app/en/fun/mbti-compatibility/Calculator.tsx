@@ -47,7 +47,7 @@ export default function Calculator() {
           <ResultShareCard
             toolName="MBTI Compatibility Test"
             headline={`${score} / 100`}
-            lines={[`${mbtiA} × ${mbtiB}`, bandInfo.name]}
+            lines={[`${mbtiA} × ${mbtiB}`, bandInfo.name, bandInfo.description]}
             accentColor="#8b5cf6"
           />
         </div>
