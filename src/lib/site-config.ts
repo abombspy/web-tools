@@ -245,6 +245,7 @@ export const CATEGORIES: CalculatorCategory[] = [
       { slug: "random-picker", available: true, icon: "🎲", hasPageEn: true },
       { slug: "lunch-roulette", available: true, icon: "🍱", hasPageEn: true },
       { slug: "nickname-generator", available: true, icon: "🐣", hasPageEn: true },
+      { slug: "lotto-number-generator", available: true, icon: "🎰", hasPageEn: true },
       { slug: "recommended-combos", available: true, icon: "✨", hasPageEn: true },
     ],
   },

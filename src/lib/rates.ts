@@ -1,4 +1,5 @@
 import holidays2026 from "@config/holidays/2026.json";
+import funRates from "@config/rates/fun.json";
 import laborRates from "@config/rates/labor.json";
 import livingRates from "@config/rates/living.json";
 import taxRates from "@config/rates/tax.json";
@@ -95,9 +96,20 @@ type LivingYear = {
   }>;
 };
 
+type FunRates = {
+  lottoFrequency: {
+    asOfDrawNo: number;
+    asOfDrawDate: string;
+    totalDraws: number;
+    mainNumberFrequency: RatedValue<{ value: Record<string, number> }>;
+    bonusNumberFrequency: RatedValue<{ value: Record<string, number> }>;
+  };
+};
+
 const labor: Record<string, LaborYear> = laborRates;
 const tax: Record<string, TaxYear> = taxRates;
 const living: Record<string, LivingYear> = livingRates;
+const fun: FunRates = funRates;
 
 function getLaborYear(year: string) {
   const entry = labor[year];
@@ -195,4 +207,8 @@ export function getHolidays(year: string = "2026") {
     throw new Error(`config/holidays/${year}.json이 없습니다.`);
   }
   return entry;
+}
+
+export function getLottoFrequency() {
+  return fun.lottoFrequency;
 }

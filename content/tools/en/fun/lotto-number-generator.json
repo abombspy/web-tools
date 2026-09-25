@@ -1,0 +1,38 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "This tool generates Lotto 6/45 numbers entirely in your browser. There's no input to send or store — nothing leaves your device."
+      ]
+    },
+    { "type": "h2", "text": "How is this \"truly\" random?" },
+    {
+      "type": "p",
+      "runs": [
+        "A typical webpage's random function (",
+        { "text": "Math.random()", "code": true },
+        ") is predictable enough that it's not recommended for security-sensitive use. This tool instead uses the browser's ",
+        { "text": "cryptographically secure random API", "bold": true },
+        " (the Web Crypto API's ",
+        { "text": "crypto.getRandomValues()", "code": true },
+        "), and picks 6 numbers from 1–45 using rejection sampling — redrawing whenever a value would fall in the tiny biased leftover range you'd otherwise get from a plain modulo-45 reduction."
+      ]
+    },
+    { "type": "h2", "text": "Why show how often each number has come up?" },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        { "text": "Important: this statistic does not predict the next draw.", "bold": true },
+        " Each Lotto draw is a fully independent event — how often a number has (or hasn't) come up in the past has zero effect on its odds in the next draw. The numbers below are just for curiosity, not a basis for picking numbers."
+      ]
+    },
+    {
+      "type": "p",
+      "runs": [
+        "In fact, tallying up the real historical data shows each number's count clustering fairly evenly around the expected value — which is itself evidence that each number really is drawn with equal fairness."
+      ]
+    }
+  ]
+}

@@ -91,6 +91,7 @@
       "random-picker": { "name": "Random Picker & Ladder Game", "tagline": "Pick one, fair and square" },
       "lunch-roulette": { "name": "Lunch Menu Roulette", "tagline": "What to eat today? Decided." },
       "nickname-generator": { "name": "Nickname Generator", "tagline": "Get a fun nickname instantly" },
+      "lotto-number-generator": { "name": "Lotto Number Generator", "tagline": "6 truly unbiased random picks" },
       "recommended-combos": { "name": "Recommended Combos", "tagline": "Tool combos that go well together" }
     }
   }
