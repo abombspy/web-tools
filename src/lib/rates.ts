@@ -94,6 +94,29 @@ type LivingYear = {
     rangeLowerMultiplier: number;
     rangeUpperMultiplier: number;
   }>;
+  acquisitionTax: RatedValue<{
+    baseRate: {
+      upTo6eok: number;
+      linearBandFrom6To9eok: { coefficientPercentPerEok: number; constantPercent: number };
+      over9eok: number;
+    };
+    multiHouseSurchargeRate: {
+      regulatedArea: { second: number; thirdPlus: number };
+      nonRegulatedArea: { third: number; fourthPlus: number };
+      corporation: number;
+    };
+    firstTimeBuyerRelief: {
+      priceLimit: number;
+      generalCap: number;
+      smallLowPriceCap: number;
+      smallAreaLimitM2: number;
+      smallPriceLimitMetro: number;
+      smallPriceLimitNonMetro: number;
+    };
+    localEducationTaxRateOfBase: number;
+    ruralSpecialTaxRate: number;
+    ruralSpecialTaxAreaThresholdM2: number;
+  }>;
 };
 
 type FunRates = {
@@ -189,6 +212,10 @@ export function getRealEstateAgentFeeRates(year: string = "2026") {
 
 export function getMovingCostEstimateRates(year: string = "2026") {
   return getLivingYear(year).movingCostEstimate;
+}
+
+export function getAcquisitionTaxRates(year: string = "2026") {
+  return getLivingYear(year).acquisitionTax;
 }
 
 type HolidayYear = {

@@ -132,6 +132,7 @@ export const CATEGORIES: CalculatorCategory[] = [
       { slug: "real-estate-agent-fee", available: true, icon: "🤝", hasPageEn: true },
       { slug: "loan-repayment", available: true, icon: "🏦", hasPageEn: true },
       { slug: "moving-cost-estimate", available: true, icon: "🚚", hasPageEn: true },
+      { slug: "acquisition-tax", available: true, icon: "📜", hasPageEn: true },
     ],
   },
   {

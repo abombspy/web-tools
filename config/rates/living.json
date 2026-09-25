@@ -56,6 +56,36 @@
       "source": "이사 업체·견적 비교 플랫폼 블로그 다수 교차 검색(공식 통계 없음)",
       "verified": false,
       "note": "한국소비자원 등 공식 통계가 존재하지 않아, 업계 블로그·견적 비교 플랫폼 자료(예: 원룸 포장이사 30만~50만원, 15평 포장이사 약 60만원)를 참고해 만든 매우 거친 추정치다. 업체·시즌·이사 거리·짐의 양에 따라 실제 견적이 크게 달라지므로, 반드시 2~3곳 이상 실제 견적을 비교하라고 UI에 강하게 안내한다."
+    },
+    "acquisitionTax": {
+      "baseRate": {
+        "upTo6eok": 0.01,
+        "linearBandFrom6To9eok": {
+          "note": "6억 초과~9억 이하 구간의 세율(%) = 취득가액(억원 단위) × coefficientPercentPerEok + constantPercent. 6억에서 정확히 1%, 9억에서 정확히 3%가 되도록 설계된 선형보간 공식(지방세법 시행령 제28조의4).",
+          "coefficientPercentPerEok": 0.6666666666666666,
+          "constantPercent": -3
+        },
+        "over9eok": 0.03
+      },
+      "multiHouseSurchargeRate": {
+        "regulatedArea": { "second": 0.08, "thirdPlus": 0.12 },
+        "nonRegulatedArea": { "third": 0.08, "fourthPlus": 0.12 },
+        "corporation": 0.12
+      },
+      "firstTimeBuyerRelief": {
+        "priceLimit": 1200000000,
+        "generalCap": 2000000,
+        "smallLowPriceCap": 3000000,
+        "smallAreaLimitM2": 60,
+        "smallPriceLimitMetro": 600000000,
+        "smallPriceLimitNonMetro": 300000000
+      },
+      "localEducationTaxRateOfBase": 0.1,
+      "ruralSpecialTaxRate": 0.002,
+      "ruralSpecialTaxAreaThresholdM2": 85,
+      "source": "지방세법 제11조·제13조의2, 지방세특례제한법 제36조의3 — 세율 구조는 simpletax.kr, calc.epostphone.kr, jipsem.com 등 복수 세무 정보 사이트로 교차검증(2026-09-25). 공식 계산기: https://www.wetax.go.kr/tcp/loi/J030801M01.do",
+      "verified": true,
+      "note": "이 계산기는 주택(residential) 매매 취득에만 적용되며, 조정대상지역 지정 현황은 최근(2025-10) 서울 전역 재지정 등 자주 바뀌어 이 사이트가 목록을 직접 관리하지 않고 사용자가 직접 선택하게 한다(정확한 지정 여부는 국토교통부·위택스에서 확인). 중과세율(8%/12%) 구간의 지방교육세는 산식이 더 복잡해 이 계산기에서 별도로 계산하지 않고 위택스 안내로 대체한다(기본세율 구간의 지방교육세만 표준세율×10%로 계산). 생애최초 감면은 2025년까지 확인된 기준(취득가 12억 이하, 200만/300만원 한도, 소득 요건 없음)을 반영했고, 2026년 이후 적용 예정이라는 개정안(적용기한 연장, 소형주택 감면 대상 축소 등)은 국회 통과·시행 여부를 직접 확인하지 못해 반영하지 않았다(TODO: law.go.kr 원문으로 재확인 후 갱신)."
     }
   }
 }

@@ -55,7 +55,8 @@
       "jeonse-to-monthly-rent": { "name": "전월세 전환율 계산기", "tagline": "전세를 월세로 바꾸면?" },
       "real-estate-agent-fee": { "name": "중개수수료 계산기", "tagline": "복비, 얼마가 적당할까?" },
       "loan-repayment": { "name": "대출 이자·상환 계산기", "tagline": "매달 갚을 돈, 정확히 계산" },
-      "moving-cost-estimate": { "name": "이사 비용 견적 계산기", "tagline": "이사비, 대략 얼마 들까?" }
+      "moving-cost-estimate": { "name": "이사 비용 견적 계산기", "tagline": "이사비, 대략 얼마 들까?" },
+      "acquisition-tax": { "name": "취득세 계산기", "tagline": "집 살 때 내는 세금, 미리 확인" }
     },
     "parenting-health": {
       "baby-growth-percentile": { "name": "아기 개월수·성장 백분위 계산기", "tagline": "우리 아기, 또래보다 어떨까?" },

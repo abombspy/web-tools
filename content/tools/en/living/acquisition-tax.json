@@ -1,0 +1,64 @@
+{
+  "blocks": [
+    {
+      "type": "p",
+      "runs": [
+        "Calculates the acquisition tax (취득세) you pay when buying ",
+        { "text": "residential property", "bold": true },
+        " in Korea. This doesn't apply to inheritance/gift acquisitions or non-residential property (land, commercial units, etc.)."
+      ]
+    },
+    { "type": "h2", "text": "Base rate" },
+    {
+      "type": "p",
+      "runs": [
+        "For a first (single) home, the rate is 1% up to ₩600M, 3% above ₩900M, and in between (₩600M–900M) it's calculated with ",
+        { "text": "rate(%) = price (in 100M won) × 2/3 − 3", "bold": true },
+        " — designed to land exactly on 1% at ₩600M and 3% at ₩900M."
+      ]
+    },
+    { "type": "h2", "text": "Surcharge rates for multiple homes / corporations" },
+    {
+      "type": "list",
+      "items": [
+        ["Corporation: always 12%, regardless of how many properties"],
+        ["Regulated (조정대상) area: 8% for a 2nd home, 12% for a 3rd or more"],
+        ["Non-regulated area: base rate for a 1st–2nd home, 8% for a 3rd, 12% for a 4th or more"]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "amber",
+      "runs": [
+        { "text": "Which areas are \"regulated\" (조정대상지역) changes often", "bold": true },
+        " (all of Seoul was newly designated again in October 2025). This calculator doesn't maintain that list — please check whether your address is in a regulated area via ",
+        { "text": "the Ministry of Land, Infrastructure and Transport", "href": "https://www.molit.go.kr", "external": true },
+        " or Wetax (linked below) before entering it here."
+      ]
+    },
+    { "type": "h2", "text": "First-time homebuyer relief" },
+    {
+      "type": "p",
+      "runs": [
+        "If this is your first home ever and the price is ₩1.2B or under, up to ₩2M of the calculated tax is waived (up to ₩3M for a small, lower-priced home: 60㎡ or under and ₩600M/₩300M or under in metro/non-metro areas). The income requirement was removed in a 2023 amendment, but you must move in within 3 months and live there for at least 3 years, or the relief can be clawed back."
+      ]
+    },
+    { "type": "h2", "text": "Local education tax & rural special tax" },
+    {
+      "type": "p",
+      "runs": [
+        "For the base-rate bracket, this also calculates the local education tax (10% of the acquisition tax). ",
+        { "text": "For the multi-home/corporate surcharge bracket (8%/12%), the education tax formula is more complex and isn't included here", "bold": true },
+        " — check the exact total on Wetax below. The rural special tax (0.2%) only applies if the unit is over 85㎡ (including in the surcharge bracket)."
+      ]
+    },
+    {
+      "type": "note",
+      "runs": [
+        "This is a reference-only mock calculation. Please double-check the actual amount using Wetax's official pre-calculation (",
+        { "text": "wetax.go.kr", "href": "https://www.wetax.go.kr/tcp/loi/J030801M01.do", "external": true },
+        ")."
+      ]
+    }
+  ]
+}

@@ -55,7 +55,8 @@
       "jeonse-to-monthly-rent": { "name": "Jeonse-to-Monthly-Rent Conversion Calculator", "tagline": "What if I convert my deposit to rent?" },
       "real-estate-agent-fee": { "name": "Real Estate Agent Fee Calculator", "tagline": "What's a fair brokerage fee?" },
       "loan-repayment": { "name": "Loan Repayment Calculator", "tagline": "See exactly what you'll owe each month" },
-      "moving-cost-estimate": { "name": "Moving Cost Estimator", "tagline": "Roughly how much will moving cost?" }
+      "moving-cost-estimate": { "name": "Moving Cost Estimator", "tagline": "Roughly how much will moving cost?" },
+      "acquisition-tax": { "name": "Acquisition Tax Calculator", "tagline": "Know the tax before you buy a home" }
     },
     "parenting-health": {
       "baby-growth-percentile": { "name": "Baby Growth Percentile Calculator", "tagline": "How does my baby compare to peers?" },
