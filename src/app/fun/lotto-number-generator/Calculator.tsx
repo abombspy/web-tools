@@ -78,8 +78,8 @@ export default function Calculator() {
           <div className="flex justify-center pt-2">
             <ResultShareCard
               toolName="로또 번호 생성기"
-              headline={games[0].join(" · ")}
-              lines={games.length > 1 ? [`외 ${games.length - 1}게임 더 생성`] : []}
+              headline={games.length > 1 ? `${games.length}게임 생성 결과` : games[0].join(" · ")}
+              lines={games.length > 1 ? games.map((game, i) => `${i + 1}게임: ${game.join(" · ")}`) : []}
               accentColor="#8b5cf6"
             />
           </div>

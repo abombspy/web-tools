@@ -78,8 +78,8 @@ export default function Calculator() {
           <div className="flex justify-center pt-2">
             <ResultShareCard
               toolName="Lotto Number Generator"
-              headline={games[0].join(" · ")}
-              lines={games.length > 1 ? [`+ ${games.length - 1} more game(s) generated`] : []}
+              headline={games.length > 1 ? `${games.length} games generated` : games[0].join(" · ")}
+              lines={games.length > 1 ? games.map((game, i) => `Game ${i + 1}: ${game.join(" · ")}`) : []}
               accentColor="#8b5cf6"
             />
           </div>
