@@ -124,82 +124,126 @@ Myers-Briggs사의 궁합 설명 문구를 그대로 베끼는 건 피해야 한
 
 ## 2. 제안하는 설계 방향
 
-### 2.1 데이터 구조
+> ✅ **2026-09-25 구현 중 발견·수정(2차)**: 실제 코드를 짜서 검증하다가 두 가지를
+> 더 발견했다.
+> 1. 애초 "matchCount 0~4" 아이디어는 틀렸다 — MBTI 16개 유형을 실제로 다 계산해보니
+>    서로 다른 두 유형 사이에서 일치하는 축 개수는 **0, 2, 4만 나오고 1과 3은 아예
+>    나오지 않는다**(16개 유형이 정확히 4개씩 4그룹으로 묶이는 구조 때문 — 이 4그룹은
+>    소시오닉스의 "쿼드라" 개념과 사실상 같다). 그래서 원래 제안한 5단계
+>    (duality/nearDual/balanced/similar/identity)는 실제로는 성립하지 않는 조합이
+>    섞여 있었다.
+> 2. 대신 "일치하는 축이 2개"인 경우를 더 뜯어보니, **어느 2개 축이 일치하느냐**로
+>    자연스럽게 두 갈래(N·S가 일치 / T·F가 일치)로 갈린다는 걸 발견 — 이걸로 진짜
+>    5단계를 다시 만들었고, Node 스크립트로 16×16 전체 조합을 전수 계산해 각 유형마다
+>    정확히 {듀얼리티 4명, N·S일치 4명, T·F일치 4명, 같은그룹(기능은 같고 순서만
+>    다름) 3명, 동일유형 1명} = 15+1명으로 고르게 나뉘는 걸 확인했다. 아래 §2.1은 이
+>    검증을 반영한 최종 설계다.
+
+### 2.1 데이터 구조 (확정, 전수 검증 완료)
+
+핵심 통찰: MBTI의 4기능 스택은 항상 N/S축 중 하나, T/F축 중 하나를 정확히 하나씩
+포함한다(예: INFJ = Ni·Fe·Ti·Se → N축은 Ni, S축은 Se, T축은 Ti, F축은 Fe). "N/S/T/F
+4개 축마다 내향(i)·외향(e) 중 어느 태도를 택했는가"를 스택 안 위치와 무관하게
+비교하면 되는데, 16개 유형을 전부 계산해 보면 이 4개 태도값 조합이 **정확히 4가지
+패턴**으로만 나오고(2×2=4, 유형 수 16=4패턴×4유형), 이 4가지 패턴이 서로 어떻게
+겹치는지를 계산하면 아래처럼 딱 떨어진다(Node로 16×16 전수 계산, 사람이 손으로
+검산한 것보다 훨씬 신뢰도 높음):
+
+- 4개 태도가 **전부 반대**인 패턴 쌍 → **듀얼리티**(예: ISTJ↔ESTP, INFJ↔ENFP —
+  실제 소시오닉스 문헌에서도 흔히 언급되는 듀얼 페어와 일치, 한 유형당 이 관계인
+  상대가 정확히 4명. ISTJ↔ISTP처럼 얼핏 비슷해 보이는 조합은 오히려 "닮은꼴형"
+  — 아래 참고).
+- N·S만 일치하고 T·F는 반대인 패턴 쌍 → **정보 인식 일치형**(정보를 받아들이는
+  방식은 같지만 판단 방식은 다름, 한 유형당 4명).
+- T·F만 일치하고 N·S는 반대인 패턴 쌍 → **판단 방식 일치형**(판단 방식은 같지만
+  정보를 받아들이는 방식은 다름, 한 유형당 4명).
+- 4개 태도가 **전부 일치**하지만 실제로는 다른 유형(같은 4개 기능을 쓰지만 우선순위
+  순서만 다름, 예: ISTP의 Ti-Se-Ni-Fe vs ESTP의 Se-Ti-Fe-Ni) → **닮은꼴형**(한
+  유형당 3명).
+- 자기 자신 → **동일 유형**.
 
 ```ts
 // src/lib/calculators/mbti-compatibility.ts (신규, 기존 compatibility-score.ts와 분리)
 
-type Letter = "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
-type MbtiType = string; // "INFJ" 등 16개 중 하나로 런타임 검증
+export type MbtiType =
+  | "ISTJ" | "ISFJ" | "INFJ" | "INTJ" | "ISTP" | "ISFP" | "INFP" | "INTP"
+  | "ESTP" | "ESFP" | "ENFP" | "ENTP" | "ESTJ" | "ESFJ" | "ENFJ" | "ENTJ";
 
-// 고전 4기능 모델로 16개 유형 전부의 스택을 정적 테이블로 미리 계산해 둔다
-// (매번 규칙으로 유도하지 않고 검증된 표를 직접 박아 넣는 편이 버그 위험이 낮음).
+// 고전 4기능(Myers) 모델의 표준 스택 — 16개 전부 정적 테이블(매번 규칙으로
+// 유도하지 않고 검증된 표를 직접 박아 넣는 편이 버그 위험이 낮음).
 const FUNCTION_STACK: Record<MbtiType, [string, string, string, string]> = {
   INFJ: ["Ni", "Fe", "Ti", "Se"],
   ENFP: ["Ne", "Fi", "Te", "Si"],
   // ...16개 전부
 };
 
-export type SocionicsRelation =
-  | "identity" | "duality" | "activity" | "mirror" | "semiDuality" | "kindred"
-  | "business" | "mirage" | "superEgo" | "quasiIdentity" | "contrary" | "conflict"
-  | "supervisor" | "supervisee" | "benefactor" | "beneficiary";
+// 스택에서 N/S/T/F 축별 태도(i|e)를 추출 — 위치 무관, 항상 4개 축 전부 존재.
+function categoryAttitudes(type: MbtiType): Record<"N" | "S" | "T" | "F", "i" | "e"> { ... }
 
-// (유형A, 유형B) → 관계. 대칭 관계는 순서 무관, supervisor/supervisee와
-// benefactor/beneficiary는 방향성이 있어 순서가 의미를 가짐(A가 B의 supervisor면
-// B는 A의 supervisee).
-export function determineRelation(a: MbtiType, b: MbtiType): SocionicsRelation { ... }
+export type CompatibilityBand = "duality" | "perceivingAligned" | "judgingAligned" | "sameFunctions" | "identity";
 
-// 관계마다 점수 "밴드"(중심값 ± 폭) + 설명(소시오닉스 이론 기반, 원문 그대로
-// 베끼지 않고 재작성). 카테고리는 결정론적이라 "왜 이 점수대인지" 설명 가능하되,
-// 밴드 안에서는 기존 해시를 보조 지표로 살짝 섞어 페어마다 미세하게 다른 숫자가
-// 나오게 한다(§3-1 권장안: 전체 범위 35~95점, 밴드 폭은 ±4).
-const RELATION_SCORE_CENTER: Record<SocionicsRelation, number> = {
-  duality: 92, activity: 84, mirror: 78, identity: 72, semiDuality: 66,
-  kindred: 60, business: 56, mirage: 52, benefactor: 52, beneficiary: 48,
-  quasiIdentity: 46, contrary: 44, supervisor: 42, supervisee: 40,
-  superEgo: 39, conflict: 38,
+function determineBand(a: MbtiType, b: MbtiType): CompatibilityBand {
+  if (a === b) return "identity";
+  const A = categoryAttitudes(a), B = categoryAttitudes(b);
+  const nsMatch = A.N === B.N && A.S === B.S;
+  const tfMatch = A.T === B.T && A.F === B.F;
+  if (!nsMatch && !tfMatch) return "duality";
+  if (nsMatch && tfMatch) return "sameFunctions"; // 태도 전부 일치 → 항상 같은 기능, 다른 순서
+  return nsMatch ? "perceivingAligned" : "judgingAligned";
+}
+
+const BAND_SCORE_CENTER: Record<CompatibilityBand, number> = {
+  duality: 94,         // 4축 전부 반대 — 소시오닉스 듀얼리티, 이론상 가장 이상적인
+                        // "상호보완" 조합(서로의 강점이 상대 약점을 정확히 채움).
+  sameFunctions: 80,    // 같은 4개 기능을 쓰지만 우선순위만 다름 — 서로의 도구를
+                        // 이해하기 쉬움.
+  identity: 66,         // 같은 유형 — 이해는 빠르지만 맹점도 공유(§1.1 참고).
+  perceivingAligned: 58, // N·S(정보 인식)는 같고 T·F(판단)는 반대.
+  judgingAligned: 58,    // T·F(판단)는 같고 N·S(정보 인식)는 반대.
 };
-const BAND_WIDTH = 4;
+const BAND_WIDTH = 4; // ±4점, 기존 해시로 밴드 안에서 미세 변주(페어마다 조금씩 다르게)
 
 export function calculateMbtiCompatibility(a: MbtiType, b: MbtiType) {
-  const relation = determineRelation(a, b);
-  const jitter = (simpleHash(`${a}|${b}`) % (BAND_WIDTH * 2 + 1)) - BAND_WIDTH; // -4~+4
-  const score = RELATION_SCORE_CENTER[relation] + jitter;
-  return { relation, score, stackA: FUNCTION_STACK[a], stackB: FUNCTION_STACK[b] };
+  const band = determineBand(a, b);
+  const jitter = (simpleHash([a, b].sort().join("|")) % (BAND_WIDTH * 2 + 1)) - BAND_WIDTH;
+  return { band, score: BAND_SCORE_CENTER[band] + jitter, stackA: FUNCTION_STACK[a], stackB: FUNCTION_STACK[b] };
 }
 ```
 
 - **이름 궁합과 완전히 분리**: `compatibility-score.ts`(해시 기반)는 그대로 두고 건드리지
   않는다. `name-compatibility` 페이지는 계속 그걸 쓰고, `mbti-compatibility` 페이지만
   새 `mbti-compatibility.ts`로 갈아탄다.
-- **점수 밴드는 §3-1의 권장안을 반영한 예시**다 — 전체 범위를 35~95점으로 좁히고
-  (극단적으로 낮은 점수가 주는 불필요한 부정적 인상 방지), 관계 카테고리(중심값)는
-  고정하되 그 안에서 기존 해시로 ±4점 미세 변주를 줘 페어마다 살짝 다른 숫자가
-  나오게 했다. 최종 중심값 배치는 §3-3(관계 이름 재검증) 조사 결과에 따라 조정될 수
-  있다.
-- 기존 `getCompatibilityComment(score)`(점수 구간별 고정 문구)는 재사용하지 않고,
-  **관계 이름별로 문구를 직접 짓는** 편이 이론적 일관성이 있다(예: "conflict" 관계는
-  항상 "서로 다른 방식이라 부딪히기 쉬워요" 같은 관계-특화 문구).
+- **"소시오닉스 공식 16개 관계"라고 주장하지 않는다** — 듀얼리티 개념(4축 전부
+  반대 태도가 이론상 가장 조화로움)만 정확히 차용하고, 나머지 4단계는 "일치하는
+  축이 무엇이냐"라는 우리 나름의, 전수 검증된 지표로 만든 자체 분류라는 걸 페이지
+  문구에도 정직하게 밝힌다(§1.1의 캐치 그대로).
+- `perceivingAligned`와 `judgingAligned`는 이론적으로 어느 쪽이 더 낫다고 판단할
+  근거가 없어 **점수를 동일하게** 뒀다(58점) — 이름·설명 문구만 다르게 해서 "다른
+  종류의 관계"라는 느낌은 살리되 우열은 주장하지 않는다.
+- 점수 범위는 54~98점(밴드 중심값 54~94 + 밴드 안 ±4점 해시 변주) — §3-1의
+  35~95점 제안과 폭은 비슷하게 유지.
 
 ### 2.2 콘텐츠(KO/EN)
 
-136쌍(16×16 대칭 제외 중복 제거) 전부에 문구를 손으로 쓰는 대신, **16개 관계 유형별로
-1개씩** 설명 문구를 작성해 재사용한다(언어팩 컨벤션 그대로 `content/tools/{ko,en}/fun/
-mbti-compatibility.json`에 `relations.<relationKey>.{name, description}` 구조로).
-개별 페어에는 "공유 기능: Ni, Fe" 같이 §2.1의 `stackA`/`stackB`를 비교해 동적으로 만든
-한 줄을 덧붙여, 관계 문구만으로는 밋밋할 수 있는 부분을 보완한다.
+120쌍(16×16 대칭 제외 중복 제거) 전부에 문구를 손으로 쓰는 대신, **5개 밴드별로 1개씩**
+설명 문구를 작성해 재사용한다(언어팩 컨벤션 그대로 `content/tools/{ko,en}/fun/
+mbti-compatibility.json`에 `bands.<bandKey>.{name, description}` 구조로). 개별
+페어에는 "공유 축: N, T" 같이 §2.1의 `stackA`/`stackB`(정확히는 `categoryAttitudes`
+비교)를 바탕으로 동적으로 만든 한 줄을 덧붙여, 밴드 문구만으로는 밋밋할 수 있는 부분을
+보완한다.
 
 ### 2.3 UI에 반영할 것(제안)
 
-- 결과 카드에 점수 + 관계 이름(한국어 번역) + "왜 이 관계인지"에 대한 1문장 정도의 설명을
-  추가 노출 — 지금처럼 "숫자만 툭 던지는" 것보다 신뢰도가 올라간다.
-- 안내 문구(callout)를 **"과학적 근거 없음" → "소시오닉스라는 성격유형학 이론에서
-  정의하는 유형 간 관계를 바탕으로 하지만, 실제 관계 만족도를 예측하는 과학적으로 검증된
-  도구는 아닙니다"** 정도로 갱신 — §1.4의 한계를 숨기지 않으면서도, 순수 해시보다는
-  "근거가 있다"는 걸 정직하게 전달.
-- `ResultShareCard`의 `lines`에 관계 이름을 추가하면 공유 카드 자체도 더 흥미로워짐
-  (예: "듀얼리티 관계 · 92점").
+- 결과 카드에 점수 + 밴드 이름(예: "정반대 보완형") + "왜 이 밴드인지"에 대한 1문장
+  정도의 설명을 추가 노출 — 지금처럼 "숫자만 툭 던지는" 것보다 신뢰도가 올라간다.
+- 안내 문구(callout)를 **"과학적 근거 없음" → "소시오닉스라는 성격유형학 이론의
+  듀얼리티(상호보완) 개념에서 착안해, 두 유형이 네 가지 축(에너지 방향 등)에서 얼마나
+  겹치는지로 나눈 것일 뿐, 소시오닉스 공식 관계 전체를 재현하거나 실제 관계
+  만족도를 예측하는 과학적으로 검증된 도구는 아닙니다"** 정도로 갱신 — §1.4의 한계와
+  §2.1의 단순화(16개 공식 관계가 아니라 자체 5단계 밴드)를 둘 다 숨기지 않으면서도,
+  순수 해시보다는 "근거가 있다"는 걸 정직하게 전달.
+- `ResultShareCard`의 `lines`에 밴드 이름을 추가하면 공유 카드 자체도 더 흥미로워짐
+  (예: "정반대 보완형 · 94점").
 
 ---
 

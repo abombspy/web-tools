@@ -3,7 +3,7 @@
 // 매핑하는 해시 기반 점수만 제공한다. 순서를 바꿔 넣어도(A,B / B,A) 같은 점수가 나오도록
 // 정렬 후 해시한다.
 
-function simpleHash(str: string): number {
+export function simpleHash(str: string): number {
   let hash = 5381;
   for (let i = 0; i < str.length; i += 1) {
     hash = (hash * 33) ^ str.charCodeAt(i);

@@ -4,10 +4,34 @@
       "type": "callout",
       "tone": "blue",
       "runs": [
-        "This is ",
-        { "text": "purely for fun", "bold": true },
-        " and has no scientific basis. It’s designed to always give the same score for the same MBTI pair (regardless of order) — it doesn’t analyze real personality compatibility."
+        "Inspired by the \"Duality\" concept from ",
+        { "text": "Socionics", "bold": true },
+        ", a personality typology theory — we sort two MBTI types into 5 categories based on how much they overlap on perceiving (N/S) and judging (T/F) style. This doesn’t reproduce Socionics’ full official relationship system, and it’s ",
+        { "text": "not a scientifically validated tool", "bold": true },
+        " for predicting real relationship satisfaction — just for fun. The same MBTI pair always gives the same result (order doesn’t matter)."
       ]
     }
-  ]
+  ],
+  "bands": {
+    "duality": {
+      "name": "Opposite & Complementary",
+      "description": "Opposite on both how you take in information (N/S) and how you decide (T/F). In Socionics theory, this is considered the most ideal complementary match — each person's strengths cover the other's blind spots."
+    },
+    "perceivingAligned": {
+      "name": "Perceiving-Aligned",
+      "description": "You take in information the same way (N/S), but decide differently (T/F). You see the world similarly but make decisions differently — that can make for interesting chemistry."
+    },
+    "judgingAligned": {
+      "name": "Judging-Aligned",
+      "description": "You decide the same way (T/F), but take in information differently (N/S). Your decision-making style clicks, even if your interests or perspective differ."
+    },
+    "sameFunctions": {
+      "name": "Similar Wiring",
+      "description": "You use the exact same set of mental functions — you just prioritize them differently. That tends to make it easy to understand how the other person thinks."
+    },
+    "identity": {
+      "name": "Same Type",
+      "description": "You're the exact same type. Instant mutual understanding, but you may also share the same blind spots."
+    }
+  }
 }
