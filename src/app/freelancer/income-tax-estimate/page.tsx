@@ -6,6 +6,7 @@ import { asBlocks } from "@/lib/content/types";
 import { getComprehensiveIncomeTax, getExpenseRatesByIndustry } from "@/lib/rates";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "종합소득세 예상 계산기 (프리랜서 간이)",
@@ -26,6 +27,8 @@ export default function IncomeTaxEstimatePage() {
           simplifiedRateThreshold: rates.simplifiedRateThreshold.toLocaleString(),
         })}
       </section>
+
+      <AdUnit />
 
       <Calculator rates={rates} industries={industries} />
 

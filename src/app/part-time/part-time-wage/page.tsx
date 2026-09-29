@@ -11,6 +11,7 @@ import {
 } from "@/lib/rates";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "알바 월급 계산기",
@@ -38,6 +39,8 @@ export default function PartTimeWagePage() {
           incomeTaxThresholdLine: `${incomeTaxWithholding.singleHouseholdZeroTaxMonthlyThreshold.toLocaleString()}원 미만`,
         })}
       </section>
+
+      <AdUnit />
 
       <Calculator
         minimumWage={minimumWage.hourly}

@@ -5,6 +5,7 @@ import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "MBTI 성격 유형 테스트",
@@ -20,6 +21,8 @@ export default function MbtiTestPage() {
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}
       </section>
+
+      <AdUnit />
 
       <Calculator />
 

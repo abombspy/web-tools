@@ -6,6 +6,7 @@ import { asBlocks } from "@/lib/content/types";
 import { getCustomsDuty } from "@/lib/rates";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "해외직구 관세 계산기",
@@ -27,6 +28,8 @@ export default function CustomsDutyPage() {
           vatRatePercent: (rates.vatRate * 100).toFixed(0),
         })}
       </section>
+
+      <AdUnit />
 
       <Calculator rates={rates} />
 

@@ -6,6 +6,7 @@ import { asBlocks } from "@/lib/content/types";
 import { getMinimumWage, getUnemploymentBenefit } from "@/lib/rates";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "실업급여 모의 계산기",
@@ -29,6 +30,8 @@ export default function UnemploymentBenefitPage() {
           ).toLocaleString()}원`,
         })}
       </section>
+
+      <AdUnit />
 
       <Calculator rates={rates} minimumHourlyWage={minimumWage.hourly} />
 

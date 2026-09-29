@@ -5,6 +5,7 @@ import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "토익·오픽 점수 환산표",
@@ -20,6 +21,8 @@ export default function ToeicOpicConversionPage() {
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content))}
       </section>
+
+      <AdUnit />
 
       <Calculator />
 

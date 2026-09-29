@@ -6,6 +6,7 @@ import { asBlocks } from "@/lib/content/types";
 import { getParentalLeavePay } from "@/lib/rates";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "육아휴직 급여 계산기",
@@ -38,6 +39,8 @@ export default function ParentalLeavePayPage() {
       <section className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
         {renderBlocks(asBlocks(content), { tierList })}
       </section>
+
+      <AdUnit />
 
       <Calculator rates={rates} />
 
