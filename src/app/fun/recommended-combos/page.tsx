@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdUnit from "@/components/AdUnit";
 import ShareButtons from "@/components/ShareButtons";
 
 export const metadata: Metadata = {
@@ -98,6 +99,8 @@ export default function RecommendedCombosPage() {
           </div>
         ))}
       </div>
+
+      <AdUnit />
 
       <section className="mt-10 text-sm text-zinc-600 dark:text-zinc-400">
         <p>

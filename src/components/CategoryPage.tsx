@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { LocalizedCategory } from "@/lib/content/catalog";
+import AdUnit from "@/components/AdUnit";
 
 export default function CategoryPage({
   category,
@@ -22,6 +23,8 @@ export default function CategoryPage({
         <h1 className="text-2xl font-extrabold">{category.name}</h1>
       </div>
       <p className="mt-2 text-zinc-500">{category.description}</p>
+
+      {!isEnglish && <AdUnit />}
 
       <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {category.tools?.map((tool) =>

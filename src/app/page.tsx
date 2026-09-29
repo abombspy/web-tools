@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdUnit from "@/components/AdUnit";
 import LanguageRedirect from "@/components/LanguageRedirect";
 import { getCategories } from "@/lib/content/catalog";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site-config";
@@ -16,6 +17,8 @@ export default function Home() {
         </h1>
         <p className="mt-4 text-base text-zinc-500 sm:text-lg">{SITE_DESCRIPTION}</p>
       </section>
+
+      <AdUnit />
 
       <div className="space-y-12 pb-20">
         {categories.map((category) => (
