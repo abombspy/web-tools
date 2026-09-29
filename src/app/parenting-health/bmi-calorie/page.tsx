@@ -5,6 +5,7 @@ import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "BMI·기초대사량·목표 칼로리 계산기",
@@ -21,7 +22,7 @@ export default function BmiCaloriePage() {
         {renderBlocks(asBlocks(content))}
       </section>
 
-      {/* TODO: 애드센스 승인 후 이 위치에 광고 슬롯 삽입 (plan.md §2.3) */}
+      <AdUnit />
 
       <Calculator />
 

@@ -5,6 +5,7 @@ import { renderBlocks } from "@/lib/content/renderBlocks";
 import { asBlocks } from "@/lib/content/types";
 import Calculator from "./Calculator";
 import ShareButtons from "@/components/ShareButtons";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "음주 후 해독 시간 추정기",
@@ -21,7 +22,7 @@ export default function AlcoholDetoxTimePage() {
         {renderBlocks(asBlocks(content))}
       </section>
 
-      {/* TODO: 애드센스 승인 후 이 위치에 광고 슬롯 삽입 (plan.md §2.3) */}
+      <AdUnit />
 
       <Calculator />
 
